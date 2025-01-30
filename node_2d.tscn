@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://t7cifjapqkxc"]
+
+[ext_resource type="Texture2D" uid="uid://csb4wseuhc7sj" path="res://assets/art/clicky_concept.png" id="1_6tx4g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgn3j"]
+size = Vector2(126, 121)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8wuen"]
+a = Vector2(839, -68)
+b = Vector2(-49, -67)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(299, 148)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 88.0
+offset_top = -114.0
+offset_right = 556.0
+offset_bottom = 94.0
+text = "hello, world!"
+
+[node name="icon_physics" type="RigidBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="icon_physics"]
+scale = Vector2(4, 4)
+texture = ExtResource("1_6tx4g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="icon_physics"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_rgn3j")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-187, 179)
+shape = SubResource("SegmentShape2D_8wuen")
