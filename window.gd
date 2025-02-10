@@ -19,7 +19,7 @@ var width: int:
 		width = value
 		set_boundary()
 
-@onready var collider : Area2D =  $Area
+@onready var area : Area2D =  $Area
 @onready var col_shape : CollisionShape2D = $Area/CollisionShape2D
 
 
@@ -30,6 +30,16 @@ func _ready() -> void:
 	height = init_height
 	width = init_width
 	set_boundary()
+
+	area.connect("body_entered", _on_body_entered)
+	area.connect("body_exited", _on_body_exited)
+
+# pass the signal up to the event bus
+func _on_body_entered(body: Node2D):
+	EventBus.emit_signal("window_body_entered", self, body);
+
+func _on_body_exited(body: Node2D):
+	EventBus.emit_signal("window_body_exited", self, body);
 
 func set_boundary() -> void:
 	queue_redraw()
