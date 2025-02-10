@@ -1,36 +1,42 @@
 extends CharacterBody2D
 
+signal window_size_changed()
 
-@export var height: int = 50:
+@export var init_height: int = 50
+@export var init_width: int = 50
+
+var height: int:
 	get:
 		return height
 	set(value):
 		height = value
 		set_boundary()
 		
-@export var width: int = 50:
+var width: int:
 	get:
 		return width
 	set(value):
 		width = value
 		set_boundary()
 
-@onready var collider : CollisionShape2D =  $Collider
+@onready var collider : Area2D =  $Area
+@onready var col_shape : CollisionShape2D = $Area/CollisionShape2D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var r = RectangleShape2D.new()
-	collider.shape = r
+	col_shape.shape = r
+	height = init_height
+	width = init_width
 	set_boundary()
-
-	
 
 func set_boundary() -> void:
 	queue_redraw()
-	if not collider:
+	if not col_shape:
 		await ready
-	collider.shape.size = Vector2(width, height)
+	col_shape.shape.size = Vector2(width, height)
+	window_size_changed.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -1,14 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4p7vdke6f5n2"]
+[gd_scene load_steps=3 format=3 uid="uid://c4p7vdke6f5n2"]
 
-[ext_resource type="Script" path="res://window.gd" id="1_1v3yd"]
+[ext_resource type="Script" path="res://window.gd" id="1_r7242"]
+[ext_resource type="Script" path="res://tool_draw_window.gd" id="2_eqe8s"]
 
 [node name="Window" type="CharacterBody2D"]
-script = ExtResource("1_1v3yd")
+script = ExtResource("1_r7242")
 
-[node name="Icon-X" type="Sprite2D" parent="."]
+[node name="runtime" type="Node" parent="."]
 
-[node name="Icon-Min" type="Sprite2D" parent="."]
+[node name="Area" type="Area2D" parent="."]
 
-[node name="Icon-Out" type="Sprite2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
 
-[node name="Collider" type="CollisionShape2D" parent="."]
+[node name="outline_drawer" type="Node2D" parent="."]
+script = ExtResource("2_eqe8s")
