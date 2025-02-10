@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://b76rhy6jvdbac"]
+[gd_scene load_steps=9 format=3 uid="uid://b76rhy6jvdbac"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_ce8eu"]
 [ext_resource type="Texture2D" uid="uid://csb4wseuhc7sj" path="res://assets/art/clicky_concept.png" id="2_3j0jd"]
-[ext_resource type="Script" path="res://player/state_floating.gd" id="3_70e58"]
-[ext_resource type="Script" path="res://player/state_machine_player.gd" id="3_ejt0g"]
+[ext_resource type="Script" path="res://player/state_movement/state_floating.gd" id="3_70e58"]
+[ext_resource type="Script" path="res://player/state_movement/sm_movement.gd" id="3_ejt0g"]
+[ext_resource type="Script" path="res://player/state_window_interactions/sm_window.gd" id="5_e2jbi"]
+[ext_resource type="Script" path="res://player/state_window_interactions/state_idle.gd" id="6_8djrw"]
+[ext_resource type="Script" path="res://player/state_window_interactions/state_resize.gd" id="7_w06jt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_babds"]
 size = Vector2(10, 14)
@@ -18,9 +21,19 @@ texture = ExtResource("2_3j0jd")
 position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_babds")
 
-[node name="State Machine" type="Node" parent="."]
+[node name="State Machine Movement" type="Node" parent="."]
 script = ExtResource("3_ejt0g")
 start_state = NodePath("Floating")
 
-[node name="Floating" type="Node" parent="State Machine"]
+[node name="Floating" type="Node" parent="State Machine Movement"]
 script = ExtResource("3_70e58")
+
+[node name="State Machine Windows" type="Node" parent="."]
+script = ExtResource("5_e2jbi")
+start_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="State Machine Windows"]
+script = ExtResource("6_8djrw")
+
+[node name="Resize" type="Node" parent="State Machine Windows"]
+script = ExtResource("7_w06jt")

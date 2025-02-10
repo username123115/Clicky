@@ -23,12 +23,32 @@ func _change_state(state_name: String) -> void:
 func _on_window_enter(window, body):
 	if body != owner:
 		return
-	print("It's me!")
+	# handle overlapping windows
+	if owner.in_window:
+		owner.window_stack.push_back(window)	#if this stack is empty this will become the next active window
+		return
+
+	owner.in_window = true
+	owner.window = window
+	print("Transition from open space to a window")
 
 func _on_window_exit(window, body):
 	if body != owner:
 		return
-	print("it's me again!")
+	if window == owner.window:
+		# don't set this to false, find the next window we entered and set that as active
+		if len(owner.window_stack):
+			owner.window = owner.window_stack.pop_front()
+			print("active window has changed")
+		# this was the only window, no we're in a plain area
+		else:
+			owner.in_window = false
+			owner.window = null
+			print("out in the open!")
+	# we exited some window in the window stack, remove it
+	else:
+		owner.window_stack.erase(window)
+			
 
 
 func _unhandled_input(event: InputEvent) -> void:
