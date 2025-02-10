@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://b76rhy6jvdbac"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_ce8eu"]
+[ext_resource type="Texture2D" uid="uid://csb4wseuhc7sj" path="res://assets/art/clicky_concept.png" id="2_3j0jd"]
+[ext_resource type="Script" path="res://state_floating.gd" id="3_70e58"]
+[ext_resource type="Script" path="res://state_machine_player.gd" id="3_ejt0g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_babds"]
+size = Vector2(10, 14)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_ce8eu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3j0jd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_babds")
+
+[node name="State Machine" type="Node" parent="."]
+script = ExtResource("3_ejt0g")
+start_state = NodePath("Floating")
+
+[node name="Floating" type="Node" parent="State Machine"]
+script = ExtResource("3_70e58")

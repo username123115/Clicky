@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4p7vdke6f5n2"]
+
+[ext_resource type="Script" path="res://window.gd" id="1_1v3yd"]
+
+[node name="Window" type="CharacterBody2D"]
+script = ExtResource("1_1v3yd")
+
+[node name="Icon-X" type="Sprite2D" parent="."]
+
+[node name="Icon-Min" type="Sprite2D" parent="."]
+
+[node name="Icon-Out" type="Sprite2D" parent="."]
+
+[node name="Collider" type="CollisionShape2D" parent="."]

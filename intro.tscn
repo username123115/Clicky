@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://t7cifjapqkxc"]
+
+[ext_resource type="PackedScene" uid="uid://b76rhy6jvdbac" path="res://player.tscn" id="1_2emgv"]
+[ext_resource type="PackedScene" uid="uid://c4p7vdke6f5n2" path="res://window.tscn" id="2_2je34"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(299, 148)
+
+[node name="Player" parent="." instance=ExtResource("1_2emgv")]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Window" parent="." instance=ExtResource("2_2je34")]
+position = Vector2(424, 4)
+
+[node name="Window2" parent="." instance=ExtResource("2_2je34")]
+position = Vector2(220, -40)
+height = 100
+width = 250

@@ -1,4 +1,4 @@
-extends Node
+extends CharacterBody2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,4 +11,3 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	pass
-
