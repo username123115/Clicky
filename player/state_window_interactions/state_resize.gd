@@ -6,6 +6,8 @@ signal debug_draw(rect_a, rect_b)
 func enter() -> void:
 	var animation_player := owner.get_node(^"AnimationPlayer")
 	old_animation = animation_player.current_animation
+	if not old_animation:
+		old_animation = "player_idle"
 	animation_player.play("player_resize")
 	owner.resizing_window = true
 
