@@ -1,3 +1,4 @@
 extends 'res://state.gd'
 
-#literally does nothing
+func enter() -> void:
+	owner.get_node(^"AnimationPlayer").play("player_idle")

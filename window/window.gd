@@ -34,6 +34,14 @@ func _ready() -> void:
 	area.connect("body_entered", _on_body_entered)
 	area.connect("body_exited", _on_body_exited)
 
+func window_get_rect() -> Rect2:
+	var size := col_shape.shape.size as Vector2
+
+	var r := Rect2()
+	r.position = global_position + size / -2.0
+	r.size = size
+	return r
+
 # pass the signal up to the event bus
 func _on_body_entered(body: Node2D):
 	EventBus.emit_signal("window_body_entered", self, body);
@@ -56,7 +64,7 @@ func _draw() -> void:
 
 	var r := Rect2()
 	r.size = Vector2(width, height)
-	r.position = Vector2(-width / 2.0, -height / 2.0)
+	r.position = Vector2(width, height) / -2.0
 	
 	draw_rect(r, Color.WHITE)
 	draw_rect(r, Color.BLACK, false, 1.0)

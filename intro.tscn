@@ -3,17 +3,18 @@
 [ext_resource type="PackedScene" uid="uid://b76rhy6jvdbac" path="res://player/player.tscn" id="1_2emgv"]
 [ext_resource type="PackedScene" uid="uid://c4p7vdke6f5n2" path="res://window/window.tscn" id="2_2je34"]
 
-[node name="Node2D" type="Node2D"]
-position = Vector2(299, 148)
+[node name="Intro_Level" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_2emgv")]
 z_index = 1
+position = Vector2(230, 105)
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Window" parent="." instance=ExtResource("2_2je34")]
-position = Vector2(404, -91)
+position = Vector2(124, 60)
+init_height = 80
+init_width = 250
 
 [node name="Window2" parent="." instance=ExtResource("2_2je34")]
-position = Vector2(323, -69)
-init_width = 180
+position = Vector2(391, 177)
