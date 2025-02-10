@@ -15,5 +15,5 @@ z_index = 1
 position = Vector2(404, -91)
 
 [node name="Window2" parent="." instance=ExtResource("2_2je34")]
-position = Vector2(148, -52)
+position = Vector2(110, 6)
 init_width = 180

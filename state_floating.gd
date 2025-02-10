@@ -1,6 +1,6 @@
 extends 'state.gd'
-@export var float_speed = 450.0
-@export var accel = 900.0
+@onready var float_speed = owner.FLOAT_SPEED
+@onready var accel = owner.FLOAT_ACCELL
 
 
 # Called when the node enters the scene tree for the first time.

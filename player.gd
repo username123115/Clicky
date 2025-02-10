@@ -1,5 +1,4 @@
 extends CharacterBody2D
 
-
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+@export var FLOAT_SPEED : float = 450.0
+@export var FLOAT_ACCELL : float = 900.0
