@@ -1,4 +1,4 @@
-extends 'state.gd'
+extends 'res://state.gd'
 @onready var float_speed = owner.FLOAT_SPEED
 @onready var accel = owner.FLOAT_ACCELL
 

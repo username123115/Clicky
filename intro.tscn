@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://t7cifjapqkxc"]
 
-[ext_resource type="PackedScene" uid="uid://b76rhy6jvdbac" path="res://player.tscn" id="1_2emgv"]
-[ext_resource type="PackedScene" uid="uid://c4p7vdke6f5n2" path="res://window.tscn" id="2_2je34"]
+[ext_resource type="PackedScene" uid="uid://b76rhy6jvdbac" path="res://player/player.tscn" id="1_2emgv"]
+[ext_resource type="PackedScene" uid="uid://c4p7vdke6f5n2" path="res://window/window.tscn" id="2_2je34"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(299, 148)

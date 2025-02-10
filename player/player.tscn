@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://b76rhy6jvdbac"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_ce8eu"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_ce8eu"]
 [ext_resource type="Texture2D" uid="uid://csb4wseuhc7sj" path="res://assets/art/clicky_concept.png" id="2_3j0jd"]
-[ext_resource type="Script" path="res://state_floating.gd" id="3_70e58"]
-[ext_resource type="Script" path="res://state_machine_player.gd" id="3_ejt0g"]
+[ext_resource type="Script" path="res://player/state_floating.gd" id="3_70e58"]
+[ext_resource type="Script" path="res://player/state_machine_player.gd" id="3_ejt0g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_babds"]
 size = Vector2(10, 14)

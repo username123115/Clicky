@@ -1,4 +1,4 @@
-extends "state_machine.gd"
+extends "res://state_machine.gd"
 @onready var floating: Node = $floating
 
 func _ready() -> void:
