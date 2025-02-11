@@ -13,8 +13,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_babds"]
 size = Vector2(10, 14)
 
-[sub_resource type="Animation" id="Animation_qgtfg"]
-resource_name = "player_idle"
+[sub_resource type="Animation" id="Animation_f6ega"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -28,8 +28,8 @@ tracks/0/keys = {
 "values": [ExtResource("2_3j0jd")]
 }
 
-[sub_resource type="Animation" id="Animation_f6ega"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_qgtfg"]
+resource_name = "player_idle"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

@@ -8,17 +8,17 @@
 
 [node name="Player" parent="." instance=ExtResource("1_2emgv")]
 z_index = 1
-position = Vector2(230, 105)
+position = Vector2(236, 51)
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Window" parent="." instance=ExtResource("2_2je34")]
-position = Vector2(261, 214)
+position = Vector2(318, 260)
 init_height = 100
-init_width = 250
 
 [node name="Window2" parent="." instance=ExtResource("2_2je34")]
-position = Vector2(381, 162)
+position = Vector2(291, 143)
+init_width = 180
 
 [node name="player_debugger" type="Node2D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("3_nceal")
