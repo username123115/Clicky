@@ -8,7 +8,7 @@
 
 [node name="Player" parent="." instance=ExtResource("1_2emgv")]
 z_index = 1
-position = Vector2(236, 51)
+position = Vector2(345, 104)
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -17,7 +17,8 @@ position = Vector2(318, 260)
 init_height = 100
 
 [node name="Window2" parent="." instance=ExtResource("2_2je34")]
-position = Vector2(291, 143)
+position = Vector2(227, 124)
+init_height = 100
 init_width = 180
 
 [node name="player_debugger" type="Node2D" parent="." node_paths=PackedStringArray("target")]

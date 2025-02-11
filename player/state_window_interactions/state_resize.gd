@@ -22,6 +22,23 @@ func update(_delta: float):
 
 	if window_rect.encloses(own_rect):
 		finished.emit('previous')
+		return
+
+	# Otherwise detect which of the four sides are being touched
+	var left: bool = own_rect.position.x < window_rect.position.x
+	var right: bool = own_rect.position.x + own_rect.size.x > window_rect.position.x + window_rect.size.x
+
+	var up: bool = own_rect.position.y < window_rect.position.y
+	var down: bool = own_rect.position.y + own_rect.size.y > window_rect.position.y + window_rect.size.y
+
+	if (left):
+		print("left")
+	if (right):
+		print("right")
+	if (up):
+		print("up")
+	if (down):
+		print("down")
 
 
 func exit() -> void:

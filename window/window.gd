@@ -5,6 +5,12 @@ signal window_size_changed()
 @export var init_height: int = 50
 @export var init_width: int = 50
 
+@export var min_height: int = 50
+@export var min_width: int = 50
+
+@onready var area : Area2D =  $Area
+@onready var col_shape : CollisionShape2D = $Area/CollisionShape2D
+
 var height: int:
 	get:
 		return height
@@ -19,8 +25,23 @@ var width: int:
 		width = value
 		set_boundary()
 
-@onready var area : Area2D =  $Area
-@onready var col_shape : CollisionShape2D = $Area/CollisionShape2D
+# if direction then expand right, otherwise expand left
+func expand_width(value : int, direction : bool):
+	var correction = 1 if direction else -1
+	var new = width + value * correction
+	if (new < min_width):
+		return
+	width = new
+	global_position.x += value / 2.0
+
+# expand up otherwise expand down
+func expand_height(value : int, direction : bool):
+	var correction = -1 if direction else 1
+	var new = height + value * correction
+	if (new < min_height):
+		return
+	height = new
+	global_position.y += value * correction / 2.0
 
 
 # Called when the node enters the scene tree for the first time.
