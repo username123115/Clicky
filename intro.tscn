@@ -13,12 +13,12 @@ position = Vector2(230, 105)
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Window" parent="." instance=ExtResource("2_2je34")]
-position = Vector2(-5, 8)
+position = Vector2(261, 214)
 init_height = 100
 init_width = 250
 
 [node name="Window2" parent="." instance=ExtResource("2_2je34")]
-position = Vector2(391, 177)
+position = Vector2(381, 162)
 
 [node name="player_debugger" type="Node2D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("3_nceal")
