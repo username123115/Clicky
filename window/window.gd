@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-signal window_size_changed()
+signal window_size_changed(width, height)
 
 @export var init_height: int = 50
 @export var init_width: int = 50
@@ -80,7 +80,7 @@ func set_boundary() -> void:
 
 	# Global position always refers to this window's top left
 	area.position = Vector2(width, height) / 2.0
-	window_size_changed.emit()
+	window_size_changed.emit(width, height)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -91,7 +91,6 @@ func _draw() -> void:
 	var r := Rect2()
 	r.size = Vector2(width, height)
 	r.position = Vector2(0, 0)
-	#r.position = Vector2(width, height) / -2.0
 	
-	draw_rect(r, Color.WHITE)
-	draw_rect(r, Color.BLACK, false, 1.0)
+	draw_rect(r, Color.LIGHT_GRAY)
+	draw_rect(r, Color.WHITE, false, -1.0)

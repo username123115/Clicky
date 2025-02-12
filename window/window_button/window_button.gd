@@ -1,13 +1,19 @@
-extends Node2D
+extends "res://window/window_object.gd"
 
 
-@onready var area : Area2D =  $Area2D
-@onready var col_shape : CollisionShape2D = $Area2D/CollisionShape2D
+@onready var container : Area2D = $Container
+
+@export var padding_horizontal : int = 10
+@export var padding_vertical : int = 5
+
+var container_size : Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	super._ready()
 
+	var collision_shape := container.get_node(^"CollisionShape2D") as CollisionShape2D
+	container_size = collision_shape.shape.size
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -15,9 +21,10 @@ func _process(delta: float) -> void:
 
 func _draw() -> void:
 	var r := Rect2()
-	var size := col_shape.shape.size as Vector2
-	r.position = size / -2.0
-	r.size = size
+	r.size = Vector2(window.width, 30)
+	r.position = Vector2(0, 0)
+	
+	draw_rect(r, Color.GRAY)
 
-	draw_rect(r, Color.WHITE)
-	draw_rect(r, Color.BLACK, false, 1.0)
+func _on_window_size_changed(width, height) -> void:
+	queue_redraw()
