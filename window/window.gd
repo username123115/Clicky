@@ -36,12 +36,12 @@ func expand_width(value : int, direction : bool):
 
 # expand up otherwise expand down
 func expand_height(value : int, direction : bool):
-	var correction = -1 if direction else 1
+	var correction = 1 if direction else -1
 	var new = height + value * correction
 	if (new < min_height):
 		return
 	height = new
-	global_position.y += value * correction / 2.0
+	global_position.y += value / 2.0
 
 
 # Called when the node enters the scene tree for the first time.

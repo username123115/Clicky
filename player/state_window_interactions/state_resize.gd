@@ -9,7 +9,7 @@ func enter() -> void:
 	if not old_animation:
 		old_animation = "player_idle"
 	animation_player.play("player_resize")
-	owner.resizing_window = true
+	owner.window_edge = true
 
 
 
@@ -25,24 +25,26 @@ func update(_delta: float):
 		return
 
 	# Otherwise detect which of the four sides are being touched
-	var left: bool = own_rect.position.x < window_rect.position.x
-	var right: bool = own_rect.position.x + own_rect.size.x > window_rect.position.x + window_rect.size.x
+	if Input.is_action_pressed("grab"):
+		var left: bool = own_rect.position.x < window_rect.position.x
+		var right: bool = own_rect.position.x + own_rect.size.x > window_rect.position.x + window_rect.size.x
 
-	var up: bool = own_rect.position.y < window_rect.position.y
-	var down: bool = own_rect.position.y + own_rect.size.y > window_rect.position.y + window_rect.size.y
+		var up: bool = own_rect.position.y < window_rect.position.y
+		var down: bool = own_rect.position.y + own_rect.size.y > window_rect.position.y + window_rect.size.y
 
-	if (left):
-		print("left")
-	if (right):
-		print("right")
-	if (up):
-		print("up")
-	if (down):
-		print("down")
+		owner.window_grab = true
 
+		owner.window_grab_state['l'] = left
+		owner.window_grab_state['r'] = right
+		owner.window_grab_state['u'] = up
+		owner.window_grab_state['d'] = down
+	else:
+		owner.window_grab = false
+		
 
 func exit() -> void:
 	var animation_player := owner.get_node(^"AnimationPlayer")
 	animation_player.play(old_animation)
-	owner.resizing_window = false
+	owner.window_edge = false
+	owner.window_grab = false
 	
