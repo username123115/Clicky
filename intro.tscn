@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://t7cifjapqkxc"]
+[gd_scene load_steps=5 format=3 uid="uid://kanteoc5d2dg"]
 
 [ext_resource type="PackedScene" uid="uid://b76rhy6jvdbac" path="res://player/player.tscn" id="1_2emgv"]
 [ext_resource type="PackedScene" uid="uid://c4p7vdke6f5n2" path="res://window/window.tscn" id="2_2je34"]
 [ext_resource type="Script" path="res://player/state_window_interactions/debug_draw.gd" id="3_nceal"]
+[ext_resource type="Script" path="res://debug_info.gd" id="4_dly2c"]
 
 [node name="Intro_Level" type="Node2D"]
 
@@ -17,10 +18,20 @@ position = Vector2(318, 260)
 init_height = 100
 
 [node name="Window2" parent="." instance=ExtResource("2_2je34")]
-position = Vector2(227, 124)
+position = Vector2(356, 154)
 init_height = 100
 init_width = 180
 
 [node name="player_debugger" type="Node2D" parent="." node_paths=PackedStringArray("target")]
+visible = false
 script = ExtResource("3_nceal")
 target = NodePath("../Player")
+
+[node name="debug_info" type="Node" parent="."]
+script = ExtResource("4_dly2c")
+
+[node name="Label" type="Label" parent="debug_info"]
+offset_left = 93.0
+offset_top = 69.0
+offset_right = 273.0
+offset_bottom = 152.0
