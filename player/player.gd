@@ -12,6 +12,8 @@ var window_stack := []
 var window_edge : bool = false	#set when player is at the edge of a window
 var window_grab : bool = false	#set when player is grabbing a window
 
+var window_move : bool = false
+
 var window_grab_state = {
 	"l": false,
 	"r": false,

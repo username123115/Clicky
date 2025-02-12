@@ -9,6 +9,10 @@ func _ready() -> void:
 
 
 func update(_delta: float) -> void:
+	var window_rect : Rect2 
+	# Holds the distance between the window position and our position, useful for moves
+	var window_initial_offset : Vector2
+
 	var direction := get_input_direction()
 	var owner_velocity = owner.velocity
 
@@ -20,33 +24,43 @@ func update(_delta: float) -> void:
 	owner_velocity.y = step_towards(owner_velocity.y, target_velocity.y, _delta)
 	owner.velocity = owner_velocity
 
+	if owner.in_window:
+		window_rect = owner.window.window_get_rect()
+		window_initial_offset = owner.global_position - window_rect.position
+
 	owner.move_and_slide()
 
 	var d := owner.global_position - old as Vector2
-	if owner.window_edge and owner.window_grab:
-		var up : bool = owner.window_grab_state['u']
-		var down : bool = owner.window_grab_state['d']
-		var left : bool = owner.window_grab_state['l']
-		var right : bool = owner.window_grab_state['r']
+	if owner.in_window:
+		# RESIZE
+		if owner.window_edge and owner.window_grab:
+			var up : bool = owner.window_grab_state['u']
+			var down : bool = owner.window_grab_state['d']
+			var left : bool = owner.window_grab_state['l']
+			var right : bool = owner.window_grab_state['r']
 
-		var h : bool = left or right
-		var v : bool = up or down
+			var h : bool = left or right
+			var v : bool = up or down
 
-		var rectangle = owner.window.window_get_rect() as Rect2
+			#var window_rect = owner.window.window_get_rect() as Rect2
 
-		if h:
-			# calculate the left offset
-			var distance : float = owner.global_position.x - rectangle.position.x
-			if right:
-				distance -= rectangle.size.x
-			owner.window.expand_width(distance, right)
+			if h:
+				# calculate the left offset
+				var distance : float = owner.global_position.x - window_rect.position.x
+				if right:
+					distance -= window_rect.size.x
+				owner.window.expand_width(distance, right)
 
-		if v:
-			# calculate the top offset
-			var distance : float = owner.global_position.y - rectangle.position.y
-			if down:
-				distance -= rectangle.size.y
-			owner.window.expand_height(distance, down)
+			if v:
+				# calculate the top offset
+				var distance : float = owner.global_position.y - window_rect.position.y
+				if down:
+					distance -= window_rect.size.y
+				owner.window.expand_height(distance, down)
+
+		if owner.window_move:
+			owner.window.global_position = owner.global_position - window_initial_offset
+
 
 
 # move towards but if moving faster in the same direction deceleration doesn't happen

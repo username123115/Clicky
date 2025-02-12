@@ -23,7 +23,7 @@ func _change_state(state_name: String) -> void:
 		states_stack = ["idle"]
 
 	super._change_state(state_name)
-	print(states_stack)
+	#print(states_stack)
 
 func _on_window_enter(window, body):
 	if body != owner:
