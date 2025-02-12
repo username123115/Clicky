@@ -15,7 +15,8 @@ func _draw() -> void:
 
 	var r := Rect2()
 	r.size = Vector2(w, h)
-	r.position = Vector2(-w / 2.0, -h / 2.0)
+	r.position = Vector2(0, 0)
+	#r.position = Vector2(-w / 2.0, -h / 2.0)
 	
 	#draw_rect(r, Color.WHITE)
 	draw_rect(r, Color.BLACK, false, 1.0)

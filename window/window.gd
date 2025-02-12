@@ -15,6 +15,7 @@ var height: int:
 	get:
 		return height
 	set(value):
+		if (value < min_height): value = min_height
 		height = value
 		set_boundary()
 		
@@ -22,27 +23,27 @@ var width: int:
 	get:
 		return width
 	set(value):
+		if (value < min_width): value = min_width
 		width = value
 		set_boundary()
 
-# if direction then expand right, otherwise expand left
+# expand from right otherwise expand left
 func expand_width(value : int, direction : bool):
-	var correction = 1 if direction else -1
-	var new = width + value * correction
-	if (new < min_width):
-		return
-	width = new
-	global_position.x += value / 2.0
+	if direction:
+		width += value
+	else:
+		if (width - value >= min_width):
+			global_position.x += value
+		width -= value
 
-# expand up otherwise expand down
+# expand from bottom otherwise expand top
 func expand_height(value : int, direction : bool):
-	var correction = 1 if direction else -1
-	var new = height + value * correction
-	if (new < min_height):
-		return
-	height = new
-	global_position.y += value / 2.0
-
+	if direction:
+		height += value
+	else:
+		if (height - value >= min_height):
+			global_position.y += value
+		height -= value
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -59,7 +60,8 @@ func window_get_rect() -> Rect2:
 	var size := col_shape.shape.size as Vector2
 
 	var r := Rect2()
-	r.position = global_position + size / -2.0
+	#r.position = global_position + size / -2.0
+	r.position = global_position
 	r.size = size
 	return r
 
@@ -75,6 +77,9 @@ func set_boundary() -> void:
 	if not col_shape:
 		await ready
 	col_shape.shape.size = Vector2(width, height)
+
+	# Global position always refers to this window's top left
+	area.position = Vector2(width, height) / 2.0
 	window_size_changed.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -85,7 +90,8 @@ func _draw() -> void:
 
 	var r := Rect2()
 	r.size = Vector2(width, height)
-	r.position = Vector2(width, height) / -2.0
+	r.position = Vector2(0, 0)
+	#r.position = Vector2(width, height) / -2.0
 	
 	draw_rect(r, Color.WHITE)
 	draw_rect(r, Color.BLACK, false, 1.0)
