@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4p7vdke6f5n2"]
+[gd_scene load_steps=4 format=3 uid="uid://c4p7vdke6f5n2"]
 
 [ext_resource type="Script" path="res://window/window.gd" id="1_r7242"]
 [ext_resource type="Script" path="res://window/tool_draw_window.gd" id="2_eqe8s"]
+[ext_resource type="PackedScene" uid="uid://biqff5ectg1ig" path="res://window/window_button/window_button.tscn" id="2_ro1vq"]
 
 [node name="Window" type="CharacterBody2D"]
 script = ExtResource("1_r7242")
+
+[node name="WindowButton" parent="." instance=ExtResource("2_ro1vq")]
+position = Vector2(95, -21)
 
 [node name="runtime" type="Node" parent="."]
 

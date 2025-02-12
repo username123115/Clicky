@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://biqff5ectg1ig"]
+
+[ext_resource type="Script" path="res://window/window_button/window_button.gd" id="1_156u7"]
+[ext_resource type="Texture2D" uid="uid://elvqlf13hioh" path="res://assets/art/window_minimize.png" id="2_nstwy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_71lih"]
+size = Vector2(32.25, 32)
+
+[node name="WindowButton" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_156u7")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_71lih")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16, 16)
+texture = ExtResource("2_nstwy")
