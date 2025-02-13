@@ -1,6 +1,10 @@
 extends CharacterBody2D
 
 signal window_size_changed(width, height)
+signal window_hide_changed(hiding)
+var extensions := []
+
+const WindowObject = preload("window_object.gd")
 
 @export var init_height: int = 50
 @export var init_width: int = 50
@@ -11,12 +15,24 @@ signal window_size_changed(width, height)
 @onready var area : Area2D =  $Area
 @onready var col_shape : CollisionShape2D = $Area/CollisionShape2D
 
+
+@export var hiding : bool = false:
+	get:
+		return hiding
+	set(value):
+		hiding = value
+		for child in extensions:
+			child.window_hide_changed(hiding)
+		set_boundary()
+
 var height: int:
 	get:
 		return height
 	set(value):
 		if (value < min_height): value = min_height
 		height = value
+		for child in extensions:
+			child.window_size_changed(width, height)
 		set_boundary()
 		
 var width: int:
@@ -25,6 +41,8 @@ var width: int:
 	set(value):
 		if (value < min_width): value = min_width
 		width = value
+		for child in extensions:
+			child.window_size_changed(width, height)
 		set_boundary()
 
 # expand from right otherwise expand left
@@ -56,6 +74,15 @@ func _ready() -> void:
 	area.connect("body_entered", _on_body_entered)
 	area.connect("body_exited", _on_body_exited)
 
+	for child in get_children():
+		if child is WindowObject:
+			print(child)
+			extensions.push_back(child)
+	for child in extensions:
+		child.window_size_changed(width, height)
+		child.window_hide_changed(hiding)
+			
+
 func window_get_rect() -> Rect2:
 	var size := col_shape.shape.size as Vector2
 
@@ -73,20 +100,29 @@ func _on_body_exited(body: Node2D):
 	EventBus.emit_signal("window_body_exited", self, body);
 
 func set_boundary() -> void:
-	queue_redraw()
 	if not col_shape:
 		await ready
-	col_shape.shape.size = Vector2(width, height)
+	
+	var v: Vector2 = Vector2(width, height)
+	if hiding and not col_shape.disabled:
+		col_shape.disabled = true
+	if not hiding and col_shape.disabled:
+		col_shape.disabled = false
 
+	col_shape.shape.size = v#Vector2(w, h)
 	# Global position always refers to this window's top left
-	area.position = Vector2(width, height) / 2.0
-	window_size_changed.emit(width, height)
+	area.position = v / 2.0
+	window_size_changed.emit(v.x, v.y)
+
+	queue_redraw()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 	
 func _draw() -> void:
+	if hiding:
+		return
 
 	var r := Rect2()
 	r.size = Vector2(width, height)

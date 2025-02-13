@@ -17,12 +17,20 @@ func _process(delta: float) -> void:
 	pass
 
 func _draw() -> void:
+	if is_hiding:
+		return
 	var r := Rect2()
-	r.size = Vector2(window.width, container.actual_size.y + 2 * padding_vertical)
+	r.size = Vector2(width, container.actual_size.y + 2 * padding_vertical)
 	r.position = Vector2(0, 0)
 	
 	draw_rect(r, Color.GRAY)
 
-func _on_window_size_changed(width, height) -> void:
+func window_size_changed(w, h) -> void:
+	super.window_size_changed(w, h)
 	container.position = Vector2(width - container.actual_size.x - padding_horizontal, padding_vertical)
+	queue_redraw()
+
+func window_hide_changed(hiding) -> void:
+	print("rea")
+	is_hiding = hiding
 	queue_redraw()
