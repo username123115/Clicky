@@ -31,6 +31,12 @@ func window_size_changed(w, h) -> void:
 	queue_redraw()
 
 func window_hide_changed(hiding) -> void:
+	queue_redraw()
+
 	print("rea")
 	is_hiding = hiding
-	queue_redraw()
+	if is_hiding:
+		remove_child(container)
+	if (not is_hiding) and (not container.owner):
+		add_child(container)
+		
