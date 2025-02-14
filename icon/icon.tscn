@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo822hpbkvv8d"]
+
+[ext_resource type="Script" path="res://icon/icon.gd" id="1_18qry"]
+[ext_resource type="Texture2D" uid="uid://ckv5yvu1l2swx" path="res://assets/art/icon_notes_concept.png" id="2_0gacv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qsnvp"]
+size = Vector2(30, 30)
+
+[node name="Icon" type="Node2D"]
+script = ExtResource("1_18qry")
+
+[node name="DefaultSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_0gacv")
+
+[node name="DefaultArea" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DefaultArea"]
+shape = SubResource("RectangleShape2D_qsnvp")
+
+[node name="Click Interval Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Click Consecutive Timer" type="Timer" parent="."]
