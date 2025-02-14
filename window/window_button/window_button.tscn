@@ -1,15 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://biqff5ectg1ig"]
+[gd_scene load_steps=10 format=3 uid="uid://biqff5ectg1ig"]
 
 [ext_resource type="Script" path="res://window/window_button/window_button.gd" id="1_156u7"]
+[ext_resource type="PackedScene" uid="uid://bo822hpbkvv8d" path="res://icon/icon.tscn" id="2_kh6kh"]
 [ext_resource type="Texture2D" uid="uid://elvqlf13hioh" path="res://assets/art/window_minimize.png" id="2_nstwy"]
 [ext_resource type="Script" path="res://window/window_button/container.gd" id="2_sw5cq"]
 [ext_resource type="Texture2D" uid="uid://cg1r3dlxkhfrv" path="res://assets/art/window_close.png" id="3_mk6js"]
-[ext_resource type="Script" path="res://window/window_button/icon.gd" id="3_wsxt1"]
+[ext_resource type="Script" path="res://window/window_button/window_icon.gd" id="3_wsxt1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nthhk"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42is5"]
 size = Vector2(32, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dobvu"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sq10w"]
 size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qp4ih"]
@@ -22,7 +23,20 @@ script = ExtResource("1_156u7")
 scale = Vector2(0.5, 0.5)
 script = ExtResource("2_sw5cq")
 
-[node name="Close" type="Area2D" parent="Container"]
+[node name="Minimize" parent="Container" instance=ExtResource("2_kh6kh")]
+script = ExtResource("3_wsxt1")
+
+[node name="Area2D" type="Area2D" parent="Container/Minimize"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Minimize/Area2D"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_42is5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Container/Minimize"]
+position = Vector2(16, 16)
+texture = ExtResource("2_nstwy")
+
+[node name="Close" parent="Container" instance=ExtResource("2_kh6kh")]
 position = Vector2(40, 0)
 script = ExtResource("3_wsxt1")
 
@@ -30,20 +44,11 @@ script = ExtResource("3_wsxt1")
 position = Vector2(16, 16)
 texture = ExtResource("3_mk6js")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Close"]
-position = Vector2(16, 16)
-shape = SubResource("RectangleShape2D_nthhk")
+[node name="Area2D" type="Area2D" parent="Container/Close"]
 
-[node name="Minimize" type="Area2D" parent="Container"]
-script = ExtResource("3_wsxt1")
-
-[node name="Sprite2D" type="Sprite2D" parent="Container/Minimize"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Close/Area2D"]
 position = Vector2(16, 16)
-texture = ExtResource("2_nstwy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Minimize"]
-position = Vector2(16, 16)
-shape = SubResource("RectangleShape2D_dobvu")
+shape = SubResource("RectangleShape2D_sq10w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Container"]
 position = Vector2(36, 16)
