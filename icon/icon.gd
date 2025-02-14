@@ -9,7 +9,7 @@ extends Node2D
 @export var click_interval : float = 0.05						#how long icon will flash white/ unable to click
 @export var click_consecutive_interval : float = 0.3			#period between clicks that will add to click_count
 
-var body_count = 0
+var clicker_count = 0
 var click_count = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -42,7 +42,7 @@ func _ready() -> void:
 
 func _process(delta: float):
 	if click_interval_timer.is_stopped():
-		if body_count == 0:
+		if clicker_count == 0:
 			sprite.self_modulate.a = 1.0
 		else:
 			sprite.self_modulate.a = 0.8
@@ -70,14 +70,17 @@ func _on_click_interval_timer_timeout():
 	sprite.self_modulate.g = 1.0
 	sprite.self_modulate.b = 1.0
 
+func focus(clicker = null):
+	clicker_count += 1
+	
+func onfocus(clicker = null):
+	clicker_count = max(0, clicker_count - 1)
+
 func _on_click_consecutive_timer_timeout():
 	click_count = 0
 
 func _on_body_entered(body) -> void:
-	body_count += 1
 	EventBus.emit_signal("icon_body_entered", body)
 
 func _on_body_exited(body) -> void:
-	body_count = max(0, body_count - 1)
 	EventBus.emit_signal("icon_body_exited", body)
-
