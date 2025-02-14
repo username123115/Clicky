@@ -5,6 +5,10 @@ extends CharacterBody2D
 
 enum GrabState { GRAB_LEFT, GRAB_NONE, GRAB_RIGHT }
 
+var in_icon : bool = false
+var icon : Node
+var icon_stack := []
+
 var in_window : bool = false	#for the window FSM, tracks whether or not player is in a window
 var window : Node				#if `in_window` is set, this is the window the player is in
 var window_stack := []
