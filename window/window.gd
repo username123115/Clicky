@@ -4,7 +4,7 @@ signal window_size_changed(width, height)
 signal window_hide_changed(hiding)
 var extensions := []
 
-const WindowObject = preload("window_object.gd")
+const WindowExtension = preload("window_extension.gd")
 
 @export var init_height: int = 50
 @export var init_width: int = 50
@@ -63,6 +63,17 @@ func expand_height(value : int, direction : bool):
 			global_position.y += value
 		height -= value
 
+func extension_add(extension : WindowExtension) -> void:
+	self.extensions.push_back(extension)
+	extension.window_hide_changed(hiding)
+	extension.window_size_changed(width, height)
+
+func extension_remove(extension : WindowExtension) -> void:
+	self.extensions.erase(extension)
+	if extension in get_children():
+		remove_child(extension)
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var r = RectangleShape2D.new()
@@ -75,7 +86,7 @@ func _ready() -> void:
 	area.connect("body_exited", _on_body_exited)
 
 	for child in get_children():
-		if child is WindowObject:
+		if child is WindowExtension:
 			print(child)
 			extensions.push_back(child)
 	for child in extensions:

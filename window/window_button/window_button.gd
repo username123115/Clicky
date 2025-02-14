@@ -1,4 +1,4 @@
-extends "res://window/window_object.gd"
+extends "res://window/window_extension.gd"
 
 
 @onready var container : Area2D = $Container
@@ -33,7 +33,6 @@ func window_size_changed(w, h) -> void:
 func window_hide_changed(hiding) -> void:
 	queue_redraw()
 
-	print("rea")
 	is_hiding = hiding
 	if is_hiding:
 		remove_child(container)
