@@ -41,20 +41,29 @@ func _ready() -> void:
 	click_consecutive_timer.connect("timeout", _on_click_consecutive_timer_timeout)
 
 func _process(delta: float):
+	#if Input.is_action_just_pressed("grab"):
+		#click()
 	if click_interval_timer.is_stopped():
 		if clicker_count == 0:
-			sprite.self_modulate.a = 1.0
+			appearance_default()
 		else:
-			sprite.self_modulate.a = 0.8
+			appearance_hover()
+
+func appearance_default() -> void:
+	sprite.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
+
+func appearance_hover() -> void:
+	sprite.self_modulate = Color(1.0, 1.0, 1.0, 0.8)
+
+func appearance_clicked() -> void:
+	sprite.self_modulate = Color(4.0, 4.0, 4.0, 1.0)
 
 func click(clicker = null) -> void:
 	# Only click if haven't clicked in last click_interval seconds
 	if click_interval_timer.is_stopped():
 		click_count += 1
 
-		sprite.self_modulate.r = 4.0
-		sprite.self_modulate.g = 4.0
-		sprite.self_modulate.b = 4.0
+		appearance_clicked()
 
 		click_interval_timer.stop()
 		click_interval_timer.start(click_interval)
@@ -66,21 +75,19 @@ func click(clicker = null) -> void:
 
 # stop clicking
 func _on_click_interval_timer_timeout():
-	sprite.self_modulate.r = 1.0
-	sprite.self_modulate.g = 1.0
-	sprite.self_modulate.b = 1.0
+	appearance_hover()
 
 func focus(clicker = null):
 	clicker_count += 1
 	
-func onfocus(clicker = null):
+func unfocus(clicker = null):
 	clicker_count = max(0, clicker_count - 1)
 
 func _on_click_consecutive_timer_timeout():
 	click_count = 0
 
 func _on_body_entered(body) -> void:
-	EventBus.emit_signal("icon_body_entered", body)
+	EventBus.emit_signal("icon_body_entered", self, body)
 
 func _on_body_exited(body) -> void:
-	EventBus.emit_signal("icon_body_exited", body)
+	EventBus.emit_signal("icon_body_exited", self, body)
