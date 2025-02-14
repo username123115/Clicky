@@ -3,8 +3,9 @@ extends 'rectangle.gd'
 var old_animation: String
 signal debug_draw(rect_a, rect_b)
 
+
 func enter() -> void:
-	print("RESIZE!")
+	#print("RESIZE!")
 	var animation_player := owner.get_node(^"AnimationPlayer")
 	old_animation = animation_player.current_animation
 	if not old_animation:
@@ -13,8 +14,6 @@ func enter() -> void:
 
 	owner.window_edge = true
 	owner.window_move = false
-
-
 
 func update(_delta: float):
 	assert(owner.in_window)
@@ -43,6 +42,25 @@ func update(_delta: float):
 		owner.window_grab_state['r'] = right
 		owner.window_grab_state['u'] = up
 		owner.window_grab_state['d'] = down
+
+		var h : bool = left or right
+		var v : bool = up or down
+
+		#var window_rect = owner.window.window_get_rect() as Rect2
+
+		if h:
+			# calculate the left offset
+			var distance : float = owner.global_position.x - window_rect.position.x
+			if right:
+				distance -= window_rect.size.x
+			owner.window.expand_width(distance, right)
+
+		if v:
+			# calculate the top offset
+			var distance : float = owner.global_position.y - window_rect.position.y
+			if down:
+				distance -= window_rect.size.y
+			owner.window.expand_height(distance, down)
 	else:
 		owner.window_grab = false
 		

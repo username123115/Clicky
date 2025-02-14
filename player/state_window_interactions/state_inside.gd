@@ -13,8 +13,10 @@ func update(_delta: float):
 		return
 
 	if Input.is_action_pressed("grab"):
-		owner.window_move = true
-		owner.window.focus()
+		finished.emit('moving')
+		return
+		#owner.window_move = true
+		#owner.window.focus()
 	else:
 		owner.window_move = false
 

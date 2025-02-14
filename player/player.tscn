@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b76rhy6jvdbac"]
+[gd_scene load_steps=19 format=3 uid="uid://b76rhy6jvdbac"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_ce8eu"]
 [ext_resource type="Texture2D" uid="uid://csb4wseuhc7sj" path="res://assets/art/clicky_concept.png" id="2_3j0jd"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://player/state_window_interactions/state_resize.gd" id="7_w06jt"]
 [ext_resource type="Script" path="res://player/state_window_interactions/state_inside.gd" id="8_qm5ks"]
 [ext_resource type="Texture2D" uid="uid://cqpc6voqd7dft" path="res://assets/art/clicky_resize.png" id="8_u1fhy"]
+[ext_resource type="Script" path="res://player/state_window_interactions/state_move.gd" id="12_rnb1k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_babds"]
 size = Vector2(10, 14)
@@ -106,6 +107,9 @@ script = ExtResource("7_w06jt")
 
 [node name="Inside" type="Node" parent="State Machine Windows"]
 script = ExtResource("8_qm5ks")
+
+[node name="Moving" type="Node" parent="State Machine Windows"]
+script = ExtResource("12_rnb1k")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -2,12 +2,14 @@ extends "res://state_machine.gd"
 @onready var resize: Node = $Resize
 @onready var idle: Node = $Idle
 @onready var inside: Node = $Inside
+@onready var moving: Node = $Moving
 
 func _ready() -> void:
 	states_map = {
 		"idle": idle,
 		"inside": inside,
 		"resize": resize,
+		"moving": moving,
 	}
 	EventBus.connect("window_body_entered", _on_window_enter)
 	EventBus.connect("window_body_exited", _on_window_exit)
@@ -17,7 +19,7 @@ func _change_state(state_name: String) -> void:
 	# The base state_machine interface this node extends does most of the work.
 	if not _active:
 		return
-	if state_name in ["resize", "inside"]:
+	if state_name in ["resize", "inside", "moving"]:
 		states_stack.push_front(states_map[state_name])
 	if state_name == "idle":
 		states_stack = ["idle"]
@@ -49,13 +51,13 @@ func _on_window_exit(window, body):
 		if len(owner.window_stack):
 			owner.window = owner.window_stack.pop_front()
 			#owner.window.focus(owner)		#change on resize / move instead
-			print("active window has changed")
+			#print("active window has changed")
 		# this was the only window, now we're in a plain area
 		else:
 			owner.in_window = false
 			owner.window = null
 			_change_state("idle")
-			print("out in the open!")
+			#print("out in the open!")
 
 	# we exited some window in the window stack, remove it
 	else:
