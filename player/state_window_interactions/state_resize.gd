@@ -10,6 +10,7 @@ func enter() -> void:
 	if not old_animation:
 		old_animation = "player_idle"
 	animation_player.play("player_resize")
+
 	owner.window_edge = true
 	owner.window_move = false
 
@@ -28,6 +29,8 @@ func update(_delta: float):
 
 	# Otherwise detect which of the four sides are being touched
 	if Input.is_action_pressed("grab"):
+		owner.window.focus(owner)
+
 		var left: bool = own_rect.position.x < window_rect.position.x
 		var right: bool = own_rect.position.x + own_rect.size.x > window_rect.position.x + window_rect.size.x
 

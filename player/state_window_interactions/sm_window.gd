@@ -33,6 +33,7 @@ func _on_window_enter(window, body):
 		owner.window_stack.push_back(window)	#if this stack is empty this will become the next active window
 		return
 
+	#window.focus(owner)	#focus on resize or move instead
 	owner.in_window = true
 	owner.window = window
 	_change_state("inside")
@@ -43,9 +44,11 @@ func _on_window_exit(window, body):
 	if body != owner:
 		return
 	if window == owner.window:
+		window.unfocus(owner)
 		# don't set this to false, find the next window we entered and set that as active
 		if len(owner.window_stack):
 			owner.window = owner.window_stack.pop_front()
+			#owner.window.focus(owner)		#change on resize / move instead
 			print("active window has changed")
 		# this was the only window, now we're in a plain area
 		else:

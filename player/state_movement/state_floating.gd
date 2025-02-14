@@ -30,7 +30,6 @@ func update(_delta: float) -> void:
 
 	owner.move_and_slide()
 
-	var d := owner.global_position - old as Vector2
 	if owner.in_window:
 		# RESIZE
 		if owner.window_edge and owner.window_grab:

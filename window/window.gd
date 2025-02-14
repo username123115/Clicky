@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 signal window_size_changed(width, height)
 signal window_hide_changed(hiding)
+signal window_focus()
 var extensions := []
 
 const WindowExtension = preload("window_extension.gd")
@@ -102,6 +103,15 @@ func window_get_rect() -> Rect2:
 	r.position = global_position
 	r.size = size
 	return r
+
+func focus(cursor = null):
+	var p := get_parent()			# this should work if window is in root node
+	p.move_child(self, -1)
+
+	window_focus.emit()				# if this isn't the root node also get the parent to go to the top
+
+func unfocus(cursor = null):
+	pass
 
 # pass the signal up to the event bus
 func _on_body_entered(body: Node2D):
