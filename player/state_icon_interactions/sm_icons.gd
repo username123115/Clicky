@@ -11,6 +11,15 @@ func _ready() -> void:
 	EventBus.connect("icon_body_entered", _on_icon_enter)
 	EventBus.connect("icon_body_exited", _on_icon_exit)
 
+func node_is_in(parent, node):
+	var children = parent.get_children()
+	if len(children) == 0:
+		return false
+	if node in children:
+		return true
+	for child in children:
+		if node_is_in(child, node):
+			return true
 
 func _change_state(state_name: String) -> void:
 	# The base state_machine interface this node extends does most of the work.
@@ -25,7 +34,13 @@ func _change_state(state_name: String) -> void:
 	#print(states_stack)
 
 func _on_icon_enter(icon, body):
+		
 	if body != owner:
+		return
+
+	# prevent new icon hovers, exiting old icons is fine however
+	if (owner.in_window) and (not node_is_in(owner.window, icon)):
+		print("invalid")
 		return
 	# handle overlapping icons
 	if owner.in_icon:
@@ -37,9 +52,11 @@ func _on_icon_enter(icon, body):
 	owner.icon = icon
 	_change_state("inside")
 
+
 func _on_icon_exit(icon, body):
 	if body != owner:
 		return
+
 	if icon == owner.icon:
 		icon.unfocus()
 		# don't set this to false, find the next icon we entered and set that as active
