@@ -18,8 +18,8 @@ func _ready() -> void:
 	var test_area : Area2D = get_node(^"Area2D")
 
 	if (test_sprite and test_area):
-		sprite.queue_free()
-		area.queue_free()
+		if sprite: sprite.queue_free()
+		if area: area.queue_free()
 
 		sprite = test_sprite
 		area = test_area
