@@ -3,6 +3,8 @@ extends "res://state_machine.gd"
 @onready var idle: Node = $Idle
 @onready var inside: Node = $Inside
 
+var queued_icons = []
+
 func _ready() -> void:
 	states_map = {
 		"idle": idle,
@@ -33,6 +35,16 @@ func _change_state(state_name: String) -> void:
 	super._change_state(state_name)
 	#print(states_stack)
 
+func _physics_process(delta : float):
+	super._physics_process(delta)
+
+	if len(queued_icons) and not owner.in_window:
+		for icon in queued_icons:
+			_on_icon_enter(icon, owner)
+		queued_icons = []
+		
+
+
 func _on_icon_enter(icon, body):
 		
 	if body != owner:
@@ -40,7 +52,7 @@ func _on_icon_enter(icon, body):
 
 	# prevent new icon hovers, exiting old icons is fine however
 	if (owner.in_window) and (not node_is_in(owner.window, icon)):
-		print("invalid")
+		queued_icons.push_back(icon)
 		return
 	# handle overlapping icons
 	if owner.in_icon:
@@ -71,9 +83,8 @@ func _on_icon_exit(icon, body):
 
 	# we exited some icon in the icon stack, remove it
 	else:
+		queued_icons.erase(icon)
 		owner.icon_stack.erase(icon)
-			
-
 
 func _unhandled_input(event: InputEvent) -> void:
 	current_state.handle_input(event)
