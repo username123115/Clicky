@@ -58,12 +58,17 @@ func appearance_hover() -> void:
 func appearance_clicked() -> void:
 	sprite.self_modulate = Color(4.0, 4.0, 4.0, 1.0)
 
+# can be extended by subclasses
+func click_registered(clicker = null) -> void:
+	pass
+
 func click(clicker = null) -> void:
 	# Only click if haven't clicked in last click_interval seconds
 	if click_interval_timer.is_stopped():
 		click_count += 1
 
 		appearance_clicked()
+		click_registered(clicker)
 
 		click_interval_timer.stop()
 		click_interval_timer.start(click_interval)

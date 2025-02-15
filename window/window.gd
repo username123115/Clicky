@@ -16,6 +16,12 @@ const WindowExtension = preload("window_extension.gd")
 @onready var area : Area2D =  $Area
 @onready var col_shape : CollisionShape2D = $Area/CollisionShape2D
 
+var order : int = 0:
+	get:
+		return order
+	set(value):
+		order = value
+		z_index = WindowOrderer.startIndex + order
 
 @export var hiding : bool = false:
 	get:
@@ -93,6 +99,8 @@ func _ready() -> void:
 	for child in extensions:
 		child.window_size_changed(width, height)
 		child.window_hide_changed(hiding)
+	
+	WindowOrderer.add(self)
 			
 
 func window_get_rect() -> Rect2:
@@ -105,9 +113,7 @@ func window_get_rect() -> Rect2:
 	return r
 
 func focus(cursor = null):
-	var p := get_parent()			# this should work if window is in root node
-	p.move_child(self, -1)
-
+	WindowOrderer.set_high(self)
 	window_focus.emit()				# if this isn't the root node also get the parent to go to the top
 
 func unfocus(cursor = null):
