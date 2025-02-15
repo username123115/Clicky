@@ -10,6 +10,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func add(window):
+
 	window.order = len(window_list)
 	window_list.push_back(window)
 
