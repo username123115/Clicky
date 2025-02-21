@@ -14,6 +14,9 @@ func _change_state(state_name: String) -> void:
 	if state_name in ["floating"]:
 		states_stack.push_front(states_map[state_name])
 
+	if state_name == "idle":
+		states_stack = ["idle"]
+
 	super._change_state(state_name)
 
 

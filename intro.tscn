@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://kanteoc5d2dg"]
+[gd_scene load_steps=6 format=3 uid="uid://kanteoc5d2dg"]
 
 [ext_resource type="PackedScene" uid="uid://b76rhy6jvdbac" path="res://player/player.tscn" id="1_2emgv"]
-[ext_resource type="PackedScene" uid="uid://bo822hpbkvv8d" path="res://icon/icon.tscn" id="1_8pycq"]
 [ext_resource type="PackedScene" uid="uid://q7fcv5vhmt4l" path="res://icon_minimizeable/icon_minimizeable.tscn" id="1_ghew6"]
 [ext_resource type="PackedScene" uid="uid://c4p7vdke6f5n2" path="res://window/window.tscn" id="2_2je34"]
 [ext_resource type="Script" path="res://player/state_window_interactions/debug_draw.gd" id="3_nceal"]
@@ -10,31 +9,32 @@
 [node name="Intro_Level" type="Node2D"]
 
 [node name="Icon Minimizeable" parent="." instance=ExtResource("1_ghew6")]
-position = Vector2(100, 100)
+position = Vector2(45, 25)
+closed = true
 
 [node name="Window" parent="Icon Minimizeable" instance=ExtResource("2_2je34")]
-position = Vector2(13, 26)
+position = Vector2(116, 6)
 
-[node name="Icon" parent="." instance=ExtResource("1_8pycq")]
-position = Vector2(257, 58)
+[node name="Icon Minimizeable2" parent="." instance=ExtResource("1_ghew6")]
+position = Vector2(45, 95)
 
-[node name="Icon2" parent="." instance=ExtResource("1_8pycq")]
-position = Vector2(231, 62)
+[node name="Window" parent="Icon Minimizeable2" instance=ExtResource("2_2je34")]
+position = Vector2(84, 181)
+init_height = 100
+
+[node name="Icon Minimizeable3" parent="." instance=ExtResource("1_ghew6")]
+position = Vector2(45, 60)
+
+[node name="Window" parent="Icon Minimizeable3" instance=ExtResource("2_2je34")]
+position = Vector2(161, 137)
+init_height = 100
+init_width = 180
 
 [node name="Player" parent="." instance=ExtResource("1_2emgv")]
 z_index = 5
 position = Vector2(345, 104)
 
 [node name="Timer" type="Timer" parent="."]
-
-[node name="Window" parent="." instance=ExtResource("2_2je34")]
-position = Vector2(84, 181)
-init_height = 100
-
-[node name="Window2" parent="." instance=ExtResource("2_2je34")]
-position = Vector2(161, 137)
-init_height = 100
-init_width = 180
 
 [node name="player_debugger" type="Node2D" parent="." node_paths=PackedStringArray("target")]
 visible = false
@@ -45,5 +45,6 @@ target = NodePath("../Player")
 script = ExtResource("4_dly2c")
 
 [node name="Label" type="Label" parent="debug_info"]
+visible = false
 offset_right = 180.0
 offset_bottom = 83.0

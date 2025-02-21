@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d008u54n70lkq"]
+
+[ext_resource type="Script" path="res://window/window.gd" id="1_hd6ci"]
+[ext_resource type="PackedScene" uid="uid://biqff5ectg1ig" path="res://window/window_button/window_button.tscn" id="2_trouv"]
+[ext_resource type="Script" path="res://window/tool_draw_window.gd" id="3_y55si"]
+
+[node name="Window" type="CharacterBody2D"]
+script = ExtResource("1_hd6ci")
+
+[node name="WindowButton" parent="." instance=ExtResource("2_trouv")]
+
+[node name="runtime" type="Node" parent="."]
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+
+[node name="outline_drawer" type="Node2D" parent="."]
+script = ExtResource("3_y55si")
