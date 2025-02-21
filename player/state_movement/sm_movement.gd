@@ -2,6 +2,7 @@ extends "res://state_machine.gd"
 @onready var floating: Node = $Floating
 @onready var idle: Node = $Idle
 @onready var falling: Node = $Falling
+@onready var grounded: Node = $Grounded
 
 var should_float = true;
 
@@ -9,6 +10,7 @@ func _ready() -> void:
 	states_map = {
 		"floating": floating,
 		"falling": falling,
+		"grounded": grounded,
 		"idle": idle,
 	}
 
@@ -17,7 +19,7 @@ func _change_state(state_name: String) -> void:
 	# The base state_machine interface this node extends does most of the work.
 	if not _active:
 		return
-	if state_name in ["floating"]:
+	if state_name in ["floating", "falling", "grounded"]:
 		states_stack.push_front(states_map[state_name])
 
 	if state_name == "idle":

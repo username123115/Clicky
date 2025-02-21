@@ -10,8 +10,10 @@ func update(_delta: float) -> void:
 	var target_velocity = float_speed * direction
 
 	owner_velocity.x = step_towards(owner_velocity.x, target_velocity.x, _delta, accel)
-	owner_velocity.y += owner.GRAVITY;
+	owner_velocity.y += owner.GRAVITY * _delta;
 
 	owner.velocity = owner_velocity
 
 	owner.move_and_slide()
+	if owner.is_on_floor():
+		finished.emit("grounded");
