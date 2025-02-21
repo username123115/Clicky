@@ -12,6 +12,8 @@ extends Node2D
 var clicker_count = 0
 var click_count = 0
 
+signal clicked()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var test_sprite : Sprite2D = get_node(^"Sprite2D")
@@ -75,8 +77,8 @@ func click(clicker = null) -> void:
 
 		click_consecutive_timer.stop()
 		click_consecutive_timer.start(click_consecutive_interval)
-		
-		print(click_count)
+
+		clicked.emit()
 
 # stop clicking
 func _on_click_interval_timer_timeout():
