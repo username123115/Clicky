@@ -35,5 +35,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			_change_state('floating')
 		else:
 			_change_state('falling')
+		owner.enable_border_collisions(not should_float);
 
 	current_state.handle_input(event)

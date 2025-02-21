@@ -33,3 +33,6 @@ var window_grab_state = {
 func _ready() -> void:
 	collision_layer = Enums.LayerMasks.PLAYER;
 	collision_mask = Enums.LayerMasks.PLAYER;
+
+func enable_border_collisions(v : bool) -> void:
+	set_collision_mask_value(Enums.LayerValues.WINDOWBORDERS, v);
