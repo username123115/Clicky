@@ -42,6 +42,9 @@ func _ready() -> void:
 	click_interval_timer.connect("timeout", _on_click_interval_timer_timeout)
 	click_consecutive_timer.connect("timeout", _on_click_consecutive_timer_timeout)
 
+	area.collision_layer = Enums.LayerMasks.WINDOWS;
+	area.collision_mask = Enums.LayerMasks.PLAYER;
+
 func _process(delta: float):
 	#if Input.is_action_just_pressed("grab"):
 		#click()

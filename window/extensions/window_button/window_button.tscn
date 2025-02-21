@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://biqff5ectg1ig"]
 
-[ext_resource type="Script" path="res://window/window_button/window_button.gd" id="1_156u7"]
+[ext_resource type="Script" path="res://window/extensions/window_button/window_button.gd" id="1_156u7"]
 [ext_resource type="PackedScene" uid="uid://bo822hpbkvv8d" path="res://icon/icon.tscn" id="2_kh6kh"]
 [ext_resource type="Texture2D" uid="uid://elvqlf13hioh" path="res://assets/art/window_minimize.png" id="2_nstwy"]
-[ext_resource type="Script" path="res://window/window_button/container.gd" id="2_sw5cq"]
+[ext_resource type="Script" path="res://window/extensions/window_button/container.gd" id="2_sw5cq"]
 [ext_resource type="Texture2D" uid="uid://cg1r3dlxkhfrv" path="res://assets/art/window_close.png" id="3_mk6js"]
-[ext_resource type="Script" path="res://window/window_button/window_icon.gd" id="3_wsxt1"]
+[ext_resource type="Script" path="res://window/extensions/window_button/window_icon.gd" id="3_wsxt1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42is5"]
 size = Vector2(32, 32)

@@ -101,6 +101,9 @@ func _ready() -> void:
 		child.window_hide_changed(hiding)
 	
 	WindowOrderer.add(self)
+
+	area.collision_layer = Enums.LayerMasks.WINDOWS;
+	area.collision_mask = Enums.LayerMasks.PLAYER;
 			
 
 func window_get_rect() -> Rect2:

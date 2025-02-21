@@ -1,8 +1,6 @@
-#extends 'res://state.gd'
-extends 'moveable.gd'
-
-@onready var float_speed = owner.FLOAT_SPEED
-@onready var accel = owner.FLOAT_ACCELL
+extends "moveable.gd"
+@onready var float_speed = owner.WALK_SPEED
+@onready var accel = owner.WALK_ACCELL
 
 func update(_delta: float) -> void:
 
@@ -12,7 +10,7 @@ func update(_delta: float) -> void:
 	var target_velocity = float_speed * direction
 
 	owner_velocity.x = step_towards(owner_velocity.x, target_velocity.x, _delta, accel)
-	owner_velocity.y = step_towards(owner_velocity.y, target_velocity.y, _delta, accel)
+	owner_velocity.y += owner.GRAVITY;
 
 	owner.velocity = owner_velocity
 

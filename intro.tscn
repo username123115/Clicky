@@ -27,12 +27,14 @@ position = Vector2(45, 60)
 
 [node name="Window" parent="Icon Minimizeable3" instance=ExtResource("2_2je34")]
 position = Vector2(161, 137)
+collision_layer = 10
 init_height = 100
 init_width = 180
 
 [node name="Player" parent="." instance=ExtResource("1_2emgv")]
 z_index = 5
 position = Vector2(345, 104)
+collision_mask = 2
 
 [node name="Timer" type="Timer" parent="."]
 

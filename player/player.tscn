@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b76rhy6jvdbac"]
+[gd_scene load_steps=21 format=3 uid="uid://b76rhy6jvdbac"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_ce8eu"]
 [ext_resource type="Texture2D" uid="uid://csb4wseuhc7sj" path="res://assets/art/clicky_concept.png" id="2_3j0jd"]
@@ -10,8 +10,10 @@
 [ext_resource type="Script" path="res://player/state_window_interactions/sm_window.gd" id="5_e2jbi"]
 [ext_resource type="Script" path="res://player/state_window_interactions/state_idle.gd" id="6_8djrw"]
 [ext_resource type="Script" path="res://player/state_window_interactions/state_resize.gd" id="7_w06jt"]
+[ext_resource type="Script" path="res://player/state_movement/state_falling.gd" id="8_q6q7r"]
 [ext_resource type="Script" path="res://player/state_window_interactions/state_inside.gd" id="8_qm5ks"]
 [ext_resource type="Texture2D" uid="uid://cqpc6voqd7dft" path="res://assets/art/clicky_resize.png" id="8_u1fhy"]
+[ext_resource type="Script" path="res://player/state_movement/state_idle.gd" id="9_ec1ec"]
 [ext_resource type="Script" path="res://player/state_window_interactions/state_move.gd" id="12_rnb1k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_babds"]
@@ -94,6 +96,12 @@ start_state = NodePath("Floating")
 
 [node name="Floating" type="Node" parent="State Machine Movement"]
 script = ExtResource("3_70e58")
+
+[node name="Falling" type="Node" parent="State Machine Movement"]
+script = ExtResource("8_q6q7r")
+
+[node name="Idle" type="Node" parent="State Machine Movement"]
+script = ExtResource("9_ec1ec")
 
 [node name="State Machine Windows" type="Node" parent="."]
 script = ExtResource("5_e2jbi")
