@@ -1,4 +1,5 @@
 extends Node2D
+class_name WindowExtension
 # A window_object should be a child of a window node, it would be very unwise to do otherwise
 
 var window : Node	#parent

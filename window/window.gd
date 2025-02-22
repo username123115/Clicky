@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
+class_name GameWin
+
 signal window_size_changed(width, height)
 signal window_hide_changed(hiding)
 signal window_focus()
+signal window_moved(window)
+var notify_on_move = false;
+
 var extensions := []
-
-
-const WindowExtension = preload("window_extension.gd")
 
 @export var init_height: int = 50
 @export var init_width: int = 50
@@ -16,6 +18,12 @@ const WindowExtension = preload("window_extension.gd")
 
 @onready var area : Area2D =  $Area
 @onready var col_shape : CollisionShape2D = $Area/CollisionShape2D
+
+func move(offset : Vector2):
+	global_position += offset
+	if notify_on_move and (offset.abs()):
+		notify_on_move = false
+		window_moved.emit(self)
 
 var order : int = 0:
 	get:
@@ -70,7 +78,8 @@ func expand_width(value : int, direction : bool):
 		width += value
 	else:
 		if (width - value >= min_width):
-			global_position.x += value
+			move(Vector2(value, 0))
+			#global_position.x += value
 		width -= value
 
 # expand from bottom otherwise expand top
@@ -79,7 +88,8 @@ func expand_height(value : int, direction : bool):
 		height += value
 	else:
 		if (height - value >= min_height):
-			global_position.y += value
+			move(Vector2(0, value))
+			#global_position.y += value
 		height -= value
 
 func extension_add(extension : WindowExtension) -> void:

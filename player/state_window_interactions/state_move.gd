@@ -15,7 +15,8 @@ func update(delta: float) -> void:
 	var d := owner.global_position - prev_pos as Vector2
 	prev_pos = owner.global_position
 
-	owner.window.global_position += d
+	owner.window.move(d)
+	#owner.window.global_position += d
 	
 
 func exit() -> void:

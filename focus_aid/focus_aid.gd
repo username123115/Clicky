@@ -23,24 +23,27 @@ var max_length := len(split)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("FOCUS ")
-	video = get_node(^"VideoStreamPlayer")
-	label = get_node(^"Label Origin/Label")
+	if Engine.is_editor_hint():
+		print("FOCUS ")
+		video = get_node(^"VideoStreamPlayer")
+		label = get_node(^"Label Origin/Label")
 
-	var video_file = load("brainrot.ogv")
-	video.stream = video_file
-	video.loop = true
-	video.audio_track = -1
-	video.play()
+		var video_file = load("brainrot.ogv")
+		video.stream = video_file
+		video.loop = true
+		video.audio_track = -1
+		video.play()
+		label.visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(delta: float) -> void:
-	accum += delta
-	if (accum >= word_period):
-		do_word()
-		accum = 0.0
-	pass
+	if Engine.is_editor_hint():
+		accum += delta
+		if (accum >= word_period):
+			do_word()
+			accum = 0.0
+		pass
 
 func do_word() -> void:
 	var count := randi() % (max_words - 1)

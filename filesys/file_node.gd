@@ -2,8 +2,8 @@ extends Node
 
 class_name FileNode
 
-var type : int		#enum specifying type
-var data			#can be whatever, depends on type
+@export var type : int		#enum specifying type
+@export var data : String			#can be whatever, depends on type
 @export var scene : PackedScene			#scene this node loads
 
 func tranverse(target : String, blacklist : Array[FileNode] = [], root : FileNode = null, force_abs : bool = false):
