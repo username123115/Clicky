@@ -12,3 +12,9 @@ enum LayerMasks {
 	WINDOWBORDERS = 1 << (LayerValues.WINDOWBORDERS - 1),
 	WINDOWS = 1 << (LayerValues.WINDOWS - 1)
 }
+
+enum FileType {
+	ROOT,
+	DIRECTORY,
+	TEXT
+}

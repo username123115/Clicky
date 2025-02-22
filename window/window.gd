@@ -5,6 +5,7 @@ signal window_hide_changed(hiding)
 signal window_focus()
 var extensions := []
 
+
 const WindowExtension = preload("window_extension.gd")
 
 @export var init_height: int = 50
@@ -31,6 +32,17 @@ var order : int = 0:
 		for child in extensions:
 			child.window_hide_changed(hiding)
 		set_boundary()
+
+var file : FileNode = null:
+	get:
+		return file
+	set(value):
+		file = value
+		file_changed()
+
+func file_changed() -> void:
+	pass
+		
 
 var height: int:
 	get:
@@ -81,7 +93,6 @@ func extension_remove(extension : WindowExtension) -> void:
 		remove_child(extension)
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var r = RectangleShape2D.new()
 	col_shape.shape = r
@@ -117,7 +128,7 @@ func window_get_rect() -> Rect2:
 
 func focus(cursor = null):
 	WindowOrderer.set_high(self)
-	window_focus.emit()				# if this isn't the root node also get the parent to go to the top
+	window_focus.emit()
 
 func unfocus(cursor = null):
 	pass
