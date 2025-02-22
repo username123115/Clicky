@@ -3,11 +3,11 @@ extends "moveable.gd"
 @onready var float_speed = owner.WALK_SPEED
 @onready var accel = owner.WALK_ACCELL
 
-@export var coyote_frames : int = 7;
+@export var coyote_frames : int = 6;
 var remaining_frames = coyote_frames;
 
-#func enter() -> void:
-#	print("floor is made out of floor")
+func enter() -> void:
+	remaining_frames = coyote_frames
 
 func update(_delta: float) -> void:
 
@@ -28,11 +28,13 @@ func update(_delta: float) -> void:
 	else:
 		remaining_frames -= 1
 		if remaining_frames <= 0:
+			print("bye")
 			finished.emit("falling")
 	
 	if Input.is_action_just_pressed("jump"):
 		if owner.velocity.y > 0:
 			owner.velocity.y = 0
 		owner.velocity.y -= owner.JUMP;
+		print("bye")
 		finished.emit("falling");
 
