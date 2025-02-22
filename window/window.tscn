@@ -12,8 +12,6 @@ script = ExtResource("1_r7242")
 
 [node name="WindowButton" parent="." instance=ExtResource("2_ro1vq")]
 
-[node name="runtime" type="Node" parent="."]
-
 [node name="Area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]

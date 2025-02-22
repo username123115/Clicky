@@ -6,18 +6,28 @@
 [node name="Overworld" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_y4pvv")]
-position = Vector2(162, 29)
+position = Vector2(81, 37)
 
 [node name="Window" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(33, 172)
+position = Vector2(146, 123)
 init_height = 100
 init_width = 200
 
 [node name="Window2" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(310, 69)
+position = Vector2(-33, 78)
 
 [node name="Window3" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(132, 80)
+position = Vector2(48, 128)
 
 [node name="Window4" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(217, 131)
+position = Vector2(-21, 198)
+
+[node name="Window5" parent="." instance=ExtResource("2_gk3av")]
+position = Vector2(27, 235)
+init_height = 100
+init_width = 200
+
+[node name="Window6" parent="." instance=ExtResource("2_gk3av")]
+position = Vector2(146, -2)
+init_height = 100
+init_width = 200
