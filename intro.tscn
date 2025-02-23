@@ -67,7 +67,7 @@ position = Vector2(208, 110)
 script = ExtResource("6_ex8qa")
 file = NodePath("../Filesystem")
 window_initial_offset = Vector2(100, 25)
-window_placement_offset = Vector2(10, 10)
+window_placement_offset = Vector2(25, 25)
 
 [node name="Sprite2D" type="Sprite2D" parent="FileIcon"]
 position = Vector2(17, 17)

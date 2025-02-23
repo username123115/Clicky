@@ -12,7 +12,7 @@ func update(_delta: float):
 		finished.emit('resize')
 		return
 
-	if Input.is_action_pressed("grab"):
+	if Input.is_action_just_pressed("grab"):
 		finished.emit('moving')
 		return
 		#owner.window_move = true

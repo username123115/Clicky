@@ -15,6 +15,7 @@ class_name IconContainer
 @export var spacing_x : int = 40
 
 var r : RectangleShape2D
+var inside : Array[CollisionObject2D] = []
 
 func _ready():
 	super._ready()
@@ -62,13 +63,21 @@ func window_size_changed(w, h) -> void:
 	else:
 		area.position.x = new_size.x / 2 + x_diff
 
+func _physics_process(delta: float) -> void:
+	for body in inside:
+		body.set_collision_layer_value(Enums.LayerValues.CONTAINER, true)
+	
+
 func window_hide_changed(hiding) -> void:
 	super.window_hide_changed(hiding)
 
 func _on_body_entered(body):
 	if body is CollisionObject2D:
 		body.set_collision_layer_value(Enums.LayerValues.CONTAINER, true)
+		inside.push_back(body)
+
 
 func _on_body_exited(body):
 	if body is CollisionObject2D:
 		body.set_collision_layer_value(Enums.LayerValues.CONTAINER, false)
+		inside.erase(body)

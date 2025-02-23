@@ -18,7 +18,7 @@ var icon_stack := []
 
 var in_window : bool = false	#for the window FSM, tracks whether or not player is in a window
 var window : GameWin				#if `in_window` is set, this is the window the player is in
-var window_stack := []
+var window_stack : Array[GameWin] = []
 
 var window_edge : bool = false	#set when player is at the edge of a window
 var window_grab : bool = false	#set when player is grabbing a window
