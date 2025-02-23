@@ -1,4 +1,5 @@
-extends "res://icon/icon.gd"
+extends Icon
+class_name FileIcon
 
 @export var file : FileNode
 @export var window_initial_offset : Vector2 = Vector2(100, 100)
@@ -23,9 +24,11 @@ func click_registered(clicker = null):
 
 		#TODO: Add this to root rather than owner?
 		var node := scene.instantiate() as GameWin
+		#await node.ready
 		node.notify_on_move = true
 		node.connect("window_moved", _on_window_moved)
 		node.file = file
+		node.file_changed()
 
 		#calculate position
 		var ind := free_sections.find(null) as int
@@ -38,8 +41,8 @@ func click_registered(clicker = null):
 			nth_pos = len(free_sections)
 		node.global_position = global_position + window_initial_offset + window_placement_offset * nth_pos
 
-
-		owner.add_child(node)
+		get_tree().current_scene.add_child(node)
+		#owner.add_child(node)
 
 func _on_window_moved(window):
 	window.disconnect("window_moved", _on_window_moved)

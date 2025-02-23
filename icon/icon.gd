@@ -1,4 +1,5 @@
 extends Node2D
+class_name Icon
 
 @onready var sprite : Sprite2D = $DefaultSprite
 @onready var area : Area2D = $DefaultArea
@@ -12,7 +13,12 @@ extends Node2D
 var clicker_count = 0
 var click_count = 0
 
+# A parent may want to do some processing before a broadcast
+@export var broadcast_body_interactions : bool = true
+
 signal clicked()
+signal icon_body_entered(icon, body)
+signal icon_body_exited(icon, body)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -42,8 +48,17 @@ func _ready() -> void:
 	click_interval_timer.connect("timeout", _on_click_interval_timer_timeout)
 	click_consecutive_timer.connect("timeout", _on_click_consecutive_timer_timeout)
 
-	area.collision_layer = Enums.LayerMasks.WINDOWS;
-	area.collision_mask = Enums.LayerMasks.PLAYER;
+	#area.collision_layer = Enums.LayerMasks.WINDOWS;
+	#area.collision_mask = Enums.LayerMasks.PLAYER;
+	set_col_layer(Enums.LayerMasks.WINDOWS);
+	set_col_mask(Enums.LayerMasks.PLAYER);
+
+func set_col_layer(m :  int) -> void:
+	area.collision_layer = m
+
+func set_col_mask(m :  int) -> void:
+	area.collision_mask = m
+
 
 func _process(delta: float):
 	#if Input.is_action_just_pressed("grab"):
@@ -99,7 +114,11 @@ func _on_click_consecutive_timer_timeout():
 	click_count = 0
 
 func _on_body_entered(body) -> void:
-	EventBus.emit_signal("icon_body_entered", self, body)
+	icon_body_entered.emit(self, body)
+	if broadcast_body_interactions:
+		EventBus.emit_signal("icon_body_entered", self, body)
 
 func _on_body_exited(body) -> void:
-	EventBus.emit_signal("icon_body_exited", self, body)
+	icon_body_exited.emit(self, body)
+	if broadcast_body_interactions:
+		EventBus.emit_signal("icon_body_exited", self, body)

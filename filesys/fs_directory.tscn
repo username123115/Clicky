@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://6kqkomfys2wy"]
+
+[ext_resource type="Script" path="res://filesys/file_node.gd" id="1_n07il"]
+[ext_resource type="PackedScene" uid="uid://cf8u5aeptcg10" path="res://window/directory_window/directory_window.tscn" id="2_shfxj"]
+
+[node name="FsDirectory" type="Node"]
+script = ExtResource("1_n07il")
+type = 1
+scene = ExtResource("2_shfxj")

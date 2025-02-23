@@ -41,15 +41,10 @@ var order : int = 0:
 			child.window_hide_changed(hiding)
 		set_boundary()
 
-var file : FileNode = null:
-	get:
-		return file
-	set(value):
-		file = value
-		file_changed()
+var file : FileNode = null
 
 func file_changed() -> void:
-	pass
+	return
 		
 
 var height: int:

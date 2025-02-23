@@ -12,7 +12,7 @@ func _ready() -> void:
 	pass
 	# This parent better be a window
 
-func window_size_changed(w, h) -> void:
+func window_size_changed(w : int, h : int) -> void:
 	width = w
 	height = h
 
