@@ -44,7 +44,7 @@ func update_icons() -> void:
 	var x : int = 0
 	for icon in icon_list:
 		var offset = Vector2(x, 0)
-		icon.position = area.position + offset
+		icon.position = offset + area.position - r.size / 2 + Vector2(spacing_x, spacing_x) / 2
 		x += spacing_x
 
 func window_size_changed(w, h) -> void:
