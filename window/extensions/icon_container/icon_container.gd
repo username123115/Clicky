@@ -20,6 +20,9 @@ var inside : Array[CollisionObject2D] = []
 func _ready():
 	super._ready()
 	r = RectangleShape2D.new()
+
+	clip_children = ClipChildrenMode.CLIP_CHILDREN_AND_DRAW
+
 	area.collision_layer = Enums.LayerMasks.CONTAINER;
 	area.collision_mask = Enums.LayerMasks.PLAYER | Enums.LayerMasks.CONTAINER
 
@@ -28,6 +31,7 @@ func _ready():
 
 	col_shape.shape = r
 	update_icons()
+
 
 func clear_icons() -> void:
 	for child in get_children():
@@ -62,6 +66,16 @@ func window_size_changed(w, h) -> void:
 		area.position.x = (w - new_size.x / 2) - x_diff
 	else:
 		area.position.x = new_size.x / 2 + x_diff
+
+	queue_redraw()
+
+func _draw() -> void:
+	var rec := Rect2()
+	rec.size = r.size
+	rec.position = area.position - r.size / 2
+	
+	draw_rect(rec, Color.GREEN)
+
 
 func _physics_process(delta: float) -> void:
 	for body in inside:
