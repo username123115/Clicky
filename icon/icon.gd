@@ -7,11 +7,14 @@ class_name Icon
 @onready var click_interval_timer : Timer = $"Click Interval Timer"
 @onready var click_consecutive_timer : Timer = $"Click Consecutive Timer"
 
+@export var icon_scale = 0.5			#UNUSED
 @export var click_interval : float = 0.05						#how long icon will flash white/ unable to click
 @export var click_consecutive_interval : float = 0.3			#period between clicks that will add to click_count
 
 var clicker_count = 0
 var click_count = 0
+
+var custom_icon : bool = false
 
 # A parent may want to do some processing before a broadcast
 @export var broadcast_body_interactions : bool = true
@@ -31,6 +34,7 @@ func _ready() -> void:
 
 		sprite = test_sprite
 		area = test_area
+		custom_icon = true
 	else:
 		sprite.visible = true
 		area.visible = true
@@ -38,6 +42,7 @@ func _ready() -> void:
 			test_area.queue_free()
 		if test_sprite:
 			test_sprite.queue_free()
+		custom_icon = false
 
 	area.connect("body_entered", _on_body_entered)
 	area.connect("body_exited", _on_body_exited)

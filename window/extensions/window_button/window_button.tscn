@@ -2,25 +2,24 @@
 
 [ext_resource type="Script" path="res://window/extensions/window_button/window_button.gd" id="1_156u7"]
 [ext_resource type="PackedScene" uid="uid://bo822hpbkvv8d" path="res://icon/icon.tscn" id="2_kh6kh"]
-[ext_resource type="Texture2D" uid="uid://elvqlf13hioh" path="res://assets/art/window_minimize.png" id="2_nstwy"]
 [ext_resource type="Script" path="res://window/extensions/window_button/container.gd" id="2_sw5cq"]
-[ext_resource type="Texture2D" uid="uid://cg1r3dlxkhfrv" path="res://assets/art/window_close.png" id="3_mk6js"]
 [ext_resource type="Script" path="res://window/extensions/window_button/window_icon.gd" id="3_wsxt1"]
+[ext_resource type="Texture2D" uid="uid://beo6f4vhbm5vy" path="res://assets/art/small_window_minimize.png" id="5_c3nrs"]
+[ext_resource type="Texture2D" uid="uid://cqsujp6x1bd8a" path="res://assets/art/small_window_close.png" id="6_52c8x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42is5"]
-size = Vector2(32, 32)
+size = Vector2(8, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sq10w"]
-size = Vector2(32, 32)
+size = Vector2(8, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qp4ih"]
-size = Vector2(72, 32)
+size = Vector2(18, 8)
 
 [node name="WindowButton" type="Node2D"]
 script = ExtResource("1_156u7")
 
 [node name="Container" type="Area2D" parent="."]
-scale = Vector2(0.5, 0.5)
 script = ExtResource("2_sw5cq")
 
 [node name="Minimize" parent="Container" instance=ExtResource("2_kh6kh")]
@@ -29,27 +28,27 @@ script = ExtResource("3_wsxt1")
 [node name="Area2D" type="Area2D" parent="Container/Minimize"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Minimize/Area2D"]
-position = Vector2(16, 16)
+position = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_42is5")
 
 [node name="Sprite2D" type="Sprite2D" parent="Container/Minimize"]
-position = Vector2(16, 16)
-texture = ExtResource("2_nstwy")
+position = Vector2(4, 4)
+texture = ExtResource("5_c3nrs")
 
 [node name="Close" parent="Container" instance=ExtResource("2_kh6kh")]
-position = Vector2(40, 0)
+position = Vector2(10, 0)
 script = ExtResource("3_wsxt1")
 
 [node name="Sprite2D" type="Sprite2D" parent="Container/Close"]
-position = Vector2(16, 16)
-texture = ExtResource("3_mk6js")
+position = Vector2(4, 4)
+texture = ExtResource("6_52c8x")
 
 [node name="Area2D" type="Area2D" parent="Container/Close"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Close/Area2D"]
-position = Vector2(16, 16)
+position = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_sq10w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Container"]
-position = Vector2(36, 16)
+position = Vector2(9, 4)
 shape = SubResource("RectangleShape2D_qp4ih")

@@ -22,7 +22,7 @@ func update(_delta: float):
 
 	debug_draw.emit(window_rect, own_rect)
 
-	if window_rect.encloses(own_rect):
+	if window_rect.encloses(own_rect) or owner.in_icon:
 		finished.emit('previous')
 		return
 

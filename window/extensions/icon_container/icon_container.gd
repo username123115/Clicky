@@ -6,16 +6,17 @@ class_name IconContainer
 
 @export var pin_right : bool = true
 @export var pin_top : bool = true
-@export var y_diff : int = 23
+@export var y_diff : int = 20
 @export var other_y_diff : int = 5
 
-@export var x_diff : int = 0
+@export var x_diff : int = 5
 @export var other_x_diff : int = 5
 
 @export var x_scale : float = 1.0
 @export var y_scale : float = 1.0
 
-@export var spacing_x : int = 40
+@export var icon_scale = 0.5
+@export var spacing_x : int = 18
 
 var r : RectangleShape2D
 var inside : Array[CollisionObject2D] = []
@@ -24,8 +25,8 @@ func _ready():
 	super._ready()
 	r = RectangleShape2D.new()
 
-	#clip_children = ClipChildrenMode.CLIP_CHILDREN_AND_DRAW
-	clip_children = ClipChildrenMode.CLIP_CHILDREN_ONLY
+	clip_children = ClipChildrenMode.CLIP_CHILDREN_AND_DRAW
+	#clip_children = ClipChildrenMode.CLIP_CHILDREN_ONLY
 
 	area.collision_layer = Enums.LayerMasks.CONTAINER;
 	area.collision_mask = Enums.LayerMasks.PLAYER | Enums.LayerMasks.CONTAINER
@@ -78,7 +79,8 @@ func _draw() -> void:
 	rec.size = r.size
 	rec.position = area.position - r.size / 2
 	
-	draw_rect(rec, Color.GREEN)
+	draw_rect(rec, Color.GRAY)
+	draw_rect(rec, Color.BLACK, false, -1.0)
 
 
 func _physics_process(delta: float) -> void:

@@ -22,7 +22,8 @@ func _ready() -> void:
 	super._ready()
 	root_pos = global_position + window_initial_offset
 	next_pos = root_pos
-	update_icons()
+	if not custom_icon:
+		update_icons()
 
 func update_icons() -> void:
 	var t : Texture2D = default_texture

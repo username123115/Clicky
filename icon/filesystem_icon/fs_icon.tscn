@@ -1,26 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0jr4dnvpbinf"]
+[gd_scene load_steps=5 format=3 uid="uid://d0jr4dnvpbinf"]
 
 [ext_resource type="Script" path="res://icon/filesystem_icon/fs_icon.gd" id="1_v3koq"]
-[ext_resource type="Texture2D" uid="uid://bna0n3kasvh3x" path="res://assets/art/icon_folder.png" id="2_jalvh"]
-[ext_resource type="Texture2D" uid="uid://b3g2cs0yxodub" path="res://assets/art/icon_file.png" id="3_5tr5u"]
-[ext_resource type="Texture2D" uid="uid://c0p610t268yi6" path="res://assets/art/icon_exec.png" id="4_yv6bx"]
+[ext_resource type="Texture2D" uid="uid://nugsemem4tgn" path="res://assets/art/small_icon_folder.png" id="2_q4g4l"]
+[ext_resource type="Texture2D" uid="uid://be3m82oy5v44k" path="res://assets/art/small_icon_file.png" id="5_ayn0p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qsnvp"]
-size = Vector2(30, 30)
+size = Vector2(16, 16)
 
 [node name="FileIcon" type="Node2D"]
 script = ExtResource("1_v3koq")
 window_initial_offset = Vector2(25, 25)
-directory_texture = ExtResource("2_jalvh")
-note_texture = ExtResource("3_5tr5u")
-exec_texture = ExtResource("4_yv6bx")
-default_texture = ExtResource("3_5tr5u")
+directory_texture = ExtResource("2_q4g4l")
+note_texture = ExtResource("5_ayn0p")
+exec_texture = ExtResource("5_ayn0p")
+default_texture = ExtResource("5_ayn0p")
 
 [node name="DefaultSprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_jalvh")
+texture = ExtResource("5_ayn0p")
 
 [node name="DefaultArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DefaultArea"]
 shape = SubResource("RectangleShape2D_qsnvp")

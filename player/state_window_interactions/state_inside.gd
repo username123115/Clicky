@@ -9,10 +9,11 @@ func update(_delta: float):
 		pass
 	else:
 		owner.window_move = false
-		finished.emit('resize')
+		if not owner.in_icon:
+			finished.emit('resize')
 		return
 
-	if Input.is_action_just_pressed("grab"):
+	if not owner.in_icon and Input.is_action_just_pressed("grab"):
 		finished.emit('moving')
 		return
 		#owner.window_move = true
