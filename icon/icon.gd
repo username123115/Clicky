@@ -103,11 +103,11 @@ func _on_click_interval_timer_timeout():
 	appearance_hover()
 
 func focus(clicker = null):
-	z_index = 1
+	#z_index = 1
 	clicker_count += 1
 	
 func unfocus(clicker = null):
-	z_index = 0
+	#z_index = 0
 	clicker_count = max(0, clicker_count - 1)
 
 func _on_click_consecutive_timer_timeout():

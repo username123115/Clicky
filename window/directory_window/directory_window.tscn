@@ -14,6 +14,7 @@ init_height = 100
 init_width = 150
 
 [node name="IconContainer" parent="." instance=ExtResource("2_bvggb")]
+pin_right = false
 
 [node name="WindowBorder" parent="." instance=ExtResource("2_d3nyg")]
 

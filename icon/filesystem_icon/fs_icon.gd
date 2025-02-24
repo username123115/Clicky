@@ -5,6 +5,11 @@ class_name FileIcon
 @export var window_initial_offset : Vector2 = Vector2(100, 100)
 @export var window_placement_offset : Vector2 = Vector2(25, 25)
 
+@export var directory_texture : Texture2D
+@export var note_texture : Texture2D
+@export var exec_texture : Texture2D
+@export var default_texture : Texture2D
+
 var root_pos : Vector2
 var next_pos : Vector2
 
@@ -17,6 +22,24 @@ func _ready() -> void:
 	super._ready()
 	root_pos = global_position + window_initial_offset
 	next_pos = root_pos
+	update_icons()
+
+func update_icons() -> void:
+	var t : Texture2D = default_texture
+	match file.type:
+		Enums.FileType.ROOT:
+			t = directory_texture
+		Enums.FileType.DIRECTORY:
+			t = directory_texture
+		Enums.FileType.TEXT:
+			t = note_texture
+		Enums.FileType.EXEC:
+			t = exec_texture
+		_:
+			t = default_texture
+	sprite.texture = t
+
+
 
 func click_registered(clicker = null):
 	if click_count == 2:

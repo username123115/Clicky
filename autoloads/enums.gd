@@ -18,5 +18,6 @@ enum LayerMasks {
 enum FileType {
 	ROOT = 0,
 	DIRECTORY = 1,
-	TEXT = 2
+	TEXT = 2,
+	EXEC = 3,
 }

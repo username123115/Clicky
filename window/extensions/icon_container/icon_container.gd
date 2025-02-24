@@ -7,7 +7,10 @@ class_name IconContainer
 @export var pin_right : bool = true
 @export var pin_top : bool = true
 @export var y_diff : int = 23
+@export var other_y_diff : int = 5
+
 @export var x_diff : int = 0
+@export var other_x_diff : int = 5
 
 @export var x_scale : float = 1.0
 @export var y_scale : float = 1.0
@@ -21,7 +24,8 @@ func _ready():
 	super._ready()
 	r = RectangleShape2D.new()
 
-	clip_children = ClipChildrenMode.CLIP_CHILDREN_AND_DRAW
+	#clip_children = ClipChildrenMode.CLIP_CHILDREN_AND_DRAW
+	clip_children = ClipChildrenMode.CLIP_CHILDREN_ONLY
 
 	area.collision_layer = Enums.LayerMasks.CONTAINER;
 	area.collision_mask = Enums.LayerMasks.PLAYER | Enums.LayerMasks.CONTAINER
@@ -54,7 +58,7 @@ func update_icons() -> void:
 
 func window_size_changed(w, h) -> void:
 	super.window_size_changed(w, h)
-	var new_size := Vector2(x_scale * (w - x_diff), y_scale * (h - y_diff))
+	var new_size := Vector2(x_scale * (w - (x_diff + other_x_diff)), y_scale * (h - (y_diff + other_y_diff)))
 	r.size = new_size
 
 	if pin_top:

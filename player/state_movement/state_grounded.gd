@@ -28,13 +28,13 @@ func update(_delta: float) -> void:
 	else:
 		remaining_frames -= 1
 		if remaining_frames <= 0:
-			print("bye")
+			#print("bye")
 			finished.emit("falling")
 	
 	if Input.is_action_just_pressed("jump"):
 		if owner.velocity.y > 0:
 			owner.velocity.y = 0
 		owner.velocity.y -= owner.JUMP;
-		print("bye")
+		#print("bye")
 		finished.emit("falling");
 

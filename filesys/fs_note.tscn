@@ -5,5 +5,4 @@
 
 [node name="FsNote" type="Node"]
 script = ExtResource("1_p8otl")
-type = 2
 scene = ExtResource("2_jbtt8")

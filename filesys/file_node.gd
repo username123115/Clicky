@@ -2,7 +2,7 @@ extends Node
 
 class_name FileNode
 
-@export var type : int		#enum specifying type
+@export var type := Enums.FileType.TEXT	#enum specifying type
 @export var data : String			#can be whatever, depends on type
 @export var scene : PackedScene			#scene this node loads
 

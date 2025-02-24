@@ -1,54 +1,28 @@
-[gd_scene load_steps=13 format=3 uid="uid://kanteoc5d2dg"]
+[gd_scene load_steps=14 format=3 uid="uid://kanteoc5d2dg"]
 
 [ext_resource type="PackedScene" uid="uid://b76rhy6jvdbac" path="res://player/player.tscn" id="1_2emgv"]
-[ext_resource type="PackedScene" uid="uid://q7fcv5vhmt4l" path="res://icon_minimizeable/icon_minimizeable.tscn" id="1_ghew6"]
-[ext_resource type="PackedScene" uid="uid://c4p7vdke6f5n2" path="res://window/window.tscn" id="2_2je34"]
 [ext_resource type="Script" path="res://player/state_window_interactions/debug_draw.gd" id="3_nceal"]
-[ext_resource type="Texture2D" uid="uid://bna0n3kasvh3x" path="res://assets/art/icon_folder.png" id="3_syf33"]
 [ext_resource type="Script" path="res://debug_info.gd" id="4_dly2c"]
-[ext_resource type="Script" path="res://icon/filesystem_icon/fs_icon.gd" id="6_ex8qa"]
+[ext_resource type="PackedScene" uid="uid://d0jr4dnvpbinf" path="res://icon/filesystem_icon/fs_icon.tscn" id="6_1pisn"]
 [ext_resource type="Script" path="res://filesys/file_node.gd" id="7_i2dr3"]
 [ext_resource type="PackedScene" uid="uid://cf8u5aeptcg10" path="res://window/directory_window/directory_window.tscn" id="8_m5tnw"]
 [ext_resource type="PackedScene" uid="uid://6kqkomfys2wy" path="res://filesys/fs_directory.tscn" id="9_2gwe3"]
+[ext_resource type="Texture2D" uid="uid://dcc8ipap726yf" path="res://assets/art/background.png" id="9_y7noo"]
 [ext_resource type="PackedScene" uid="uid://6anxntyhytsd" path="res://filesys/fs_note.tscn" id="10_ccrib"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pcw0y"]
-size = Vector2(34, 35)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pe00j"]
+size = Vector2(20, 144.8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qego0"]
+size = Vector2(20, 151.2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oug5d"]
+size = Vector2(259.2, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5sval"]
+size = Vector2(268.8, 20)
 
 [node name="Intro_Level" type="Node2D"]
-
-[node name="Icon Minimizeable" parent="." instance=ExtResource("1_ghew6")]
-position = Vector2(45, 2)
-closed = true
-
-[node name="Window" parent="Icon Minimizeable" instance=ExtResource("2_2je34")]
-position = Vector2(116, 6)
-
-[node name="Sprite2D" type="Sprite2D" parent="Icon Minimizeable"]
-position = Vector2(17, 17)
-texture = ExtResource("3_syf33")
-
-[node name="Area2D" type="Area2D" parent="Icon Minimizeable"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon Minimizeable/Area2D"]
-position = Vector2(17, 17.5)
-shape = SubResource("RectangleShape2D_pcw0y")
-
-[node name="Icon Minimizeable2" parent="." instance=ExtResource("1_ghew6")]
-position = Vector2(45, 95)
-
-[node name="Window" parent="Icon Minimizeable2" instance=ExtResource("2_2je34")]
-position = Vector2(84, 181)
-init_height = 100
-
-[node name="Icon Minimizeable3" parent="." instance=ExtResource("1_ghew6")]
-position = Vector2(45, 60)
-
-[node name="Window" parent="Icon Minimizeable3" instance=ExtResource("2_2je34")]
-position = Vector2(161, 137)
-collision_layer = 10
-init_height = 100
-init_width = 180
 
 [node name="Player" parent="." instance=ExtResource("1_2emgv")]
 z_index = 5
@@ -62,25 +36,13 @@ visible = false
 script = ExtResource("3_nceal")
 target = NodePath("../Player")
 
-[node name="FileIcon" parent="." node_paths=PackedStringArray("file") instance=ExtResource("1_ghew6")]
-position = Vector2(208, 110)
-script = ExtResource("6_ex8qa")
+[node name="Icon" parent="." node_paths=PackedStringArray("file") instance=ExtResource("6_1pisn")]
+position = Vector2(36, 31)
 file = NodePath("../Filesystem")
-window_initial_offset = Vector2(100, 25)
-window_placement_offset = Vector2(25, 25)
-
-[node name="Sprite2D" type="Sprite2D" parent="FileIcon"]
-position = Vector2(17, 17)
-texture = ExtResource("3_syf33")
-
-[node name="Area2D" type="Area2D" parent="FileIcon"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FileIcon/Area2D"]
-position = Vector2(17, 17.5)
-shape = SubResource("RectangleShape2D_pcw0y")
 
 [node name="Filesystem" type="Node" parent="."]
 script = ExtResource("7_i2dr3")
+type = 0
 scene = ExtResource("8_m5tnw")
 
 [node name="Apps_" parent="Filesystem" instance=ExtResource("9_2gwe3")]
@@ -104,3 +66,33 @@ script = ExtResource("4_dly2c")
 visible = false
 offset_right = 180.0
 offset_bottom = 83.0
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1025
+position = Vector2(320, 180)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("9_y7noo")
+
+[node name="Border" type="StaticBody2D" parent="Background"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="L" type="CollisionShape2D" parent="Background/Border"]
+position = Vector2(-137.6, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_pe00j")
+
+[node name="R" type="CollisionShape2D" parent="Background/Border"]
+position = Vector2(137.6, 2)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_qego0")
+
+[node name="D" type="CollisionShape2D" parent="Background/Border"]
+position = Vector2(0.799995, 82)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_oug5d")
+
+[node name="U" type="CollisionShape2D" parent="Background/Border"]
+position = Vector2(-0.400024, -81.6)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_5sval")
