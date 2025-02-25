@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://kanteoc5d2dg"]
+[gd_scene load_steps=17 format=3 uid="uid://kanteoc5d2dg"]
 
 [ext_resource type="PackedScene" uid="uid://b76rhy6jvdbac" path="res://player/player.tscn" id="1_2emgv"]
 [ext_resource type="Script" path="res://player/state_window_interactions/debug_draw.gd" id="3_nceal"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://6kqkomfys2wy" path="res://filesys/fs_directory.tscn" id="9_2gwe3"]
 [ext_resource type="Texture2D" uid="uid://dcc8ipap726yf" path="res://assets/art/background.png" id="9_y7noo"]
 [ext_resource type="PackedScene" uid="uid://6anxntyhytsd" path="res://filesys/fs_note.tscn" id="10_ccrib"]
+[ext_resource type="FontFile" uid="uid://bbwc80ynslpci" path="res://assets/fonts/clicky.ttf" id="11_yg5j1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_apq02"]
 size = Vector2(32, 32)
@@ -91,20 +92,25 @@ collision_mask = 3
 
 [node name="L" type="CollisionShape2D" parent="Background/Border"]
 position = Vector2(-137.6, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_pe00j")
 
 [node name="R" type="CollisionShape2D" parent="Background/Border"]
 position = Vector2(137.6, 2)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_qego0")
 
 [node name="D" type="CollisionShape2D" parent="Background/Border"]
 position = Vector2(0.799995, 82)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_oug5d")
 
 [node name="U" type="CollisionShape2D" parent="Background/Border"]
 position = Vector2(-0.400024, -81.6)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5sval")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 91.0
+offset_top = 23.0
+offset_right = 131.0
+offset_bottom = 46.0
+theme_override_fonts/font = ExtResource("11_yg5j1")
+text = "skibidi toilet"
+vertical_alignment = 2

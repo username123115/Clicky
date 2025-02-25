@@ -75,12 +75,14 @@ func window_size_changed(w, h) -> void:
 	queue_redraw()
 
 func _draw() -> void:
-	var rec := Rect2()
-	rec.size = r.size
-	rec.position = area.position - r.size / 2
+	var outer := Rect2()
+
+	outer.size = r.size
+	outer.position = area.position - r.size / 2
+
 	
-	draw_rect(rec, Color.GRAY)
-	draw_rect(rec, Color.BLACK, false, -1.0)
+	draw_rect(outer, Color.GRAY)
+	draw_rect(outer, Color.BLACK, false, -1.0)
 
 
 func _physics_process(delta: float) -> void:
