@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cf8u5aeptcg10"]
+[gd_scene load_steps=9 format=3 uid="uid://cf8u5aeptcg10"]
 
 [ext_resource type="Script" path="res://window/directory_window/directory_window.gd" id="1_fqyv8"]
 [ext_resource type="PackedScene" uid="uid://cd3dly2x6coaq" path="res://window/extensions/icon_container/icon_container.tscn" id="2_bvggb"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://d0jr4dnvpbinf" path="res://icon/filesystem_icon/fs_icon.tscn" id="2_lv4jb"]
 [ext_resource type="PackedScene" uid="uid://biqff5ectg1ig" path="res://window/extensions/window_button/window_button.tscn" id="3_s2o0q"]
 [ext_resource type="Script" path="res://window/tool_draw_window.gd" id="4_h4nyf"]
+[ext_resource type="Script" path="res://window/extensions/title/title.gd" id="7_jabr0"]
+[ext_resource type="FontFile" uid="uid://bbwc80ynslpci" path="res://assets/fonts/clicky.ttf" id="8_k2tcr"]
 
 [node name="DirectoryWindow" type="CharacterBody2D"]
 script = ExtResource("1_fqyv8")
@@ -26,3 +28,17 @@ pin_right = false
 
 [node name="outline_drawer" type="Node2D" parent="."]
 script = ExtResource("4_h4nyf")
+
+[node name="Title" type="Node2D" parent="."]
+script = ExtResource("7_jabr0")
+pin_right = false
+y_diff = 2
+other_x_diff = 25
+fix_y = 10
+center = false
+
+[node name="Label" type="Label" parent="Title"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("8_k2tcr")
+vertical_alignment = 2
