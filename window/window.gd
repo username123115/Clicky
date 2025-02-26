@@ -110,7 +110,7 @@ func _ready() -> void:
 
 	for child in get_children():
 		if child is WindowExtension:
-			print(child)
+			#print(child)
 			extensions.push_back(child)
 	for child in extensions:
 		child.window_size_changed(width, height)

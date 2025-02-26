@@ -2,6 +2,7 @@ extends GameWin
 @export var icon_scene : PackedScene
 
 @onready var container : IconContainer = $"IconContainer"
+@onready var title : DirTitle = $Title
 
 func _ready() -> void:
 	super._ready()
@@ -19,3 +20,4 @@ func file_changed() -> void:
 		icon.file = f
 		container.add_child(icon)
 	container.update_icons()
+	title.title = file.name

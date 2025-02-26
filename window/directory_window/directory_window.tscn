@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://biqff5ectg1ig" path="res://window/extensions/window_button/window_button.tscn" id="3_s2o0q"]
 [ext_resource type="Script" path="res://window/tool_draw_window.gd" id="4_h4nyf"]
 [ext_resource type="Script" path="res://window/extensions/title/title.gd" id="7_jabr0"]
-[ext_resource type="FontFile" uid="uid://bbwc80ynslpci" path="res://assets/fonts/clicky.ttf" id="8_k2tcr"]
+[ext_resource type="FontFile" uid="uid://u0d3lnk65bkh" path="res://assets/fonts/font-glyph-ascii.png" id="8_6qyik"]
 
 [node name="DirectoryWindow" type="CharacterBody2D"]
 script = ExtResource("1_fqyv8")
@@ -40,5 +40,5 @@ center = false
 [node name="Label" type="Label" parent="Title"]
 offset_right = 40.0
 offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("8_k2tcr")
-vertical_alignment = 2
+theme_override_fonts/font = ExtResource("8_6qyik")
+theme_override_font_sizes/font_size = 8

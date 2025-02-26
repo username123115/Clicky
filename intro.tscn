@@ -107,10 +107,12 @@ position = Vector2(-0.400024, -81.6)
 shape = SubResource("RectangleShape2D_5sval")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = 91.0
 offset_top = 23.0
 offset_right = 131.0
 offset_bottom = 46.0
 theme_override_fonts/font = ExtResource("11_2gi6t")
-text = ":(((( !!!!!"
+theme_override_font_sizes/font_size = 8
+text = "abcd"
 vertical_alignment = 2
