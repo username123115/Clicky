@@ -1,0 +1,16 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://bwnajb2pg8m2f"
+valid=false
+
+[deps]
+
+source_file="res://assets/fonts/clicky-font.fnt"
+
+[params]
+
+fallbacks=[]
+compress=true
+scaling_mode=2

@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://6kqkomfys2wy" path="res://filesys/fs_directory.tscn" id="9_2gwe3"]
 [ext_resource type="Texture2D" uid="uid://dcc8ipap726yf" path="res://assets/art/background.png" id="9_y7noo"]
 [ext_resource type="PackedScene" uid="uid://6anxntyhytsd" path="res://filesys/fs_note.tscn" id="10_ccrib"]
-[ext_resource type="FontFile" uid="uid://bbwc80ynslpci" path="res://assets/fonts/clicky.ttf" id="11_yg5j1"]
+[ext_resource type="FontFile" uid="uid://u0d3lnk65bkh" path="res://assets/fonts/font-glyph-ascii.png" id="11_2gi6t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_apq02"]
 size = Vector2(32, 32)
@@ -111,6 +111,6 @@ offset_left = 91.0
 offset_top = 23.0
 offset_right = 131.0
 offset_bottom = 46.0
-theme_override_fonts/font = ExtResource("11_yg5j1")
-text = "skibidi/ toi(let)"
+theme_override_fonts/font = ExtResource("11_2gi6t")
+text = ":(((( !!!!!"
 vertical_alignment = 2
