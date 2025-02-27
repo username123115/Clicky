@@ -58,20 +58,20 @@ script = ExtResource("7_i2dr3")
 type = 0
 scene = ExtResource("8_m5tnw")
 
-[node name="Apps_" parent="Filesystem" instance=ExtResource("9_2gwe3")]
+[node name="0Apps_" parent="Filesystem" instance=ExtResource("9_2gwe3")]
 
-[node name="Foo" parent="Filesystem/Apps_" instance=ExtResource("10_ccrib")]
+[node name="foo" parent="Filesystem/0Apps_" instance=ExtResource("10_ccrib")]
 
-[node name="Bar" parent="Filesystem/Apps_" instance=ExtResource("10_ccrib")]
+[node name="bar" parent="Filesystem/0Apps_" instance=ExtResource("10_ccrib")]
 
-[node name="Pictures_" parent="Filesystem" instance=ExtResource("9_2gwe3")]
+[node name="1Pictures_" parent="Filesystem" instance=ExtResource("9_2gwe3")]
 
-[node name="Desktop_" parent="Filesystem" instance=ExtResource("9_2gwe3")]
+[node name="2Desktop_" parent="Filesystem" instance=ExtResource("9_2gwe3")]
 
-[node name="HelpMeImTrappedInABasement" parent="Filesystem/Desktop_" instance=ExtResource("10_ccrib")]
+[node name="HelpMeImTrappedInABasement" parent="Filesystem/2Desktop_" instance=ExtResource("10_ccrib")]
 
 [node name="Note" parent="Filesystem" instance=ExtResource("10_ccrib")]
-data = "hello!"
+data = "this is a test :D"
 
 [node name="debug_info" type="Node" parent="."]
 script = ExtResource("4_dly2c")

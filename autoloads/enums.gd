@@ -15,6 +15,11 @@ enum LayerMasks {
 	CONTAINER = 1 << (LayerValues.CONTAINER - 1)
 }
 
+enum WindowButtonType {
+	CLOSE = 0,
+	MINIMIZE = 1
+}
+
 enum FileType {
 	ROOT = 0,
 	DIRECTORY = 1,

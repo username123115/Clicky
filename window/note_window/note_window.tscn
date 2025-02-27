@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://window/note_window/text_container.gd" id="7_gn7e7"]
 [ext_resource type="LabelSettings" uid="uid://b7rlg7x7ygda8" path="res://colors/clippy_font.tres" id="8_mgycx"]
 
-[node name="Window" type="CharacterBody2D"]
+[node name="NoteWindow" type="CharacterBody2D"]
 script = ExtResource("1_xdglt")
 
 [node name="WindowBorder" parent="." instance=ExtResource("2_pvu0c")]

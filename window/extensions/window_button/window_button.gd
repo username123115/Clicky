@@ -1,7 +1,9 @@
-extends "res://window/window_extension.gd"
+extends WindowExtension
+class_name WindowButtons
 
+signal button_clicked(type : Enums.WindowButtonType)
 
-@onready var container : Area2D = $Container
+@onready var container : WindowButtonContainer = $Container
 
 @export var padding_horizontal : int = 5
 @export var padding_vertical : int = 3
@@ -9,12 +11,12 @@ extends "res://window/window_extension.gd"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super._ready()
+	container.connect("button_clicked", _on_button_clicked)
 
-	var collision_shape := container.get_node(^"CollisionShape2D") as CollisionShape2D
+	#var collision_shape := container.get_node(^"CollisionShape2D") as CollisionShape2D
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_button_clicked(type : Enums.WindowButtonType) -> void:
+	button_clicked.emit(type)
 
 func _draw() -> void:
 	if is_hiding:

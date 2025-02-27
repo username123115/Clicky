@@ -133,6 +133,10 @@ func window_get_rect() -> Rect2:
 	r.size = size
 	return r
 
+func remove_self() -> void:
+	WindowOrderer.remove(self)
+	queue_free()
+
 func focus(cursor = null):
 	WindowOrderer.set_high(self)
 	window_focus.emit()

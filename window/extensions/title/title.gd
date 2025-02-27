@@ -3,6 +3,7 @@ class_name DirTitle
 @onready var label : Label = $Label
 
 @export var bar_color : Color = Color.BLUE
+
 @export var title : String = "lol":
 	get:
 		return title

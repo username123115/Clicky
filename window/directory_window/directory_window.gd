@@ -1,4 +1,4 @@
-extends GameWin
+extends GameWinBA
 @export var icon_scene : PackedScene
 
 @onready var container : IconContainer = $"IconContainer"

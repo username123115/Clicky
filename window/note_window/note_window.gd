@@ -1,4 +1,4 @@
-extends GameWin
+extends GameWinBA
 
 @onready var title : DirTitle = $Title
 @onready var text : TextContainer = $Text

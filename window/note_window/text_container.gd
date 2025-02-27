@@ -5,7 +5,7 @@ class_name TextContainer
 
 @export var text : String = "12345!":
 	set(value):
-		label.text = text
+		label.text = value
 	get:
 		return text
 
