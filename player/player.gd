@@ -7,9 +7,12 @@ class_name Player
 @export var WALK_SPEED : float = 200.0
 @export var WALK_ACCELL : float = 900.0
 
+
 @export var GRAVITY : float = 980.0
 
 @export var JUMP : float = 300.0
+@export var WALL_JUMP_WEAK : float = 200.0
+@export var WALL_JUMP_STRONG : float = 250.0
 
 enum GrabState { GRAB_LEFT, GRAB_NONE, GRAB_RIGHT }
 

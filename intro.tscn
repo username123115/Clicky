@@ -43,7 +43,7 @@ target = NodePath("../Player")
 
 [node name="RootIcon" parent="." node_paths=PackedStringArray("file") instance=ExtResource("6_1pisn")]
 position = Vector2(36, 31)
-file = NodePath("../>")
+file = NodePath("../Filesystem")
 
 [node name="Sprite2D" type="Sprite2D" parent="RootIcon"]
 texture = ExtResource("4_51sfv")
@@ -53,24 +53,24 @@ texture = ExtResource("4_51sfv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RootIcon/Area2D"]
 shape = SubResource("RectangleShape2D_apq02")
 
-[node name=">" type="Node" parent="."]
+[node name="Filesystem" type="Node" parent="."]
 script = ExtResource("7_i2dr3")
 type = 0
 scene = ExtResource("8_m5tnw")
 
-[node name="0_Apps" parent=">" instance=ExtResource("9_2gwe3")]
+[node name="0_Apps" parent="Filesystem" instance=ExtResource("9_2gwe3")]
 
-[node name="foo" parent=">/0_Apps" instance=ExtResource("10_ccrib")]
+[node name="foo" parent="Filesystem/0_Apps" instance=ExtResource("10_ccrib")]
 
-[node name="bar" parent=">/0_Apps" instance=ExtResource("10_ccrib")]
+[node name="bar" parent="Filesystem/0_Apps" instance=ExtResource("10_ccrib")]
 
-[node name="1_Pictures" parent=">" instance=ExtResource("9_2gwe3")]
+[node name="1_Pictures" parent="Filesystem" instance=ExtResource("9_2gwe3")]
 
-[node name="2_Desktop" parent=">" instance=ExtResource("9_2gwe3")]
+[node name="2_Desktop" parent="Filesystem" instance=ExtResource("9_2gwe3")]
 
-[node name="HelpMeImTrappedInABasement" parent=">/2_Desktop" instance=ExtResource("10_ccrib")]
+[node name="HelpMeImTrappedInABasement" parent="Filesystem/2_Desktop" instance=ExtResource("10_ccrib")]
 
-[node name="Note" parent=">" instance=ExtResource("10_ccrib")]
+[node name="Note" parent="Filesystem" instance=ExtResource("10_ccrib")]
 data = "this is a test :D"
 
 [node name="debug_info" type="Node" parent="."]

@@ -23,4 +23,7 @@ func file_changed() -> void:
 		container.add_child(icon)
 
 	container.update_icons()
-	title.title = file.name + "/"
+	if file.is_root():
+		title.title = " /"
+	else:
+		title.title = file.name + "/"
