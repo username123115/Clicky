@@ -21,5 +21,6 @@ func file_changed() -> void:
 		#await icon.ready
 		icon.file = f
 		container.add_child(icon)
+
 	container.update_icons()
-	title.title = file.name
+	title.title = file.name + "/"
