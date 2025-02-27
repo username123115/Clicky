@@ -19,6 +19,8 @@ var extensions := []
 @onready var area : Area2D =  $Area
 @onready var col_shape : CollisionShape2D = $Area/CollisionShape2D
 
+@export var theme : ColorScheme = preload("res://colors/cs_default.tres")
+
 func move(offset : Vector2):
 	global_position += offset
 	if notify_on_move and (offset.abs()):
@@ -174,5 +176,7 @@ func _draw() -> void:
 	r.size = Vector2(width, height)
 	r.position = Vector2(0, 0)
 	
-	draw_rect(r, Color.LIGHT_GRAY)
-	draw_rect(r, Color.WHITE, false, -1.0)
+	draw_rect(r, theme.CWINDOW_BODY)
+	draw_rect(r, theme.CWINDOW_OUTLINE, false, -1.0)
+	#draw_rect(r, Color.LIGHT_GRAY)
+	#draw_rect(r, Color.WHITE, false, -1.0)

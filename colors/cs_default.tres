@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ColorScheme" load_steps=2 format=3 uid="uid://jiih3b25lrw1"]
+
+[ext_resource type="Script" path="res://colors/color_scheme.gd" id="1_2nsfp"]
+
+[resource]
+script = ExtResource("1_2nsfp")
+CWINDOW_BODY = Color(0.827451, 0.827451, 0.827451, 1)
+CWINDOW_OUTLINE = Color(1, 1, 1, 1)
+CWINDOW_TITLE_BODY = Color(0, 0, 1, 1)
+CCONTAINER_BODY = Color(0.745098, 0.745098, 0.745098, 1)
+CCONTAINER_OUTLINE = Color(0, 0, 0, 1)

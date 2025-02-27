@@ -1,15 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://d008u54n70lkq"]
+[gd_scene load_steps=9 format=3 uid="uid://d008u54n70lkq"]
 
-[ext_resource type="Script" path="res://window/window.gd" id="1_hd6ci"]
+[ext_resource type="Script" path="res://window/note_window/note_window.gd" id="1_xdglt"]
+[ext_resource type="PackedScene" uid="uid://ye48xmnhu0s" path="res://window/extensions/window_border/window_border.tscn" id="2_pvu0c"]
 [ext_resource type="PackedScene" uid="uid://biqff5ectg1ig" path="res://window/extensions/window_button/window_button.tscn" id="2_trouv"]
 [ext_resource type="Script" path="res://window/tool_draw_window.gd" id="3_y55si"]
+[ext_resource type="Script" path="res://window/extensions/title/title.gd" id="5_ue5nv"]
+[ext_resource type="FontFile" uid="uid://u0d3lnk65bkh" path="res://assets/fonts/font-glyph-ascii.png" id="6_vd2lt"]
+[ext_resource type="Script" path="res://window/note_window/text_container.gd" id="7_gn7e7"]
+[ext_resource type="LabelSettings" uid="uid://b7rlg7x7ygda8" path="res://colors/clippy_font.tres" id="8_mgycx"]
 
 [node name="Window" type="CharacterBody2D"]
-script = ExtResource("1_hd6ci")
+script = ExtResource("1_xdglt")
+
+[node name="WindowBorder" parent="." instance=ExtResource("2_pvu0c")]
 
 [node name="WindowButton" parent="." instance=ExtResource("2_trouv")]
-
-[node name="runtime" type="Node" parent="."]
 
 [node name="Area" type="Area2D" parent="."]
 
@@ -17,3 +22,30 @@ script = ExtResource("1_hd6ci")
 
 [node name="outline_drawer" type="Node2D" parent="."]
 script = ExtResource("3_y55si")
+
+[node name="Title" type="Node2D" parent="."]
+script = ExtResource("5_ue5nv")
+pin_right = false
+y_diff = 2
+other_x_diff = 25
+fix_y = 10
+center = false
+
+[node name="Label" type="Label" parent="Title"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("6_vd2lt")
+theme_override_font_sizes/font_size = 8
+
+[node name="Text" type="Node2D" parent="."]
+script = ExtResource("7_gn7e7")
+pin_right = false
+y_diff = 10
+center = false
+
+[node name="Label" type="Label" parent="Text"]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = ExtResource("8_mgycx")
+vertical_alignment = 2
+clip_text = true

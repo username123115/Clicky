@@ -11,6 +11,8 @@ func file_changed() -> void:
 	await ready
 	var files := file.get_children()
 	container.clear_icons()
+
+	title.bar_color = theme.CWINDOW_TITLE_BODY
 	
 	for f in files:
 		if not f is FileNode:

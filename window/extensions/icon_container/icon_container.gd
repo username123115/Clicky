@@ -59,8 +59,8 @@ func _draw() -> void:
 	outer.position = area.position - boundary.size / 2
 
 	
-	draw_rect(outer, Color.GRAY)
-	draw_rect(outer, Color.BLACK, false, -1.0)
+	draw_rect(outer, theme.CCONTAINER_BODY)
+	draw_rect(outer, theme.CCONTAINER_OUTLINE, false, -1.0)
 
 
 func _physics_process(delta: float) -> void:

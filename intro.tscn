@@ -71,6 +71,7 @@ scene = ExtResource("8_m5tnw")
 [node name="HelpMeImTrappedInABasement" parent="Filesystem/Desktop_" instance=ExtResource("10_ccrib")]
 
 [node name="Note" parent="Filesystem" instance=ExtResource("10_ccrib")]
+data = "hello!"
 
 [node name="debug_info" type="Node" parent="."]
 script = ExtResource("4_dly2c")

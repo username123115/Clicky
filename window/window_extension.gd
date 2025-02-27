@@ -8,6 +8,8 @@ var is_hiding : bool = false
 var width : int
 var height : int
 
+var theme : ColorScheme = preload("res://colors/cs_default.tres")
+
 func _ready() -> void:
 	pass
 	# This parent better be a window
