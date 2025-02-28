@@ -12,8 +12,8 @@
 [node name="DirectoryWindow" type="CharacterBody2D"]
 script = ExtResource("1_fqyv8")
 icon_scene = ExtResource("2_lv4jb")
-init_height = 100
-init_width = 150
+init_height = 100.0
+init_width = 150.0
 
 [node name="IconContainer" parent="." instance=ExtResource("2_bvggb")]
 pin_right = false
@@ -28,6 +28,11 @@ pin_right = false
 
 [node name="outline_drawer" type="Node2D" parent="."]
 script = ExtResource("4_h4nyf")
+
+[node name="ColorRect" type="ColorRect" parent="outline_drawer"]
+offset_right = 150.0
+offset_bottom = 100.0
+color = Color(1, 1, 1, 0.0392157)
 
 [node name="Title" type="Node2D" parent="."]
 script = ExtResource("7_jabr0")

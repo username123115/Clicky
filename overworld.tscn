@@ -9,12 +9,12 @@
 position = Vector2(81, 37)
 
 [node name="Window" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(146, 123)
-init_height = 100
-init_width = 200
+position = Vector2(150, 63)
+init_height = 100.0
+init_width = 200.0
 
 [node name="Window2" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(-33, 78)
+position = Vector2(0, 66)
 
 [node name="Window3" parent="." instance=ExtResource("2_gk3av")]
 position = Vector2(48, 128)
@@ -23,11 +23,6 @@ position = Vector2(48, 128)
 position = Vector2(-21, 198)
 
 [node name="Window5" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(27, 235)
-init_height = 100
-init_width = 200
-
-[node name="Window6" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(146, -2)
+position = Vector2(64, 252)
 init_height = 100
 init_width = 200

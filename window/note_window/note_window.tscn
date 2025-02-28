@@ -23,6 +23,11 @@ script = ExtResource("1_xdglt")
 [node name="outline_drawer" type="Node2D" parent="."]
 script = ExtResource("3_y55si")
 
+[node name="ColorRect" type="ColorRect" parent="outline_drawer"]
+offset_right = 50.0
+offset_bottom = 50.0
+color = Color(1, 1, 1, 0.0392157)
+
 [node name="Title" type="Node2D" parent="."]
 script = ExtResource("5_ue5nv")
 pin_right = false

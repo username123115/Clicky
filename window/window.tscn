@@ -7,6 +7,8 @@
 
 [node name="Window" type="CharacterBody2D"]
 script = ExtResource("1_r7242")
+init_height = 40.0
+init_width = 40.0
 
 [node name="WindowBorder" parent="." instance=ExtResource("2_pyb6b")]
 
@@ -18,3 +20,8 @@ script = ExtResource("1_r7242")
 
 [node name="outline_drawer" type="Node2D" parent="."]
 script = ExtResource("2_eqe8s")
+
+[node name="ColorRect" type="ColorRect" parent="outline_drawer"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 1, 1, 0.0588235)

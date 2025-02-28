@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c78y5jj43wgb6"]
+
+[ext_resource type="Texture2D" uid="uid://csb4wseuhc7sj" path="res://assets/art/clicky_concept.png" id="1_fxcvg"]
+[ext_resource type="Texture2D" uid="uid://cqpc6voqd7dft" path="res://assets/art/clicky_resize.png" id="2_ifsuo"]
+
+[node name="WinEd" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+texture_normal = ExtResource("1_fxcvg")
+texture_hover = ExtResource("2_ifsuo")
