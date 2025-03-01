@@ -29,9 +29,9 @@ func update(_delta: float) -> void:
 		var bias = owner.WALL_JUMP_STRONG if moving else owner.WALL_JUMP_WEAK
 		owner.velocity = Vector2(-3 / _delta, 0)
 
-		new.y = -owner.JUMP;
 		owner.move_and_slide()
 		if owner.is_on_wall():
+			new.y = -owner.JUMP;
 			if new.x < bias:
 				new.x = min(new.x + bias, bias);
 		# test right
@@ -39,6 +39,7 @@ func update(_delta: float) -> void:
 		owner.velocity = Vector2(3 / _delta, 0)
 		owner.move_and_slide()
 		if owner.is_on_wall():
+			new.y = -owner.JUMP;
 			if new.x > -bias:
 				new.x = max(new.x - bias, -bias);
 

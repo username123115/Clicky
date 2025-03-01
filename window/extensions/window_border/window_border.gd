@@ -1,5 +1,5 @@
 extends "res://window/window_extension.gd"
-@export var thickness : int = 3
+@export var thickness : int = 4
 
 @onready var body := $StaticBody2D as StaticBody2D
 @onready var CL := $StaticBody2D/Left as CollisionShape2D;
@@ -30,9 +30,9 @@ func _ready() -> void:
 	body.collision_mask = Enums.LayerMasks.WINDOWBORDERS;
 
 func border_changed(w, h) -> void:
-	RL.size = Vector2(thickness, h + thickness);
+	RL.size = Vector2(thickness, h);
 	CL.position = Vector2(0, h / 2);
-	RR.size = Vector2(thickness, h + thickness);
+	RR.size = Vector2(thickness, h);
 	CR.position = Vector2(w, h / 2);
 	RU.size = Vector2(w + thickness, thickness);
 	CU.position = Vector2(w / 2, 0);

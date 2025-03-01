@@ -4,25 +4,37 @@
 [ext_resource type="PackedScene" uid="uid://c4p7vdke6f5n2" path="res://window/window.tscn" id="2_gk3av"]
 
 [node name="Overworld" type="Node2D"]
+position = Vector2(84, 105)
+
+[node name="Window" parent="." instance=ExtResource("2_gk3av")]
+position = Vector2(245, -145)
+init_height = 136.0
+init_width = 231.0
 
 [node name="Player" parent="." instance=ExtResource("1_y4pvv")]
 position = Vector2(81, 37)
 
-[node name="Window" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(150, 63)
-init_height = 100.0
-init_width = 200.0
-
 [node name="Window2" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(0, 66)
+position = Vector2(4, 59)
+init_height = 66.0
+init_width = 178.0
 
 [node name="Window3" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(48, 128)
+position = Vector2(-140, 3)
+init_height = 89.0
+init_width = 95.0
 
 [node name="Window4" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(-21, 198)
+position = Vector2(-210, 119)
+init_height = 72.0
+init_width = 47.0
 
 [node name="Window5" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(64, 252)
-init_height = 100
-init_width = 200
+position = Vector2(197, 1)
+init_height = 104.0
+init_width = 215.0
+
+[node name="Window6" parent="." instance=ExtResource("2_gk3av")]
+position = Vector2(-45, 213)
+init_height = 122.0
+init_width = 162.0
