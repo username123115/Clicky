@@ -30,7 +30,7 @@ init_height = 72.0
 init_width = 47.0
 
 [node name="Window5" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(197, 1)
+position = Vector2(118, -49)
 init_height = 104.0
 init_width = 215.0
 

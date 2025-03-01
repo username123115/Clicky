@@ -20,28 +20,26 @@ func update(_delta: float) -> void:
 
 	if Input.is_action_just_pressed("jump"):
 		# test for walls
-		var orig_p := owner.global_position as Vector2
-		var orig_v := owner.velocity as Vector2
-		var new := orig_v
+		var orig_p := Vector2(owner.global_position)
+		var orig_v := Vector2(owner.velocity)
+		var new := Vector2(orig_v)
 
-		# test left
 		var moving : bool = Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right")
 		var bias = owner.WALL_JUMP_STRONG if moving else owner.WALL_JUMP_WEAK
-		owner.velocity = Vector2(-3 / _delta, 0)
 
-		owner.move_and_slide()
-		if owner.is_on_wall():
-			new.y = -owner.JUMP;
-			if new.x < bias:
-				new.x = min(new.x + bias, bias);
+		var move_velocity := 1
 		# test right
-		owner.position = orig_p
-		owner.velocity = Vector2(3 / _delta, 0)
-		owner.move_and_slide()
-		if owner.is_on_wall():
+		var right = owner.move_and_collide(Vector2(move_velocity, 0), true)
+		if right:
 			new.y = -owner.JUMP;
 			if new.x > -bias:
 				new.x = max(new.x - bias, -bias);
+
+		var left = owner.move_and_collide(Vector2(-move_velocity, 0), true)
+		if left:
+			new.y = -owner.JUMP;
+			if new.x < bias:
+				new.x = min(new.x + bias, bias);
 
 		owner.global_position = orig_p
 		owner.velocity = new;
