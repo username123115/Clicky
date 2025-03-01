@@ -5,6 +5,6 @@ extends GameWinBA
 
 func file_changed() -> void:
 	await ready
-	title.title = "TX." + file.name
+	title.title = "" + file.name
 	text.text = file.data
 	queue_redraw()

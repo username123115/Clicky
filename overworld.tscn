@@ -26,9 +26,6 @@ position = Vector2(-81, -37)
 [node name="Window2" parent="." instance=ExtResource("2_gk3av")]
 position = Vector2(114, -70)
 
-[node name="Window3" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(-23, 65)
-
 [node name="Window5" parent="." instance=ExtResource("2_gk3av")]
 position = Vector2(212.974, 87.9766)
 
@@ -99,3 +96,9 @@ data = "the pacr gram fitness test"
 [node name="Fifth" type="Node" parent="Filesystem"]
 script = ExtResource("5_otjsx")
 data = "Lmao"
+
+[node name="NoteWindow2" parent="." node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
+position = Vector2(-28, 64)
+init_height = 46.0
+init_width = 59.0
+starting_file = NodePath("../Filesystem/First")
