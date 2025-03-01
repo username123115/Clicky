@@ -43,4 +43,3 @@ func update(_delta: float) -> void:
 
 		owner.global_position = orig_p
 		owner.velocity = new;
-

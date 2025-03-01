@@ -20,13 +20,14 @@ class Anchor:
 		var size = r.size
 		
 		match kind:
-			Positions.TL: position = pos
+			Positions.TL: position = pos + Vector2(0, 0)
 			Positions.TR: position = pos + Vector2(size.x, 0)
 			Positions.BL: position = pos + Vector2(0, size.y)
 			Positions.BR: position = pos + size
 
 		rectangle.size = Vector2(6, 6)
-		rectangle.position = position - rectangle.size /  2 - pos
+		rectangle.position = position - rectangle.size / 2
+		#rectangle.position = position - rectangle.size /  2 - pos
 	
 	func contains(point : Vector2) -> bool:
 		return rectangle.has_point(point)
@@ -75,20 +76,26 @@ func _get_plugin_name():
 func _get_plugin_icon():
 	return EditorInterface.get_editor_theme().get_icon("Node", "EditorIcons")
 
-func _forward_canvas_draw_over_viewport(overlay):
+func _forward_canvas_draw_over_viewport(overlay : Control):
 	if not editing:
 		return
 	for anchor : Anchor in anchors.values():
 		if not resizing:
-			anchor.calculate_position(window_to_rect(editing))
+			anchor.calculate_position(window_to_rect(editing, false))
 		else:
 			anchor.calculate_position(resize_rect)
 
-		anchor.draw(editing.get_viewport().get_final_transform(), overlay)
+		#var transform : Transform2D = editing.get_global_transform_with_canvas()
+		var transform : Transform2D = editing.get_viewport().get_final_transform() * editing.get_global_transform()
+		anchor.draw(transform, overlay)
+		#anchor.draw(editing.get_viewport().get_final_transform(), overlay)
 
-func window_to_rect(win : GameWin) -> Rect2:
+func window_to_rect(win : GameWin, do_global_position : bool = true) -> Rect2:
 	var r : Rect2 = Rect2()
-	r.position = win.position
+	if do_global_position:
+		r.position = win.position
+	else:
+		r.position = Vector2(0, 0)
 	r.size = Vector2(win.init_width, win.init_height)
 	return r
 
@@ -103,17 +110,19 @@ func _forward_canvas_gui_input(event: InputEvent) -> bool:
 			if not event.pressed:
 				if resizing:
 					#finished dragging
-					if resize_rect.size.x < 0:
-						resize_rect.position.x += resize_rect.size.x
-						resize_rect.size.x *= -1
+					var r : Rect2 = editing.get_transform() * resize_rect
 
-					if resize_rect.size.y < 0:
-						resize_rect.position.y += resize_rect.size.y
-						resize_rect.size.y *= -1
+					if r.size.x < 0:
+						r.position.x += resize_rect.size.x
+						r.size.x *= -1
 
-					editing.position = resize_rect.position
-					editing.init_width = resize_rect.size.x
-					editing.init_height = resize_rect.size.y
+					if r.size.y < 0:
+						r.position.y += resize_rect.size.y
+						r.size.y *= -1
+
+					editing.position = r.position
+					editing.init_width = r.size.x
+					editing.init_height = r.size.y
 					resizing = false
 					update_overlays()
 				return false
@@ -128,7 +137,7 @@ func _forward_canvas_gui_input(event: InputEvent) -> bool:
 	if not resizing:
 		return false
 
-	var g := editing.get_global_mouse_position()
+	var g := editing.get_local_mouse_position()
 	var old_pos = resize_rect.position
 	var opposite : Vector2
 
@@ -145,10 +154,13 @@ func _forward_canvas_gui_input(event: InputEvent) -> bool:
 			opposite = anchors[Positions.TR].position
 			resize_rect.size = Vector2(opposite.x - g.x, g.y - opposite.y)
 			resize_rect.position = g - Vector2(0, resize_rect.size.y)
+			update_overlays()
 		Positions.BR:
 			opposite = anchors[Positions.TL].position
 			resize_rect.size = g - opposite
 			resize_rect.position = g - resize_rect.size
+
+	print(resize_rect.size)
 
 	update_overlays()
 	return true
