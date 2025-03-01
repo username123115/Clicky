@@ -43,6 +43,7 @@ var order : int = 0:
 			child.window_hide_changed(hiding)
 		set_boundary()
 
+@export var starting_file : FileNode = null
 var file : FileNode = null
 
 func file_changed() -> void:
@@ -122,6 +123,10 @@ func _ready() -> void:
 
 	area.collision_layer = Enums.LayerMasks.WINDOWS;
 	area.collision_mask = Enums.LayerMasks.PLAYER;
+
+	if starting_file:
+		file = starting_file
+		file_changed()
 			
 
 func window_get_rect() -> Rect2:
@@ -173,14 +178,14 @@ func _process(delta: float) -> void:
 	pass
 	
 func _draw() -> void:
-	if hiding:
-		return
-
 	var r := Rect2()
 	r.size = Vector2(width, height)
 	r.position = Vector2(0, 0)
-	
-	draw_rect(r, theme.CWINDOW_BODY)
-	draw_rect(r, theme.CWINDOW_OUTLINE, false, -1.0)
+	if not hiding:
+		
+		draw_rect(r, theme.CWINDOW_BODY)
+		draw_rect(r, theme.CWINDOW_OUTLINE, false, -1.0)
+	else:
+		draw_rect(r, theme.CWINDOW_HIDING, false, -1.0)
 	#draw_rect(r, Color.LIGHT_GRAY)
 	#draw_rect(r, Color.WHITE, false, -1.0)

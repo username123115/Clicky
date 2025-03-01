@@ -1,9 +1,8 @@
-extends "res://icon/icon.gd"
+extends Icon
 
-@onready var window = $Window
+@onready var window : GameWin = $Window
 
 @export var window_hiding : bool = false
-
 @export var closed : bool = false
 
 func _ready() -> void:

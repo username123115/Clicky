@@ -1,13 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://c486tyteiwvfa"]
+[gd_scene load_steps=8 format=3 uid="uid://c486tyteiwvfa"]
 
 [ext_resource type="PackedScene" uid="uid://q7fcv5vhmt4l" path="res://icon_minimizeable/icon_minimizeable.tscn" id="1_c0e8o"]
+[ext_resource type="PackedScene" uid="uid://d008u54n70lkq" path="res://window/note_window/note_window.tscn" id="1_pqniw"]
 [ext_resource type="PackedScene" uid="uid://b76rhy6jvdbac" path="res://player/player.tscn" id="1_y4pvv"]
 [ext_resource type="PackedScene" uid="uid://c4p7vdke6f5n2" path="res://window/window.tscn" id="2_gk3av"]
 [ext_resource type="Texture2D" uid="uid://be3m82oy5v44k" path="res://assets/art/small_icon_file.png" id="4_xcovc"]
+[ext_resource type="Script" path="res://filesys/file_node.gd" id="5_otjsx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plwyu"]
 
 [node name="Overworld" type="Node2D"]
+
+[node name="NoteWindow" parent="." node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
+position = Vector2(-197, 195)
+init_height = 74.0
+init_width = 105.0
+starting_file = NodePath("../Filesystem/First")
 
 [node name="Player" parent="." instance=ExtResource("1_y4pvv")]
 position = Vector2(-7, 219)
@@ -17,51 +25,35 @@ position = Vector2(-81, -37)
 
 [node name="Window2" parent="." instance=ExtResource("2_gk3av")]
 position = Vector2(114, -70)
-init_height = 66.0
-init_width = 178.0
 
 [node name="Window3" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(-53, 44)
-init_height = 65.0
-init_width = 76.0
+position = Vector2(-23, 65)
 
 [node name="Window5" parent="." instance=ExtResource("2_gk3av")]
 position = Vector2(212.974, 87.9766)
-init_height = 114.0
-init_width = 183.0
 
 [node name="Window6" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(97, 152)
-init_height = 122.0
-init_width = 162.0
+position = Vector2(22, 152)
+init_height = 81.0
+init_width = 152.0
 
 [node name="Window4" parent="." instance=ExtResource("2_gk3av")]
 position = Vector2(583, 112)
-init_height = 244.0
-init_width = 394.0
 
 [node name="Window7" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(-269, 226)
-init_height = 93.0
-init_width = 137.0
-
-[node name="Window8" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(-164, 195)
-init_height = 93.0
-init_width = 137.0
+position = Vector2(-278, 243)
+init_height = 90.0
+init_width = 118.0
 
 [node name="Window9" parent="." instance=ExtResource("2_gk3av")]
 position = Vector2(277, 269)
-init_height = 104.0
-init_width = 215.0
 
 [node name="HiddenBlock" parent="." instance=ExtResource("1_c0e8o")]
 position = Vector2(-107, 180)
+closed = true
 
 [node name="Window" parent="HiddenBlock" instance=ExtResource("2_gk3av")]
-position = Vector2(127, -17)
-init_height = 56.0
-init_width = 46.0
+position = Vector2(58, -12)
 
 [node name="Sprite2D" type="Sprite2D" parent="HiddenBlock"]
 texture = ExtResource("4_xcovc")
@@ -73,5 +65,37 @@ shape = SubResource("RectangleShape2D_plwyu")
 
 [node name="Window10" parent="." instance=ExtResource("2_gk3av")]
 position = Vector2(-114, 246)
-init_height = 93.0
-init_width = 137.0
+init_height = 90.0
+init_width = 124.0
+
+[node name="Window11" parent="." instance=ExtResource("2_gk3av")]
+position = Vector2(-317, 59)
+
+[node name="Window12" parent="." instance=ExtResource("2_gk3av")]
+position = Vector2(-156, -61)
+
+[node name="Window12" parent="Window12" instance=ExtResource("2_gk3av")]
+position = Vector2(-173, 221)
+
+[node name="Filesystem" type="Node" parent="."]
+script = ExtResource("5_otjsx")
+
+[node name="First" type="Node" parent="Filesystem"]
+script = ExtResource("5_otjsx")
+data = "!ERROR!"
+
+[node name="Second" type="Node" parent="Filesystem"]
+script = ExtResource("5_otjsx")
+data = ":((((((((("
+
+[node name="Third" type="Node" parent="Filesystem"]
+script = ExtResource("5_otjsx")
+data = ":{ :} :{"
+
+[node name="Fourth" type="Node" parent="Filesystem"]
+script = ExtResource("5_otjsx")
+data = "the pacr gram fitness test"
+
+[node name="Fifth" type="Node" parent="Filesystem"]
+script = ExtResource("5_otjsx")
+data = "Lmao"
