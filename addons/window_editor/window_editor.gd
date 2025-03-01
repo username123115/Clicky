@@ -161,4 +161,6 @@ func _edit(object : Object) -> void:
 	editing = object
 
 func _handles(object : Object):
+	if not Engine.is_editor_hint():
+		return false
 	return object is GameWin
