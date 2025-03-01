@@ -1,7 +1,8 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b7rlg7x7ygda8"]
 
-[ext_resource type="FontFile" uid="uid://u0d3lnk65bkh" path="res://assets/fonts/font-glyph-ascii.png" id="1_6rmyv"]
+[ext_resource type="FontFile" uid="uid://bbwc80ynslpci" path="res://assets/fonts/clicky.ttf" id="1_1uk1n"]
 
 [resource]
-font = ExtResource("1_6rmyv")
+font = ExtResource("1_1uk1n")
 font_size = 8
+font_color = Color(0, 0, 0, 1)

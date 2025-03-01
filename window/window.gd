@@ -54,6 +54,8 @@ var height: int:
 	get:
 		return height
 	set(value):
+		if value % 2:
+			value -= 1
 		if (value < min_height): value = min_height
 		height = value
 		for child in extensions:
@@ -64,6 +66,8 @@ var width: int:
 	get:
 		return width
 	set(value):
+		if value % 2:
+			value -= 1
 		if (value < min_width): value = min_width
 		width = value
 		for child in extensions:

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://biqff5ectg1ig" path="res://window/extensions/window_button/window_button.tscn" id="2_trouv"]
 [ext_resource type="Script" path="res://window/tool_draw_window.gd" id="3_y55si"]
 [ext_resource type="Script" path="res://window/extensions/title/title.gd" id="5_ue5nv"]
-[ext_resource type="FontFile" uid="uid://u0d3lnk65bkh" path="res://assets/fonts/font-glyph-ascii.png" id="6_vd2lt"]
+[ext_resource type="FontFile" uid="uid://bbwc80ynslpci" path="res://assets/fonts/clicky.ttf" id="6_jeti1"]
 [ext_resource type="Script" path="res://window/note_window/text_container.gd" id="7_gn7e7"]
 [ext_resource type="LabelSettings" uid="uid://b7rlg7x7ygda8" path="res://colors/clippy_font.tres" id="8_mgycx"]
 
@@ -37,10 +37,12 @@ fix_y = 10
 center = false
 
 [node name="Label" type="Label" parent="Title"]
+offset_top = 5.0
 offset_right = 40.0
-offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("6_vd2lt")
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("6_jeti1")
 theme_override_font_sizes/font_size = 8
+label_settings = ExtResource("8_mgycx")
 
 [node name="Text" type="Node2D" parent="."]
 script = ExtResource("7_gn7e7")
@@ -49,8 +51,11 @@ y_diff = 10
 center = false
 
 [node name="Label" type="Label" parent="Text"]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = -42.0
+offset_top = 12.0
+offset_right = 77.0
+offset_bottom = 46.0
 label_settings = ExtResource("8_mgycx")
 vertical_alignment = 2
+autowrap_mode = 1
 clip_text = true
