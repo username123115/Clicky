@@ -35,10 +35,17 @@ func border_changed(w, h) -> void:
 	RR.size = Vector2(thickness, h);
 	CR.position = Vector2(w, h / 2);
 
-	RU.size = Vector2(w, thickness);
-	CU.position = Vector2(w / 2, 0);
-	RD.size = Vector2(w, thickness);
-	CD.position = Vector2(w / 2 + 1, h);
+	#RU.size = Vector2(w, thickness);
+	#CU.position = Vector2(w / 2, 0);
+	#RD.size = Vector2(w, thickness);
+	#CD.position = Vector2(w / 2 + 1, h);
+
+	var border_width : int = w + thickness
+	RU.size = Vector2(border_width, thickness);
+	CU.position = Vector2(border_width / 2 - 2, 0);
+	RD.size = Vector2(border_width, thickness);
+	CD.position = Vector2(border_width / 2 - 2, h);
+
 
 func window_size_changed(w, h) -> void:
 	super.window_size_changed(w, h)
