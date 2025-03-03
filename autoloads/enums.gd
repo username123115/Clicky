@@ -26,3 +26,8 @@ enum FileType {
 	TEXT = 2,
 	EXEC = 3,
 }
+
+enum CameraBehavior {
+	CENTER = 0,
+	FOLLOW = 1
+}

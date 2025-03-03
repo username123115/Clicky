@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://window/directory_window/directory_window.gd" id="1_fqyv8"]
 [ext_resource type="PackedScene" uid="uid://cd3dly2x6coaq" path="res://window/extensions/icon_container/icon_container.tscn" id="2_bvggb"]
 [ext_resource type="PackedScene" uid="uid://ye48xmnhu0s" path="res://window/extensions/window_border/window_border.tscn" id="2_d3nyg"]
-[ext_resource type="PackedScene" uid="uid://d0jr4dnvpbinf" path="res://icon/filesystem_icon/fs_icon.tscn" id="2_lv4jb"]
+[ext_resource type="PackedScene" uid="uid://d0jr4dnvpbinf" path="res://icon/icon_filesystem/fs_icon.tscn" id="2_lv4jb"]
 [ext_resource type="PackedScene" uid="uid://biqff5ectg1ig" path="res://window/extensions/window_button/window_button.tscn" id="3_s2o0q"]
 [ext_resource type="Script" path="res://window/tool_draw_window.gd" id="4_h4nyf"]
 [ext_resource type="Script" path="res://window/extensions/title/title.gd" id="7_jabr0"]

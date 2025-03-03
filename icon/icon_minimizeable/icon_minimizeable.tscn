@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://q7fcv5vhmt4l"]
 
-[ext_resource type="Script" path="res://icon_minimizeable/icon_minimizeable.gd" id="1_j0m3v"]
+[ext_resource type="Script" path="res://icon/icon_minimizeable/icon_minimizeable.gd" id="1_j0m3v"]
 [ext_resource type="Texture2D" uid="uid://ckv5yvu1l2swx" path="res://assets/art/icon_notes_concept.png" id="2_08w1o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qsnvp"]
