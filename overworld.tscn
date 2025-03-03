@@ -12,82 +12,35 @@
 
 [node name="Overworld" type="Node2D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Wallpaper" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="Wallpaper"]
 position = Vector2(320, 180)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("7_u6ve0")
-
-[node name="NoteWindow" parent="." node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
-position = Vector2(-197, 195)
-text_override = "????"
-title_override = "===>"
-init_height = 62.0
-init_width = 93.0
-starting_file = NodePath("../Filesystem/First")
 
 [node name="Player" parent="." instance=ExtResource("1_y4pvv")]
 position = Vector2(-80, 227)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-81, -37)
+limit_smoothed = true
 
-[node name="Window2" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(114, -70)
+[node name="Window16" parent="." instance=ExtResource("2_gk3av")]
+position = Vector2(-455, -516)
+init_height = 167.0
+init_width = 279.0
 
-[node name="Window5" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(443, 55)
+[node name="Window17" parent="." instance=ExtResource("2_gk3av")]
+position = Vector2(-805, -15.3826)
+init_height = 255.0
+init_width = 367.0
 
-[node name="Window6" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(-2, 139.53)
-init_height = 95.0
-init_width = 136.0
-
-[node name="Window4" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(583, 112)
-
-[node name="Window7" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(-278, 243)
-init_height = 74.0
-init_width = 101.0
-
-[node name="Window9" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(121, 690)
-init_height = 121.0
-init_width = 327.0
-
-[node name="HiddenBlock" parent="." instance=ExtResource("1_c0e8o")]
-position = Vector2(-107, 180)
-closed = true
-
-[node name="Window" parent="HiddenBlock" instance=ExtResource("2_gk3av")]
-position = Vector2(31, -24)
-init_height = 42.0
-init_width = 52.0
-
-[node name="Sprite2D" type="Sprite2D" parent="HiddenBlock"]
-texture = ExtResource("4_xcovc")
-
-[node name="Area2D" type="Area2D" parent="HiddenBlock"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HiddenBlock/Area2D"]
-shape = SubResource("RectangleShape2D_plwyu")
-
-[node name="Window10" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(-152.61, 246)
-init_height = 113.0
-init_width = 139.0
-
-[node name="Window11" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(-317, 59)
-
-[node name="Window12" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(-156, -61)
-
-[node name="Window12" parent="Window12" instance=ExtResource("2_gk3av")]
-position = Vector2(-173, 221)
+[node name="Window18" parent="." instance=ExtResource("2_gk3av")]
+position = Vector2(-634, 506)
+init_height = 286.0
+init_width = 196.0
 
 [node name="Filesystem" type="Node" parent="."]
 script = ExtResource("5_otjsx")
@@ -112,66 +65,135 @@ data = "the pacr gram fitness test"
 script = ExtResource("5_otjsx")
 data = "Lmao"
 
-[node name="NoteWindow2" parent="." node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
+[node name="Starting" type="Node2D" parent="."]
+
+[node name="NoteWindow" parent="Starting" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
+position = Vector2(-197, 195)
+text_override = "????"
+title_override = "===>"
+init_height = 62.0
+init_width = 93.0
+starting_file = NodePath("../../Filesystem/First")
+
+[node name="Window6" parent="Starting" instance=ExtResource("2_gk3av")]
+position = Vector2(-2, 139.53)
+init_height = 95.0
+init_width = 136.0
+
+[node name="Window7" parent="Starting" instance=ExtResource("2_gk3av")]
+position = Vector2(-278, 243)
+init_height = 74.0
+init_width = 101.0
+
+[node name="Window10" parent="Starting" instance=ExtResource("2_gk3av")]
+position = Vector2(-152.61, 246)
+init_height = 113.0
+init_width = 139.0
+
+[node name="Window11" parent="Starting" instance=ExtResource("2_gk3av")]
+position = Vector2(-317, 59)
+
+[node name="Window12" parent="Starting" instance=ExtResource("2_gk3av")]
+position = Vector2(-329, 160)
+
+[node name="HiddenBlock" parent="Starting" instance=ExtResource("1_c0e8o")]
+position = Vector2(-107, 180)
+closed = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Starting/HiddenBlock"]
+texture = ExtResource("4_xcovc")
+
+[node name="Area2D" type="Area2D" parent="Starting/HiddenBlock"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Starting/HiddenBlock/Area2D"]
+shape = SubResource("RectangleShape2D_plwyu")
+
+[node name="Window" parent="Starting/HiddenBlock" instance=ExtResource("2_gk3av")]
+position = Vector2(31, -24)
+init_height = 42.0
+init_width = 52.0
+
+[node name="Arrows" type="Node2D" parent="."]
+
+[node name="Window2" parent="Arrows" instance=ExtResource("2_gk3av")]
+position = Vector2(114, -70)
+
+[node name="Window5" parent="Arrows" instance=ExtResource("2_gk3av")]
+position = Vector2(443, 55)
+
+[node name="Window4" parent="Arrows" instance=ExtResource("2_gk3av")]
+position = Vector2(583, 112)
+
+[node name="Window12" parent="Arrows" instance=ExtResource("2_gk3av")]
+position = Vector2(-156, -61)
+
+[node name="NoteWindow2" parent="Arrows" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
 position = Vector2(-146, -26)
 text_override = "E@0x?????"
 title_override = "VVV"
 init_height = 86.0
 init_width = 184.0
-starting_file = NodePath("../Filesystem/First")
+starting_file = NodePath("../../Filesystem/First")
 
-[node name="NoteWindow3" parent="." node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
+[node name="NoteWindow3" parent="Arrows" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
 position = Vector2(228, 59.1064)
 text_override = "!!"
 title_override = "||"
 init_height = 99.0
 init_width = 54.0
-starting_file = NodePath("../Filesystem/First")
+starting_file = NodePath("../../Filesystem/First")
 
-[node name="NoteWindow4" parent="." node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
+[node name="NoteWindow4" parent="Arrows" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
 position = Vector2(242, 146)
 text_override = "!!!"
 init_height = 67.0
 init_width = 49.0
-starting_file = NodePath("../Filesystem/First")
+starting_file = NodePath("../../Filesystem/First")
 
-[node name="NoteWindow5" parent="." node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
+[node name="NoteWindow5" parent="Arrows" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
 position = Vector2(273, 199)
 text_override = "!!!!"
 title_override = "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 init_height = 90.0
 init_width = 49.0
-starting_file = NodePath("../Filesystem/First")
+starting_file = NodePath("../../Filesystem/First")
 
-[node name="NoteWindow6" parent="." node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
+[node name="NoteWindow6" parent="Arrows" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
 position = Vector2(264, -27.8102)
 text_override = "||"
 title_override = "||"
-starting_file = NodePath("../Filesystem/First")
+starting_file = NodePath("../../Filesystem/First")
 
-[node name="NoteWindow7" parent="." node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
+[node name="NoteWindow7" parent="Arrows" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
 position = Vector2(311.832, 147)
 text_override = "!!!"
 init_height = 74.0
 init_width = 51.0
-starting_file = NodePath("../Filesystem/First")
+starting_file = NodePath("../../Filesystem/First")
 
-[node name="NoteWindow8" parent="." node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
+[node name="NoteWindow8" parent="Arrows" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
 position = Vector2(338, 57.3226)
 text_override = "!!!!"
 init_height = 87.0
 init_width = 53.0
-starting_file = NodePath("../Filesystem/First")
+starting_file = NodePath("../../Filesystem/First")
 
-[node name="Window13" parent="." instance=ExtResource("2_gk3av")]
+[node name="Jumping" type="Node2D" parent="."]
+
+[node name="Window9" parent="Jumping" instance=ExtResource("2_gk3av")]
+position = Vector2(121, 690)
+init_height = 121.0
+init_width = 327.0
+
+[node name="Window13" parent="Jumping" instance=ExtResource("2_gk3av")]
 position = Vector2(494, 690)
 init_height = 76.0
 init_width = 347.0
 
-[node name="Window14" parent="." instance=ExtResource("2_gk3av")]
+[node name="Window14" parent="Jumping" instance=ExtResource("2_gk3av")]
 position = Vector2(878, 694)
 init_height = 280.0
 init_width = 367.0
 
-[node name="Window15" parent="." instance=ExtResource("2_gk3av")]
+[node name="Window15" parent="Jumping" instance=ExtResource("2_gk3av")]
 position = Vector2(1274, 690)
