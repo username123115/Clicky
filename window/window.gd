@@ -182,14 +182,20 @@ func _process(delta: float) -> void:
 	pass
 	
 func _draw() -> void:
-	var r := Rect2()
-	r.size = Vector2(width, height)
-	r.position = Vector2(0, 0)
+	var r_inner := Rect2()
+	var r_outer := Rect2()
+
+	r_inner.size = Vector2(width, height)
+	r_inner.position = Vector2(0, 0)
+
+	r_outer.size = Vector2(width + 2, height + 2)
+	r_outer.position = Vector2(-1, -1)
+
 	if not hiding:
 		
-		draw_rect(r, theme.CWINDOW_BODY)
-		draw_rect(r, theme.CWINDOW_OUTLINE, false, -1.0)
+		draw_rect(r_outer, theme.CWINDOW_OUTLINE)#, false, -1.0)
+		draw_rect(r_inner, theme.CWINDOW_BODY)
 	else:
-		draw_rect(r, theme.CWINDOW_HIDING, false, -1.0)
+		draw_rect(r_inner, theme.CWINDOW_HIDING, false, -1.0)
 	#draw_rect(r, Color.LIGHT_GRAY)
 	#draw_rect(r, Color.WHITE, false, -1.0)

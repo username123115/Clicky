@@ -22,7 +22,7 @@ func _draw() -> void:
 	if is_hiding:
 		return
 	var r := Rect2()
-	r.size = Vector2(width - 1, container.actual_size.y + 2 * padding_vertical)
+	r.size = Vector2(width, container.actual_size.y + 2 * padding_vertical)
 	r.position = Vector2(0, 0)
 	
 	draw_rect(r, Color.GRAY)
