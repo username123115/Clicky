@@ -15,7 +15,11 @@ class_name Player
 @export var WALL_JUMP_WEAK : float = 200.0
 @export var WALL_JUMP_STRONG : float = 250.0
 
+@export var JUMP_BUFFER_FRAMES : int = 7
+
 enum GrabState { GRAB_LEFT, GRAB_NONE, GRAB_RIGHT }
+
+var jump_buffer : int = 0
 
 var in_icon : bool = false
 var icon : Node
@@ -43,3 +47,11 @@ func _ready() -> void:
 
 func enable_border_collisions(v : bool) -> void:
 	set_collision_mask_value(Enums.LayerValues.WINDOWBORDERS, v);
+
+func _physics_process(_delta : float):
+	jump_buffer -= 1
+	if Input.is_action_just_pressed("jump"):
+		jump_buffer = JUMP_BUFFER_FRAMES
+
+	if (jump_buffer < 0):
+		jump_buffer = 0

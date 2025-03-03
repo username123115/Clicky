@@ -39,7 +39,8 @@ func apply_gravity(_delta : float, gravity : float) -> void:
 
 
 func handle_jump() -> void:
-	if Input.is_action_just_pressed("jump"):
+	#if Input.is_action_just_pressed("jump"):
+	if owner.jump_buffer > 0:
 		# test for walls
 		var orig_p := Vector2(owner.global_position)
 		var orig_v := Vector2(owner.velocity)
@@ -67,6 +68,7 @@ func handle_jump() -> void:
 
 		owner.global_position = orig_p
 		owner.velocity = new;
+		owner.jump_buffer = 0
 		if jumping:
 			emit_jump()
 

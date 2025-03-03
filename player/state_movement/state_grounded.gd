@@ -31,10 +31,12 @@ func update(_delta: float) -> void:
 			#print("bye")
 			finished.emit("falling")
 	
-	if Input.is_action_just_pressed("jump"):
+	#if Input.is_action_just_pressed("jump"):
+	if owner.jump_buffer > 0:
 		if owner.velocity.y > 0:
 			owner.velocity.y = 0
 		owner.velocity.y -= owner.JUMP;
 		#print("bye")
+		owner.jump_buffer = 0
 		finished.emit("falling");
 
