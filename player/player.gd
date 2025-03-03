@@ -9,8 +9,9 @@ class_name Player
 
 
 @export var GRAVITY : float = 980.0
+@export var GRAVITY_WEAK : float = 490.0
 
-@export var JUMP : float = 300.0
+@export var JUMP : float = 150.0
 @export var WALL_JUMP_WEAK : float = 200.0
 @export var WALL_JUMP_STRONG : float = 250.0
 
