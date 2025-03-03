@@ -94,7 +94,7 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("7_u6ve0")
 
 [node name="Player" parent="." instance=ExtResource("1_y4pvv")]
-position = Vector2(-80, 227)
+position = Vector2(-88, 224)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-81, -37)
@@ -106,12 +106,12 @@ init_height = 167.0
 init_width = 279.0
 
 [node name="Window17" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(-805, -15.3826)
+position = Vector2(-808, -16)
 init_height = 255.0
 init_width = 367.0
 
 [node name="Window18" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(-634, 506)
+position = Vector2(-640, 504)
 init_height = 286.0
 init_width = 196.0
 
@@ -141,7 +141,7 @@ data = "Lmao"
 [node name="Starting" type="Node2D" parent="."]
 
 [node name="NoteWindow" parent="Starting" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
-position = Vector2(-197, 195)
+position = Vector2(-192, 192)
 text_override = "????"
 title_override = "===>"
 init_height = 62.0
@@ -154,17 +154,17 @@ init_height = 95.0
 init_width = 136.0
 
 [node name="Window7" parent="Starting" instance=ExtResource("2_gk3av")]
-position = Vector2(-278, 243)
+position = Vector2(-280, 240)
 init_height = 74.0
 init_width = 101.0
 
 [node name="Window10" parent="Starting" instance=ExtResource("2_gk3av")]
-position = Vector2(-152.61, 246)
+position = Vector2(-152, 240)
 init_height = 113.0
 init_width = 139.0
 
 [node name="Window11" parent="Starting" instance=ExtResource("2_gk3av")]
-position = Vector2(-317, 59)
+position = Vector2(-320, 64)
 
 [node name="Window12" parent="Starting" instance=ExtResource("2_gk3av")]
 position = Vector2(-329, 160)
@@ -182,26 +182,26 @@ texture = ExtResource("4_xcovc")
 shape = SubResource("RectangleShape2D_plwyu")
 
 [node name="Window" parent="Starting/HiddenBlock" instance=ExtResource("2_gk3av")]
-position = Vector2(31, -24)
+position = Vector2(35, -28)
 init_height = 42.0
 init_width = 52.0
 
 [node name="Arrows" type="Node2D" parent="."]
 
 [node name="Window2" parent="Arrows" instance=ExtResource("2_gk3av")]
-position = Vector2(114, -70)
+position = Vector2(112, -72)
 
 [node name="Window5" parent="Arrows" instance=ExtResource("2_gk3av")]
-position = Vector2(443, 55)
+position = Vector2(440, 48)
 
 [node name="Window4" parent="Arrows" instance=ExtResource("2_gk3av")]
-position = Vector2(583, 112)
+position = Vector2(576, 112)
 
 [node name="Window12" parent="Arrows" instance=ExtResource("2_gk3av")]
-position = Vector2(-156, -61)
+position = Vector2(-160, -64)
 
 [node name="NoteWindow2" parent="Arrows" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
-position = Vector2(-146, -26)
+position = Vector2(-144, -32)
 text_override = "E@0x?????"
 title_override = "VVV"
 init_height = 86.0
@@ -209,7 +209,7 @@ init_width = 184.0
 starting_file = NodePath("../../Filesystem/First")
 
 [node name="NoteWindow3" parent="Arrows" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
-position = Vector2(228, 59.1064)
+position = Vector2(224, 56)
 text_override = "!!"
 title_override = "||"
 init_height = 99.0
@@ -217,14 +217,14 @@ init_width = 54.0
 starting_file = NodePath("../../Filesystem/First")
 
 [node name="NoteWindow4" parent="Arrows" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
-position = Vector2(242, 146)
+position = Vector2(240, 144)
 text_override = "!!!"
 init_height = 67.0
 init_width = 49.0
 starting_file = NodePath("../../Filesystem/First")
 
 [node name="NoteWindow5" parent="Arrows" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
-position = Vector2(273, 199)
+position = Vector2(272, 200)
 text_override = "!!!!"
 title_override = "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 init_height = 90.0
@@ -232,20 +232,20 @@ init_width = 49.0
 starting_file = NodePath("../../Filesystem/First")
 
 [node name="NoteWindow6" parent="Arrows" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
-position = Vector2(264, -27.8102)
+position = Vector2(256, -32)
 text_override = "||"
 title_override = "||"
 starting_file = NodePath("../../Filesystem/First")
 
 [node name="NoteWindow7" parent="Arrows" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
-position = Vector2(311.832, 147)
+position = Vector2(304, 144)
 text_override = "!!!"
 init_height = 74.0
 init_width = 51.0
 starting_file = NodePath("../../Filesystem/First")
 
 [node name="NoteWindow8" parent="Arrows" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
-position = Vector2(338, 57.3226)
+position = Vector2(328, 56)
 text_override = "!!!!"
 init_height = 87.0
 init_width = 53.0
@@ -254,48 +254,48 @@ starting_file = NodePath("../../Filesystem/First")
 [node name="Jumping" type="Node2D" parent="."]
 
 [node name="Window9" parent="Jumping" instance=ExtResource("2_gk3av")]
-position = Vector2(121, 690)
+position = Vector2(120, 688)
 init_height = 121.0
 init_width = 327.0
 
 [node name="Window13" parent="Jumping" instance=ExtResource("2_gk3av")]
-position = Vector2(494, 690)
+position = Vector2(488, 688)
 init_height = 76.0
 init_width = 347.0
 
 [node name="Window14" parent="Jumping" instance=ExtResource("2_gk3av")]
-position = Vector2(878, 694)
+position = Vector2(872, 688)
 init_height = 280.0
 init_width = 367.0
 
 [node name="Window15" parent="Jumping" instance=ExtResource("2_gk3av")]
-position = Vector2(1274, 690)
+position = Vector2(1272, 688)
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
+[node name="Background" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.75, 1)
 
-[node name="Worm" type="AnimatedSprite2D" parent="Parallax2D"]
+[node name="Worm" type="AnimatedSprite2D" parent="Background"]
 z_index = -1024
 position = Vector2(-121, 101)
 sprite_frames = SubResource("SpriteFrames_jgvri")
 script = ExtResource("9_1ucn7")
 off = 40.0
 
-[node name="Worm" type="AnimatedSprite2D" parent="."]
+[node name="Worm2" type="AnimatedSprite2D" parent="Background"]
 z_index = -1024
-position = Vector2(65, -32)
+position = Vector2(64, -32)
 sprite_frames = SubResource("SpriteFrames_jgvri")
 script = ExtResource("9_1ucn7")
 off = 90.0
 
-[node name="Worm2" type="AnimatedSprite2D" parent="."]
+[node name="Worm3" type="AnimatedSprite2D" parent="Background"]
 z_index = -1024
 position = Vector2(199, 94)
 sprite_frames = SubResource("SpriteFrames_jgvri")
 script = ExtResource("9_1ucn7")
 off = 120.0
 
-[node name="Worm3" type="AnimatedSprite2D" parent="."]
+[node name="Worm4" type="AnimatedSprite2D" parent="Background"]
 z_index = -1024
 position = Vector2(-273, -3)
 sprite_frames = SubResource("SpriteFrames_jgvri")
