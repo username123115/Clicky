@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b76rhy6jvdbac"]
+[gd_scene load_steps=23 format=3 uid="uid://b76rhy6jvdbac"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_ce8eu"]
 [ext_resource type="Texture2D" uid="uid://csb4wseuhc7sj" path="res://assets/art/clicky_concept.png" id="2_3j0jd"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://player/state_movement/state_idle.gd" id="9_ec1ec"]
 [ext_resource type="Script" path="res://player/state_movement/state_grounded.gd" id="10_jgftk"]
 [ext_resource type="Script" path="res://player/state_window_interactions/state_move.gd" id="12_rnb1k"]
+[ext_resource type="Script" path="res://player/camera_manager.gd" id="17_53dao"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_babds"]
 size = Vector2(10, 14)
@@ -127,3 +128,6 @@ script = ExtResource("12_rnb1k")
 libraries = {
 "": SubResource("AnimationLibrary_61ore")
 }
+
+[node name="CameraMan" type="Node" parent="."]
+script = ExtResource("17_53dao")

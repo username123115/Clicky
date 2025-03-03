@@ -17,6 +17,8 @@ class_name Player
 
 @export var JUMP_BUFFER_FRAMES : int = 7
 
+@export var CAMERA : Camera2D
+
 enum GrabState { GRAB_LEFT, GRAB_NONE, GRAB_RIGHT }
 
 var jump_buffer : int = 0

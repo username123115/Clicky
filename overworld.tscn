@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://c486tyteiwvfa"]
+[gd_scene load_steps=22 format=3 uid="uid://c486tyteiwvfa"]
 
 [ext_resource type="PackedScene" uid="uid://q7fcv5vhmt4l" path="res://icon/icon_minimizeable/icon_minimizeable.tscn" id="1_c0e8o"]
+[ext_resource type="PackedScene" uid="uid://v3vsaimr4sr2" path="res://camera_zone/camera_zone.tscn" id="1_m2k8n"]
 [ext_resource type="PackedScene" uid="uid://d008u54n70lkq" path="res://window/note_window/note_window.tscn" id="1_pqniw"]
 [ext_resource type="PackedScene" uid="uid://b76rhy6jvdbac" path="res://player/player.tscn" id="1_y4pvv"]
 [ext_resource type="PackedScene" uid="uid://c4p7vdke6f5n2" path="res://window/window.tscn" id="2_gk3av"]
@@ -85,6 +86,14 @@ animations = [{
 
 [node name="Overworld" type="Node2D"]
 
+[node name="CameraZones" type="Node2D" parent="."]
+
+[node name="CameraZone" parent="CameraZones" instance=ExtResource("1_m2k8n")]
+position = Vector2(-80, 200)
+
+[node name="CameraZone2" parent="CameraZones" instance=ExtResource("1_m2k8n")]
+position = Vector2(200, 544)
+
 [node name="Wallpaper" type="CanvasLayer" parent="."]
 layer = -1
 
@@ -93,12 +102,9 @@ position = Vector2(320, 180)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("7_u6ve0")
 
-[node name="Player" parent="." instance=ExtResource("1_y4pvv")]
+[node name="Player" parent="." node_paths=PackedStringArray("CAMERA") instance=ExtResource("1_y4pvv")]
 position = Vector2(-88, 224)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-81, -37)
-limit_smoothed = true
+CAMERA = NodePath("../Camera2D")
 
 [node name="Window16" parent="." instance=ExtResource("2_gk3av")]
 position = Vector2(-455, -516)
@@ -115,37 +121,14 @@ position = Vector2(-640, 504)
 init_height = 286.0
 init_width = 196.0
 
-[node name="Filesystem" type="Node" parent="."]
-script = ExtResource("5_otjsx")
-
-[node name="First" type="Node" parent="Filesystem"]
-script = ExtResource("5_otjsx")
-data = "!ERROR!"
-
-[node name="Second" type="Node" parent="Filesystem"]
-script = ExtResource("5_otjsx")
-data = ":((((((((("
-
-[node name="Third" type="Node" parent="Filesystem"]
-script = ExtResource("5_otjsx")
-data = ":{ :} :{"
-
-[node name="Fourth" type="Node" parent="Filesystem"]
-script = ExtResource("5_otjsx")
-data = "the pacr gram fitness test"
-
-[node name="Fifth" type="Node" parent="Filesystem"]
-script = ExtResource("5_otjsx")
-data = "Lmao"
-
 [node name="Starting" type="Node2D" parent="."]
 
 [node name="NoteWindow" parent="Starting" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
-position = Vector2(-192, 192)
+position = Vector2(-192, 188.576)
 text_override = "????"
 title_override = "===>"
-init_height = 62.0
-init_width = 93.0
+init_height = 52.0
+init_width = 88.0
 starting_file = NodePath("../../Filesystem/First")
 
 [node name="Window6" parent="Starting" instance=ExtResource("2_gk3av")]
@@ -204,31 +187,23 @@ position = Vector2(-160, -64)
 position = Vector2(-144, -32)
 text_override = "E@0x?????"
 title_override = "VVV"
-init_height = 86.0
-init_width = 184.0
 starting_file = NodePath("../../Filesystem/First")
 
 [node name="NoteWindow3" parent="Arrows" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
 position = Vector2(224, 56)
 text_override = "!!"
 title_override = "||"
-init_height = 99.0
-init_width = 54.0
 starting_file = NodePath("../../Filesystem/First")
 
 [node name="NoteWindow4" parent="Arrows" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
 position = Vector2(240, 144)
 text_override = "!!!"
-init_height = 67.0
-init_width = 49.0
 starting_file = NodePath("../../Filesystem/First")
 
 [node name="NoteWindow5" parent="Arrows" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
 position = Vector2(272, 200)
 text_override = "!!!!"
 title_override = "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-init_height = 90.0
-init_width = 49.0
 starting_file = NodePath("../../Filesystem/First")
 
 [node name="NoteWindow6" parent="Arrows" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
@@ -240,15 +215,11 @@ starting_file = NodePath("../../Filesystem/First")
 [node name="NoteWindow7" parent="Arrows" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
 position = Vector2(304, 144)
 text_override = "!!!"
-init_height = 74.0
-init_width = 51.0
 starting_file = NodePath("../../Filesystem/First")
 
 [node name="NoteWindow8" parent="Arrows" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
 position = Vector2(328, 56)
 text_override = "!!!!"
-init_height = 87.0
-init_width = 53.0
 starting_file = NodePath("../../Filesystem/First")
 
 [node name="Jumping" type="Node2D" parent="."]
@@ -273,6 +244,7 @@ position = Vector2(1272, 688)
 
 [node name="Background" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.75, 1)
+scroll_offset = Vector2(40, 120)
 
 [node name="Worm" type="AnimatedSprite2D" parent="Background"]
 z_index = -1024
@@ -300,3 +272,30 @@ z_index = -1024
 position = Vector2(-273, -3)
 sprite_frames = SubResource("SpriteFrames_jgvri")
 script = ExtResource("9_1ucn7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-169, 187)
+limit_smoothed = true
+
+[node name="Filesystem" type="Node" parent="."]
+script = ExtResource("5_otjsx")
+
+[node name="First" type="Node" parent="Filesystem"]
+script = ExtResource("5_otjsx")
+data = "!ERROR!"
+
+[node name="Second" type="Node" parent="Filesystem"]
+script = ExtResource("5_otjsx")
+data = ":((((((((("
+
+[node name="Third" type="Node" parent="Filesystem"]
+script = ExtResource("5_otjsx")
+data = ":{ :} :{"
+
+[node name="Fourth" type="Node" parent="Filesystem"]
+script = ExtResource("5_otjsx")
+data = "the pacr gram fitness test"
+
+[node name="Fifth" type="Node" parent="Filesystem"]
+script = ExtResource("5_otjsx")
+data = "Lmao"
