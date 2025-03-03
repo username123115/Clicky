@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c486tyteiwvfa"]
+[gd_scene load_steps=21 format=3 uid="uid://c486tyteiwvfa"]
 
 [ext_resource type="PackedScene" uid="uid://q7fcv5vhmt4l" path="res://icon_minimizeable/icon_minimizeable.tscn" id="1_c0e8o"]
 [ext_resource type="PackedScene" uid="uid://d008u54n70lkq" path="res://window/note_window/note_window.tscn" id="1_pqniw"]
@@ -7,8 +7,81 @@
 [ext_resource type="Texture2D" uid="uid://be3m82oy5v44k" path="res://assets/art/small_icon_file.png" id="4_xcovc"]
 [ext_resource type="Script" path="res://filesys/file_node.gd" id="5_otjsx"]
 [ext_resource type="Texture2D" uid="uid://dcc8ipap726yf" path="res://assets/art/background.png" id="7_u6ve0"]
+[ext_resource type="Texture2D" uid="uid://fn3h8ex65hx7" path="res://assets/art/worm_spritesheet.png" id="8_bjfuu"]
+[ext_resource type="Script" path="res://worm/worm.gd" id="9_1ucn7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plwyu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhxqe"]
+atlas = ExtResource("8_bjfuu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5usxc"]
+atlas = ExtResource("8_bjfuu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h47m5"]
+atlas = ExtResource("8_bjfuu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipoqk"]
+atlas = ExtResource("8_bjfuu")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lmoy"]
+atlas = ExtResource("8_bjfuu")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02s5m"]
+atlas = ExtResource("8_bjfuu")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shhoo"]
+atlas = ExtResource("8_bjfuu")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52c3i"]
+atlas = ExtResource("8_bjfuu")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eq6fi"]
+atlas = ExtResource("8_bjfuu")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jgvri"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhxqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5usxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h47m5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipoqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lmoy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02s5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shhoo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52c3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eq6fi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Overworld" type="Node2D"]
 
@@ -197,3 +270,33 @@ init_width = 367.0
 
 [node name="Window15" parent="Jumping" instance=ExtResource("2_gk3av")]
 position = Vector2(1274, 690)
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.75, 1)
+
+[node name="Worm" type="AnimatedSprite2D" parent="Parallax2D"]
+z_index = -1024
+position = Vector2(-121, 101)
+sprite_frames = SubResource("SpriteFrames_jgvri")
+script = ExtResource("9_1ucn7")
+off = 40.0
+
+[node name="Worm" type="AnimatedSprite2D" parent="."]
+z_index = -1024
+position = Vector2(65, -32)
+sprite_frames = SubResource("SpriteFrames_jgvri")
+script = ExtResource("9_1ucn7")
+off = 90.0
+
+[node name="Worm2" type="AnimatedSprite2D" parent="."]
+z_index = -1024
+position = Vector2(199, 94)
+sprite_frames = SubResource("SpriteFrames_jgvri")
+script = ExtResource("9_1ucn7")
+off = 120.0
+
+[node name="Worm3" type="AnimatedSprite2D" parent="."]
+z_index = -1024
+position = Vector2(-273, -3)
+sprite_frames = SubResource("SpriteFrames_jgvri")
+script = ExtResource("9_1ucn7")
