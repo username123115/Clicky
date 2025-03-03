@@ -7,7 +7,6 @@ class_name GameWinBA
 func _ready() -> void:
 	buttons.connect("button_clicked", _on_button_clicked)
 	super._ready()
-	print("singasdf!")
 
 
 func _on_button_clicked(type : Enums.WindowButtonType) -> void:
