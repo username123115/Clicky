@@ -121,6 +121,10 @@ shape = SubResource("RectangleShape2D_dhp64")
 [node name="CameraZone3" parent="CameraZones" instance=ExtResource("1_m2k8n")]
 position = Vector2(408, 824)
 behavior = 1
+limit_y = Vector2(0, 0)
+
+[node name="DefaultFocal" parent="CameraZones/CameraZone3" index="0"]
+position = Vector2(232, -136)
 
 [node name="CollisionShape2D" parent="CameraZones/CameraZone3" index="1"]
 position = Vector2(308, -20)

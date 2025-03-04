@@ -35,8 +35,8 @@ var order : int = 0:
 		z_index = WindowOrderer.startIndex + order
 
 @export var hiding : bool = false:
-	get:
-		return hiding
+	#get:
+	#	return hiding
 	set(value):
 		hiding = value
 		for child in extensions:
@@ -54,8 +54,8 @@ var height: int:
 	get:
 		return height
 	set(value):
-		if value % 2:
-			value -= 1
+		#if value % 2:
+		#	value -= 1
 		if (value < min_height): value = min_height
 		height = value
 		for child in extensions:

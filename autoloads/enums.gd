@@ -29,5 +29,6 @@ enum FileType {
 
 enum CameraBehavior {
 	CENTER = 0,
-	FOLLOW = 1
+	FOLLOW = 1,
+	FOLLOW_UNIDIR = 2,
 }
