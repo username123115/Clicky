@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c486tyteiwvfa"]
+[gd_scene load_steps=26 format=3 uid="uid://c486tyteiwvfa"]
 
 [ext_resource type="PackedScene" uid="uid://q7fcv5vhmt4l" path="res://icon/icon_minimizeable/icon_minimizeable.tscn" id="1_c0e8o"]
 [ext_resource type="PackedScene" uid="uid://v3vsaimr4sr2" path="res://camera_zone/camera_zone.tscn" id="1_m2k8n"]
@@ -10,6 +10,22 @@
 [ext_resource type="Texture2D" uid="uid://dcc8ipap726yf" path="res://assets/art/background.png" id="7_u6ve0"]
 [ext_resource type="Texture2D" uid="uid://fn3h8ex65hx7" path="res://assets/art/worm_spritesheet.png" id="8_bjfuu"]
 [ext_resource type="Script" path="res://worm/worm.gd" id="9_1ucn7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_liwe4"]
+resource_local_to_scene = true
+size = Vector2(472, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhp64"]
+resource_local_to_scene = true
+size = Vector2(640, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5tl7w"]
+resource_local_to_scene = true
+size = Vector2(1288, 456)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5aeur"]
+resource_local_to_scene = true
+size = Vector2(472, 320)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plwyu"]
 
@@ -91,8 +107,31 @@ animations = [{
 [node name="CameraZone" parent="CameraZones" instance=ExtResource("1_m2k8n")]
 position = Vector2(-80, 200)
 
+[node name="CollisionShape2D" parent="CameraZones/CameraZone" index="1"]
+position = Vector2(-84, 0)
+shape = SubResource("RectangleShape2D_liwe4")
+
 [node name="CameraZone2" parent="CameraZones" instance=ExtResource("1_m2k8n")]
 position = Vector2(200, 544)
+
+[node name="CollisionShape2D" parent="CameraZones/CameraZone2" index="1"]
+position = Vector2(0, -76)
+shape = SubResource("RectangleShape2D_dhp64")
+
+[node name="CameraZone3" parent="CameraZones" instance=ExtResource("1_m2k8n")]
+position = Vector2(408, 824)
+behavior = 1
+
+[node name="CollisionShape2D" parent="CameraZones/CameraZone3" index="1"]
+position = Vector2(308, -20)
+shape = SubResource("RectangleShape2D_5tl7w")
+
+[node name="CameraZone4" parent="CameraZones" instance=ExtResource("1_m2k8n")]
+position = Vector2(400, 200)
+
+[node name="CollisionShape2D" parent="CameraZones/CameraZone4" index="1"]
+position = Vector2(-84, 0)
+shape = SubResource("RectangleShape2D_5aeur")
 
 [node name="Wallpaper" type="CanvasLayer" parent="."]
 layer = -1
@@ -299,3 +338,8 @@ data = "the pacr gram fitness test"
 [node name="Fifth" type="Node" parent="Filesystem"]
 script = ExtResource("5_otjsx")
 data = "Lmao"
+
+[editable path="CameraZones/CameraZone"]
+[editable path="CameraZones/CameraZone2"]
+[editable path="CameraZones/CameraZone3"]
+[editable path="CameraZones/CameraZone4"]

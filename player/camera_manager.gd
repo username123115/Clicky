@@ -1,6 +1,9 @@
 extends Node
 
+@export var lerp_speed = 10.0
+
 var zone : CameraZone
+var target : Vector2
 
 func _ready() -> void:
 	if owner.CAMERA:
@@ -12,4 +15,19 @@ func change_zone(z : CameraZone, b : Node2D):
 	if not b == owner:
 		pass
 	zone = z
-	owner.CAMERA.global_position = zone.focal_point.global_position
+	target = zone.focal_point.global_position
+
+func _physics_process(delta: float) -> void:
+	if not zone:
+		return
+	match zone.behavior:
+		Enums.CameraBehavior.CENTER:
+			pass
+		Enums.CameraBehavior.FOLLOW:
+			target = owner.global_position
+	var cam := owner.CAMERA as Camera2D
+	if cam.global_position.is_equal_approx(target):
+		return
+	cam.global_position = cam.global_position.lerp(target, delta * lerp_speed)
+	
+	
