@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://4knhrplfnjlt"]
+
+[ext_resource type="Script" path="res://zones/validity_zone/death_zone.gd" id="1_havne"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcdt1"]
+resource_local_to_scene = true
+
+[node name="DeathZone" type="Area2D"]
+script = ExtResource("1_havne")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hcdt1")
+debug_color = Color(0.854361, 0.30495, 0.537243, 0.42)

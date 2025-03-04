@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b76rhy6jvdbac"]
+[gd_scene load_steps=24 format=3 uid="uid://b76rhy6jvdbac"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_ce8eu"]
 [ext_resource type="Texture2D" uid="uid://csb4wseuhc7sj" path="res://assets/art/clicky_concept.png" id="2_3j0jd"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://player/state_movement/state_grounded.gd" id="10_jgftk"]
 [ext_resource type="Script" path="res://player/state_window_interactions/state_move.gd" id="12_rnb1k"]
 [ext_resource type="Script" path="res://player/camera_manager.gd" id="17_53dao"]
+[ext_resource type="Script" path="res://player/spawner.gd" id="18_2naxm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_babds"]
 size = Vector2(10, 14)
@@ -94,7 +95,7 @@ script = ExtResource("4_15772")
 
 [node name="State Machine Movement" type="Node" parent="."]
 script = ExtResource("3_ejt0g")
-start_state = NodePath("Floating")
+start_state = NodePath("Falling")
 
 [node name="Floating" type="Node" parent="State Machine Movement"]
 script = ExtResource("3_70e58")
@@ -131,3 +132,6 @@ libraries = {
 
 [node name="CameraMan" type="Node" parent="."]
 script = ExtResource("17_53dao")
+
+[node name="Spawner" type="Node" parent="."]
+script = ExtResource("18_2naxm")

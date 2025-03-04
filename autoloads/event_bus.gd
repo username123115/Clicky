@@ -11,3 +11,5 @@ signal camera_zone_exited(area, body)
 
 signal live_zone_entered(area, body)
 signal live_zone_exited(area, body)
+
+signal death_zone_entered(area, body)

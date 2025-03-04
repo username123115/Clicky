@@ -1,15 +1,29 @@
-[gd_scene load_steps=27 format=3 uid="uid://c486tyteiwvfa"]
+[gd_scene load_steps=32 format=3 uid="uid://c486tyteiwvfa"]
 
+[ext_resource type="PackedScene" uid="uid://br3pvy7ad1y65" path="res://zones/validity_zone/live_zone.tscn" id="1_2idrp"]
 [ext_resource type="PackedScene" uid="uid://q7fcv5vhmt4l" path="res://icon/icon_minimizeable/icon_minimizeable.tscn" id="1_c0e8o"]
 [ext_resource type="PackedScene" uid="uid://v3vsaimr4sr2" path="res://zones/camera_zone/camera_zone.tscn" id="1_m2k8n"]
 [ext_resource type="PackedScene" uid="uid://d008u54n70lkq" path="res://window/note_window/note_window.tscn" id="1_pqniw"]
 [ext_resource type="PackedScene" uid="uid://b76rhy6jvdbac" path="res://player/player.tscn" id="1_y4pvv"]
+[ext_resource type="PackedScene" uid="uid://4knhrplfnjlt" path="res://zones/validity_zone/death_zone.tscn" id="2_41dnk"]
 [ext_resource type="PackedScene" uid="uid://c4p7vdke6f5n2" path="res://window/window.tscn" id="2_gk3av"]
 [ext_resource type="Texture2D" uid="uid://be3m82oy5v44k" path="res://assets/art/small_icon_file.png" id="4_xcovc"]
 [ext_resource type="Script" path="res://filesys/file_node.gd" id="5_otjsx"]
 [ext_resource type="Texture2D" uid="uid://dcc8ipap726yf" path="res://assets/art/background.png" id="7_u6ve0"]
 [ext_resource type="Texture2D" uid="uid://fn3h8ex65hx7" path="res://assets/art/worm_spritesheet.png" id="8_bjfuu"]
 [ext_resource type="Script" path="res://worm/worm.gd" id="9_1ucn7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c5t04"]
+resource_local_to_scene = true
+size = Vector2(1400, 680)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2t88w"]
+resource_local_to_scene = true
+size = Vector2(1560, 632)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kookn"]
+resource_local_to_scene = true
+size = Vector2(176, 512)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_liwe4"]
 resource_local_to_scene = true
@@ -108,6 +122,33 @@ size = Vector2(432, 226)
 
 [node name="PlayerValidityZones" type="Node2D" parent="."]
 
+[node name="LiveZone" parent="PlayerValidityZones" instance=ExtResource("1_2idrp")]
+position = Vector2(-152, 104)
+
+[node name="CollisionShape2D" parent="PlayerValidityZones/LiveZone" index="0"]
+position = Vector2(252, -68)
+shape = SubResource("RectangleShape2D_c5t04")
+
+[node name="SpawnPoint" type="Node2D" parent="PlayerValidityZones/LiveZone"]
+position = Vector2(64, 96)
+
+[node name="LiveZone2" parent="PlayerValidityZones" instance=ExtResource("1_2idrp")]
+position = Vector2(208, 664)
+
+[node name="CollisionShape2D" parent="PlayerValidityZones/LiveZone2" index="0"]
+position = Vector2(484, -4)
+shape = SubResource("RectangleShape2D_2t88w")
+
+[node name="SpawnPoint" type="Node2D" parent="PlayerValidityZones/LiveZone2"]
+position = Vector2(40, -16)
+
+[node name="DeathZone" parent="PlayerValidityZones" instance=ExtResource("2_41dnk")]
+position = Vector2(1296, 536)
+
+[node name="CollisionShape2D" parent="PlayerValidityZones/DeathZone" index="0"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_kookn")
+
 [node name="Misc" type="Node2D" parent="."]
 
 [node name="Window16" parent="Misc" instance=ExtResource("2_gk3av")]
@@ -126,6 +167,7 @@ init_height = 286.0
 init_width = 196.0
 
 [node name="CameraZones" type="Node2D" parent="."]
+visible = false
 
 [node name="CameraZone" parent="CameraZones" instance=ExtResource("1_m2k8n")]
 position = Vector2(-80, 200)
@@ -171,6 +213,7 @@ texture = ExtResource("7_u6ve0")
 [node name="Player" parent="." node_paths=PackedStringArray("CAMERA") instance=ExtResource("1_y4pvv")]
 position = Vector2(-88, 224)
 CAMERA = NodePath("../Camera2D")
+player_scene = ExtResource("1_y4pvv")
 
 [node name="Starting" type="Node2D" parent="."]
 
@@ -393,6 +436,9 @@ position = Vector2(8, 0)
 position = Vector2(0, 33)
 shape = SubResource("RectangleShape2D_xyvs6")
 
+[editable path="PlayerValidityZones/LiveZone"]
+[editable path="PlayerValidityZones/LiveZone2"]
+[editable path="PlayerValidityZones/DeathZone"]
 [editable path="CameraZones/CameraZone"]
 [editable path="CameraZones/CameraZone2"]
 [editable path="CameraZones/CameraZone3"]

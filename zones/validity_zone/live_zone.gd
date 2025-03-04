@@ -5,6 +5,7 @@ class_name LiveZone
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
+	body_exited.connect(_on_body_exited)
 	collision_mask = Enums.LayerMasks.PLAYER
 
 func _on_body_entered(body: Node2D):
