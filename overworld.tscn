@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://c486tyteiwvfa"]
 
 [ext_resource type="PackedScene" uid="uid://q7fcv5vhmt4l" path="res://icon/icon_minimizeable/icon_minimizeable.tscn" id="1_c0e8o"]
-[ext_resource type="PackedScene" uid="uid://v3vsaimr4sr2" path="res://camera_zone/camera_zone.tscn" id="1_m2k8n"]
+[ext_resource type="PackedScene" uid="uid://v3vsaimr4sr2" path="res://zones/camera_zone/camera_zone.tscn" id="1_m2k8n"]
 [ext_resource type="PackedScene" uid="uid://d008u54n70lkq" path="res://window/note_window/note_window.tscn" id="1_pqniw"]
 [ext_resource type="PackedScene" uid="uid://b76rhy6jvdbac" path="res://player/player.tscn" id="1_y4pvv"]
 [ext_resource type="PackedScene" uid="uid://c4p7vdke6f5n2" path="res://window/window.tscn" id="2_gk3av"]
@@ -21,7 +21,7 @@ size = Vector2(640, 200)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5tl7w"]
 resource_local_to_scene = true
-size = Vector2(1288, 456)
+size = Vector2(800, 456)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5aeur"]
 resource_local_to_scene = true
@@ -102,6 +102,25 @@ animations = [{
 
 [node name="Overworld" type="Node2D"]
 
+[node name="PlayerValidityZones" type="Node2D" parent="."]
+
+[node name="Misc" type="Node2D" parent="."]
+
+[node name="Window16" parent="Misc" instance=ExtResource("2_gk3av")]
+position = Vector2(-455, -516)
+init_height = 167.0
+init_width = 279.0
+
+[node name="Window17" parent="Misc" instance=ExtResource("2_gk3av")]
+position = Vector2(-808, -16)
+init_height = 255.0
+init_width = 367.0
+
+[node name="Window18" parent="Misc" instance=ExtResource("2_gk3av")]
+position = Vector2(-640, 504)
+init_height = 286.0
+init_width = 196.0
+
 [node name="CameraZones" type="Node2D" parent="."]
 
 [node name="CameraZone" parent="CameraZones" instance=ExtResource("1_m2k8n")]
@@ -127,7 +146,7 @@ limit_y = Vector2(0, 0)
 position = Vector2(232, -136)
 
 [node name="CollisionShape2D" parent="CameraZones/CameraZone3" index="1"]
-position = Vector2(308, -20)
+position = Vector2(64, -20)
 shape = SubResource("RectangleShape2D_5tl7w")
 
 [node name="CameraZone4" parent="CameraZones" instance=ExtResource("1_m2k8n")]
@@ -149,25 +168,10 @@ texture = ExtResource("7_u6ve0")
 position = Vector2(-88, 224)
 CAMERA = NodePath("../Camera2D")
 
-[node name="Window16" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(-455, -516)
-init_height = 167.0
-init_width = 279.0
-
-[node name="Window17" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(-808, -16)
-init_height = 255.0
-init_width = 367.0
-
-[node name="Window18" parent="." instance=ExtResource("2_gk3av")]
-position = Vector2(-640, 504)
-init_height = 286.0
-init_width = 196.0
-
 [node name="Starting" type="Node2D" parent="."]
 
 [node name="NoteWindow" parent="Starting" node_paths=PackedStringArray("starting_file") instance=ExtResource("1_pqniw")]
-position = Vector2(-192, 188.576)
+position = Vector2(-192, 192)
 text_override = "????"
 title_override = "===>"
 init_height = 52.0
@@ -283,7 +287,7 @@ init_height = 280.0
 init_width = 367.0
 
 [node name="Window15" parent="Jumping" instance=ExtResource("2_gk3av")]
-position = Vector2(1272, 688)
+position = Vector2(1288, 688)
 
 [node name="Background" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.75, 1)
@@ -342,6 +346,38 @@ data = "the pacr gram fitness test"
 [node name="Fifth" type="Node" parent="Filesystem"]
 script = ExtResource("5_otjsx")
 data = "Lmao"
+
+[node name="Stair" type="Node2D" parent="."]
+
+[node name="Window15" parent="Stair" instance=ExtResource("2_gk3av")]
+position = Vector2(1320, 592)
+init_height = 82.0
+init_width = 33.0
+
+[node name="Window16" parent="Stair" instance=ExtResource("2_gk3av")]
+position = Vector2(1240, 552)
+init_height = 82.0
+init_width = 33.0
+
+[node name="Window17" parent="Stair" instance=ExtResource("2_gk3av")]
+position = Vector2(1320, 472)
+init_height = 82.0
+init_width = 33.0
+
+[node name="Window18" parent="Stair" instance=ExtResource("2_gk3av")]
+position = Vector2(1240, 424)
+init_height = 82.0
+init_width = 33.0
+
+[node name="Window19" parent="Stair" instance=ExtResource("2_gk3av")]
+position = Vector2(1320, 360)
+init_height = 82.0
+init_width = 33.0
+
+[node name="Window20" parent="Stair" instance=ExtResource("2_gk3av")]
+position = Vector2(1240, 304)
+init_height = 82.0
+init_width = 33.0
 
 [editable path="CameraZones/CameraZone"]
 [editable path="CameraZones/CameraZone2"]
