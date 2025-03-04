@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c486tyteiwvfa"]
+[gd_scene load_steps=27 format=3 uid="uid://c486tyteiwvfa"]
 
 [ext_resource type="PackedScene" uid="uid://q7fcv5vhmt4l" path="res://icon/icon_minimizeable/icon_minimizeable.tscn" id="1_c0e8o"]
 [ext_resource type="PackedScene" uid="uid://v3vsaimr4sr2" path="res://zones/camera_zone/camera_zone.tscn" id="1_m2k8n"]
@@ -21,7 +21,7 @@ size = Vector2(640, 200)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5tl7w"]
 resource_local_to_scene = true
-size = Vector2(800, 456)
+size = Vector2(1096, 456)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5aeur"]
 resource_local_to_scene = true
@@ -100,6 +100,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xyvs6"]
+resource_local_to_scene = true
+size = Vector2(432, 226)
+
 [node name="Overworld" type="Node2D"]
 
 [node name="PlayerValidityZones" type="Node2D" parent="."]
@@ -146,7 +150,7 @@ limit_y = Vector2(0, 0)
 position = Vector2(232, -136)
 
 [node name="CollisionShape2D" parent="CameraZones/CameraZone3" index="1"]
-position = Vector2(64, -20)
+position = Vector2(212, -20)
 shape = SubResource("RectangleShape2D_5tl7w")
 
 [node name="CameraZone4" parent="CameraZones" instance=ExtResource("1_m2k8n")]
@@ -379,7 +383,18 @@ position = Vector2(1240, 304)
 init_height = 82.0
 init_width = 33.0
 
+[node name="CameraZone3" parent="." instance=ExtResource("1_m2k8n")]
+position = Vector2(536, 688)
+
+[node name="DefaultFocal" parent="CameraZone3" index="0"]
+position = Vector2(8, 0)
+
+[node name="CollisionShape2D" parent="CameraZone3" index="1"]
+position = Vector2(0, 33)
+shape = SubResource("RectangleShape2D_xyvs6")
+
 [editable path="CameraZones/CameraZone"]
 [editable path="CameraZones/CameraZone2"]
 [editable path="CameraZones/CameraZone3"]
 [editable path="CameraZones/CameraZone4"]
+[editable path="CameraZone3"]

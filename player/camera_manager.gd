@@ -1,4 +1,5 @@
 extends Node
+class_name CameraManager
 
 @export var lerp_speed = 5.0
 @export var lerp_fast = 15.0
@@ -6,23 +7,38 @@ extends Node
 @export var increase_lerp_distance = 10.0
 @export var snap_distance = 3.0
 
-var zone : CameraZone
-var target : Vector2
-
+var zone : CameraZone = null
 var follow_snap : bool = false
+
+var zone_queue : Array[CameraZone]
+var hold_zone : bool = true
 
 func _ready() -> void:
 	if owner.CAMERA:
-		print("connected")
-		EventBus.connect("camera_zone_entered", change_zone)
+		EventBus.connect("camera_zone_entered", enter_zone)
+		EventBus.connect("camera_zone_exited", exit_zone)
 
-func change_zone(z : CameraZone, b : Node2D):
-	print("yes")
+func enter_zone(z : CameraZone, b : Node2D):
 	if not b == owner:
 		pass
+	if zone and hold_zone:
+		zone_queue.push_front(zone)
 	zone = z
-	target = zone.focal_point.global_position
 	follow_snap = false
+	hold_zone = true
+
+func exit_zone(z : CameraZone, b : Node2D):
+	if not b == owner:
+		pass
+	if z == zone:
+		if len(zone_queue):
+			zone = zone_queue.pop_front()
+		else:	#don't queue this zone because we aren't even in it anymore
+			hold_zone = false
+			return
+	else:
+		zone_queue.erase(z)
+	hold_zone = true
 
 func _physics_process(delta: float) -> void:
 	if not zone:
@@ -33,12 +49,13 @@ func _physics_process(delta: float) -> void:
 
 	match zone.behavior:
 		Enums.CameraBehavior.CENTER:
+			var target := zone.focal_point.global_position
 			if cam.global_position.is_equal_approx(target):
 				cam_pos = target
 			else:
 				cam_pos = cam.global_position.lerp(target, delta * lerp_speed)
 		Enums.CameraBehavior.FOLLOW:
-			target = owner.global_position
+			var target : Vector2 = owner.global_position
 			var fp : Vector2 = zone.focal_point.global_position
 			var lx = Vector2(fp.x, fp.x) + zone.limit_x
 			var ly = Vector2(fp.y, fp.y) + zone.limit_y
