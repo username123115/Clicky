@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://c7fxbuxtm6ja8"]
 
-[ext_resource type="VideoStream" path="res://brainrot.ogv" id="1_3wg3g"]
-[ext_resource type="Script" path="res://focus_aid/focus_aid.gd" id="1_kcpxp"]
+[ext_resource type="Script" uid="uid://c0umum8buc85g" path="res://focus_aid/focus_aid.gd" id="1_kcpxp"]
+
+[sub_resource type="Resource" id="Resource_ngqpq"]
+metadata/__load_path__ = "res://brainrot.ogv"
 
 [node name="Focus" type="Node2D"]
 script = ExtResource("1_kcpxp")
@@ -10,7 +12,7 @@ script = ExtResource("1_kcpxp")
 offset_right = 202.0
 offset_bottom = 352.0
 audio_track = -1
-stream = ExtResource("1_3wg3g")
+stream = SubResource("Resource_ngqpq")
 expand = true
 loop = true
 

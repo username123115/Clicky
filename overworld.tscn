@@ -8,10 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://4knhrplfnjlt" path="res://zones/validity_zone/death_zone.tscn" id="2_41dnk"]
 [ext_resource type="PackedScene" uid="uid://c4p7vdke6f5n2" path="res://window/window.tscn" id="2_gk3av"]
 [ext_resource type="Texture2D" uid="uid://be3m82oy5v44k" path="res://assets/art/small_icon_file.png" id="4_xcovc"]
-[ext_resource type="Script" path="res://filesys/file_node.gd" id="5_otjsx"]
+[ext_resource type="Script" uid="uid://c3wamh67h4k1j" path="res://filesys/file_node.gd" id="5_otjsx"]
 [ext_resource type="Texture2D" uid="uid://dcc8ipap726yf" path="res://assets/art/background.png" id="7_u6ve0"]
 [ext_resource type="Texture2D" uid="uid://fn3h8ex65hx7" path="res://assets/art/worm_spritesheet.png" id="8_bjfuu"]
-[ext_resource type="Script" path="res://worm/worm.gd" id="9_1ucn7"]
+[ext_resource type="Script" uid="uid://cudeu26ydd1vn" path="res://worm/worm.gd" id="9_1ucn7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c5t04"]
 resource_local_to_scene = true

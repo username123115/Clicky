@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://biqff5ectg1ig"]
 
-[ext_resource type="Script" path="res://window/extensions/window_button/window_button.gd" id="1_156u7"]
+[ext_resource type="Script" uid="uid://dkugm3psr4pma" path="res://window/extensions/window_button/window_button.gd" id="1_156u7"]
 [ext_resource type="PackedScene" uid="uid://bo822hpbkvv8d" path="res://icon/icon.tscn" id="2_kh6kh"]
-[ext_resource type="Script" path="res://window/extensions/window_button/container.gd" id="2_sw5cq"]
-[ext_resource type="Script" path="res://window/extensions/window_button/window_icon.gd" id="3_wsxt1"]
+[ext_resource type="Script" uid="uid://3l0xa7t6xjgv" path="res://window/extensions/window_button/container.gd" id="2_sw5cq"]
+[ext_resource type="Script" uid="uid://cmckrmftj4ipi" path="res://window/extensions/window_button/window_icon.gd" id="3_wsxt1"]
 [ext_resource type="Texture2D" uid="uid://beo6f4vhbm5vy" path="res://assets/art/small_window_minimize.png" id="5_c3nrs"]
 [ext_resource type="Texture2D" uid="uid://cqsujp6x1bd8a" path="res://assets/art/small_window_close.png" id="6_52c8x"]
 

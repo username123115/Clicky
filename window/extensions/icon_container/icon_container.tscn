@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cd3dly2x6coaq"]
 
-[ext_resource type="Script" path="res://window/extensions/icon_container/icon_container.gd" id="1_siqie"]
+[ext_resource type="Script" uid="uid://5fqjqyb1w26w" path="res://window/extensions/icon_container/icon_container.gd" id="1_siqie"]
 
 [node name="IconContainer" type="Node2D"]
 script = ExtResource("1_siqie")

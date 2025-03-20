@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://6anxntyhytsd"]
 
-[ext_resource type="Script" path="res://filesys/file_node.gd" id="1_p8otl"]
+[ext_resource type="Script" uid="uid://c3wamh67h4k1j" path="res://filesys/file_node.gd" id="1_p8otl"]
 [ext_resource type="PackedScene" uid="uid://d008u54n70lkq" path="res://window/note_window/note_window.tscn" id="2_17tu6"]
 
 [node name="FsNote" type="Node"]

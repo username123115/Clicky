@@ -1,23 +1,23 @@
 [gd_scene load_steps=24 format=3 uid="uid://b76rhy6jvdbac"]
 
-[ext_resource type="Script" path="res://player/player.gd" id="1_ce8eu"]
+[ext_resource type="Script" uid="uid://bjenydh8cv0a7" path="res://player/player.gd" id="1_ce8eu"]
 [ext_resource type="Texture2D" uid="uid://csb4wseuhc7sj" path="res://assets/art/clicky_concept.png" id="2_3j0jd"]
-[ext_resource type="Script" path="res://player/state_movement/state_floating.gd" id="3_70e58"]
-[ext_resource type="Script" path="res://player/state_icon_interactions/sm_icons.gd" id="3_a4lfh"]
-[ext_resource type="Script" path="res://player/state_movement/sm_movement.gd" id="3_ejt0g"]
-[ext_resource type="Script" path="res://player/state_icon_interactions/state_idle.gd" id="3_n7mei"]
-[ext_resource type="Script" path="res://player/state_icon_interactions/state_inside.gd" id="4_15772"]
-[ext_resource type="Script" path="res://player/state_window_interactions/sm_window.gd" id="5_e2jbi"]
-[ext_resource type="Script" path="res://player/state_window_interactions/state_idle.gd" id="6_8djrw"]
-[ext_resource type="Script" path="res://player/state_window_interactions/state_resize.gd" id="7_w06jt"]
-[ext_resource type="Script" path="res://player/state_movement/state_falling.gd" id="8_q6q7r"]
-[ext_resource type="Script" path="res://player/state_window_interactions/state_inside.gd" id="8_qm5ks"]
+[ext_resource type="Script" uid="uid://bvw7igyobirun" path="res://player/state_movement/state_floating.gd" id="3_70e58"]
+[ext_resource type="Script" uid="uid://dcb7cu6hgdrdv" path="res://player/state_icon_interactions/sm_icons.gd" id="3_a4lfh"]
+[ext_resource type="Script" uid="uid://c1lcir8xq175q" path="res://player/state_movement/sm_movement.gd" id="3_ejt0g"]
+[ext_resource type="Script" uid="uid://d1312fuefexvs" path="res://player/state_icon_interactions/state_idle.gd" id="3_n7mei"]
+[ext_resource type="Script" uid="uid://7xcidc8furhw" path="res://player/state_icon_interactions/state_inside.gd" id="4_15772"]
+[ext_resource type="Script" uid="uid://b2ljvx83c41u4" path="res://player/state_window_interactions/sm_window.gd" id="5_e2jbi"]
+[ext_resource type="Script" uid="uid://doir77tx07l06" path="res://player/state_window_interactions/state_idle.gd" id="6_8djrw"]
+[ext_resource type="Script" uid="uid://cy0eaiyc8fd7e" path="res://player/state_window_interactions/state_resize.gd" id="7_w06jt"]
+[ext_resource type="Script" uid="uid://dx3k1meqk36j8" path="res://player/state_movement/state_falling.gd" id="8_q6q7r"]
+[ext_resource type="Script" uid="uid://17638gy3yru5" path="res://player/state_window_interactions/state_inside.gd" id="8_qm5ks"]
 [ext_resource type="Texture2D" uid="uid://cqpc6voqd7dft" path="res://assets/art/clicky_resize.png" id="8_u1fhy"]
-[ext_resource type="Script" path="res://player/state_movement/state_idle.gd" id="9_ec1ec"]
-[ext_resource type="Script" path="res://player/state_movement/state_grounded.gd" id="10_jgftk"]
-[ext_resource type="Script" path="res://player/state_window_interactions/state_move.gd" id="12_rnb1k"]
-[ext_resource type="Script" path="res://player/camera_manager.gd" id="17_53dao"]
-[ext_resource type="Script" path="res://player/spawner.gd" id="18_2naxm"]
+[ext_resource type="Script" uid="uid://drx76pmpsowsh" path="res://player/state_movement/state_idle.gd" id="9_ec1ec"]
+[ext_resource type="Script" uid="uid://cttironex7vsk" path="res://player/state_movement/state_grounded.gd" id="10_jgftk"]
+[ext_resource type="Script" uid="uid://ckps7p32f16e1" path="res://player/state_window_interactions/state_move.gd" id="12_rnb1k"]
+[ext_resource type="Script" uid="uid://d05lgwldnj3lw" path="res://player/camera_manager.gd" id="17_53dao"]
+[ext_resource type="Script" uid="uid://ccl4y6620kiq4" path="res://player/spawner.gd" id="18_2naxm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_babds"]
 size = Vector2(10, 14)
@@ -69,9 +69,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_61ore"]
 _data = {
-"RESET": SubResource("Animation_f6ega"),
-"player_idle": SubResource("Animation_qgtfg"),
-"player_resize": SubResource("Animation_3enmb")
+&"RESET": SubResource("Animation_f6ega"),
+&"player_idle": SubResource("Animation_qgtfg"),
+&"player_resize": SubResource("Animation_3enmb")
 }
 
 [node name="Player" type="CharacterBody2D"]
