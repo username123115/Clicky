@@ -84,8 +84,10 @@ size = Vector2(3000, 3000)
 
 [node name="TestLevel" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("2_f7g2b")]
-position = Vector2(-112, 40)
+[node name="Player" parent="." node_paths=PackedStringArray("CAMERA") instance=ExtResource("2_f7g2b")]
+position = Vector2(-80, -16)
+CAMERA = NodePath("../Camera2D")
+player_scene = ExtResource("2_f7g2b")
 
 [node name="Worm2" type="AnimatedSprite2D" parent="."]
 z_index = -1024
@@ -116,9 +118,13 @@ process_callback = 0
 
 [node name="Window" parent="." instance=ExtResource("3_f7g2b")]
 position = Vector2(-192, 36)
+init_height = 174.0
+init_width = 281.0
 
 [node name="Window2" parent="." instance=ExtResource("3_f7g2b")]
 position = Vector2(-137, 79)
+init_height = 277.0
+init_width = 279.0
 
 [node name="Window3" parent="." instance=ExtResource("3_f7g2b")]
 position = Vector2(512, 112)

@@ -2,7 +2,7 @@ extends Node
 class_name CameraManager
 
 @export var lerp_speed = 13.0
-@export var lerp_fast = 25.0
+@export var lerp_fast = 18.0
 
 @export var increase_lerp_distance = 0.0
 @export var snap_distance = 10.0
