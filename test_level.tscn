@@ -1,0 +1,131 @@
+[gd_scene load_steps=18 format=3 uid="uid://bs1w8lbg6lx0d"]
+
+[ext_resource type="PackedScene" uid="uid://br3pvy7ad1y65" path="res://zones/validity_zone/live_zone.tscn" id="1_1c2mv"]
+[ext_resource type="Texture2D" uid="uid://fn3h8ex65hx7" path="res://assets/art/worm_spritesheet.png" id="1_gbhdq"]
+[ext_resource type="PackedScene" uid="uid://v3vsaimr4sr2" path="res://zones/camera_zone/camera_zone.tscn" id="2_4ptq8"]
+[ext_resource type="PackedScene" uid="uid://b76rhy6jvdbac" path="res://player/player.tscn" id="2_f7g2b"]
+[ext_resource type="Script" uid="uid://cudeu26ydd1vn" path="res://worm/worm.gd" id="2_y646j"]
+[ext_resource type="PackedScene" uid="uid://c4p7vdke6f5n2" path="res://window/window.tscn" id="3_f7g2b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhxqe"]
+atlas = ExtResource("1_gbhdq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5usxc"]
+atlas = ExtResource("1_gbhdq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h47m5"]
+atlas = ExtResource("1_gbhdq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipoqk"]
+atlas = ExtResource("1_gbhdq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lmoy"]
+atlas = ExtResource("1_gbhdq")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02s5m"]
+atlas = ExtResource("1_gbhdq")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shhoo"]
+atlas = ExtResource("1_gbhdq")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52c3i"]
+atlas = ExtResource("1_gbhdq")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eq6fi"]
+atlas = ExtResource("1_gbhdq")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lnbra"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhxqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5usxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h47m5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipoqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lmoy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02s5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shhoo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52c3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eq6fi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ptq8"]
+resource_local_to_scene = true
+size = Vector2(3000, 3000)
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="Player" parent="." node_paths=PackedStringArray("CAMERA") instance=ExtResource("2_f7g2b")]
+CAMERA = NodePath("../Camera2D")
+player_scene = ExtResource("2_f7g2b")
+
+[node name="Worm2" type="AnimatedSprite2D" parent="."]
+z_index = -1024
+position = Vector2(-128, 4)
+sprite_frames = SubResource("SpriteFrames_lnbra")
+script = ExtResource("2_y646j")
+off = 90.0
+
+[node name="Boundaries" type="Node2D" parent="."]
+visible = false
+
+[node name="LiveZone" parent="Boundaries" instance=ExtResource("1_1c2mv")]
+
+[node name="CollisionShape2D" parent="Boundaries/LiveZone" index="0"]
+shape = SubResource("RectangleShape2D_4ptq8")
+
+[node name="CameraZones" type="Node2D" parent="."]
+
+[node name="CameraZone" parent="." node_paths=PackedStringArray("focal_point") instance=ExtResource("2_4ptq8")]
+behavior = 1
+focal_point = NodePath("Focus")
+
+[node name="Focus" type="Node2D" parent="CameraZone"]
+position = Vector2(648, -96)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+
+[node name="Window" parent="." instance=ExtResource("3_f7g2b")]
+position = Vector2(-192, 36)
+init_height = 471.0
+init_width = 678.0
+
+[node name="Window2" parent="." instance=ExtResource("3_f7g2b")]
+position = Vector2(-137, 79)
+init_height = 516.0
+init_width = 658.0
+
+[node name="Window3" parent="." instance=ExtResource("3_f7g2b")]
+position = Vector2(512, 112)
+
+[editable path="Boundaries/LiveZone"]

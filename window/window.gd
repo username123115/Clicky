@@ -66,8 +66,6 @@ var width: int:
 	get:
 		return width
 	set(value):
-		if value % 2:
-			value -= 1
 		if (value < min_width): value = min_width
 		width = value
 		for child in extensions:
@@ -185,10 +183,11 @@ func _draw() -> void:
 	var r_inner := Rect2()
 	var r_outer := Rect2()
 
-	r_inner.size = Vector2(width, height)
+	var rounded : Vector2 = Vector2(round(width), round(height))
+	r_inner.size = rounded
 	r_inner.position = Vector2(0, 0)
 
-	r_outer.size = Vector2(width + 2, height + 2)
+	r_outer.size = Vector2(rounded.x + 2, rounded.y + 2)
 	r_outer.position = Vector2(-1, -1)
 
 	if not hiding:

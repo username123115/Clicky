@@ -1,11 +1,11 @@
 extends Node
 class_name CameraManager
 
-@export var lerp_speed = 5.0
+@export var lerp_speed = 13.0
 @export var lerp_fast = 15.0
 
-@export var increase_lerp_distance = 10.0
-@export var snap_distance = 3.0
+@export var increase_lerp_distance = 50.0
+@export var snap_distance = 0.0
 
 var zone : CameraZone = null
 var follow_snap : bool = false
@@ -55,7 +55,8 @@ func _physics_process(delta: float) -> void:
 			else:
 				cam_pos = cam.global_position.lerp(target, delta * lerp_speed)
 		Enums.CameraBehavior.FOLLOW:
-			var target : Vector2 = owner.global_position
+			#var target : Vector2 = owner.global_position
+			var target : Vector2 = owner.global_position.round()
 			var fp : Vector2 = zone.focal_point.global_position
 			var lx = Vector2(fp.x, fp.x) + zone.limit_x
 			var ly = Vector2(fp.y, fp.y) + zone.limit_y
@@ -70,7 +71,8 @@ func _physics_process(delta: float) -> void:
 					cam_pos = target
 					follow_snap = true
 
-	cam.global_position = cam_pos.round()
+	cam.global_position = cam_pos
+	#cam.global_position = cam_pos.round()
 
 func limit_value(v : float, limits : Vector2):
 	if v < limits.x:

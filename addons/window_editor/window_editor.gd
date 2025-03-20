@@ -160,7 +160,7 @@ func _forward_canvas_gui_input(event: InputEvent) -> bool:
 			resize_rect.size = g - opposite
 			resize_rect.position = g - resize_rect.size
 
-	print(resize_rect.size)
+	#print(resize_rect.size)
 
 	update_overlays()
 	return true

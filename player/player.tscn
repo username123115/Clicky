@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b76rhy6jvdbac"]
+[gd_scene load_steps=25 format=3 uid="uid://b76rhy6jvdbac"]
 
 [ext_resource type="Script" uid="uid://bjenydh8cv0a7" path="res://player/player.gd" id="1_ce8eu"]
 [ext_resource type="Texture2D" uid="uid://csb4wseuhc7sj" path="res://assets/art/clicky_concept.png" id="2_3j0jd"]
@@ -12,15 +12,16 @@
 [ext_resource type="Script" uid="uid://cy0eaiyc8fd7e" path="res://player/state_window_interactions/state_resize.gd" id="7_w06jt"]
 [ext_resource type="Script" uid="uid://dx3k1meqk36j8" path="res://player/state_movement/state_falling.gd" id="8_q6q7r"]
 [ext_resource type="Script" uid="uid://17638gy3yru5" path="res://player/state_window_interactions/state_inside.gd" id="8_qm5ks"]
-[ext_resource type="Texture2D" uid="uid://cqpc6voqd7dft" path="res://assets/art/clicky_resize.png" id="8_u1fhy"]
 [ext_resource type="Script" uid="uid://drx76pmpsowsh" path="res://player/state_movement/state_idle.gd" id="9_ec1ec"]
 [ext_resource type="Script" uid="uid://cttironex7vsk" path="res://player/state_movement/state_grounded.gd" id="10_jgftk"]
 [ext_resource type="Script" uid="uid://ckps7p32f16e1" path="res://player/state_window_interactions/state_move.gd" id="12_rnb1k"]
+[ext_resource type="Texture2D" uid="uid://b16gip75kbbhb" path="res://assets/art/clicky_small.png" id="16_c35mf"]
 [ext_resource type="Script" uid="uid://d05lgwldnj3lw" path="res://player/camera_manager.gd" id="17_53dao"]
+[ext_resource type="Texture2D" uid="uid://b4kclna3724pk" path="res://assets/art/clicky_resize_small.png" id="17_c35mf"]
 [ext_resource type="Script" uid="uid://ccl4y6620kiq4" path="res://player/spawner.gd" id="18_2naxm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_babds"]
-size = Vector2(10, 14)
+size = Vector2(10, 12.5)
 
 [sub_resource type="Animation" id="Animation_f6ega"]
 length = 0.001
@@ -49,7 +50,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_3j0jd")]
+"values": [ExtResource("16_c35mf")]
 }
 
 [sub_resource type="Animation" id="Animation_3enmb"]
@@ -64,7 +65,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("8_u1fhy")]
+"values": [ExtResource("17_c35mf")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_61ore"]
@@ -81,6 +82,7 @@ script = ExtResource("1_ce8eu")
 texture = ExtResource("2_3j0jd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.25)
 shape = SubResource("RectangleShape2D_babds")
 
 [node name="State Machine Icons" type="Node" parent="."]
@@ -127,7 +129,7 @@ script = ExtResource("12_rnb1k")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_61ore")
+&"": SubResource("AnimationLibrary_61ore")
 }
 
 [node name="CameraMan" type="Node" parent="."]
