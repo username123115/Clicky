@@ -195,6 +195,6 @@ func _draw() -> void:
 		draw_rect(r_outer, theme.CWINDOW_OUTLINE)#, false, -1.0)
 		draw_rect(r_inner, theme.CWINDOW_BODY)
 	else:
-		draw_rect(r_inner, theme.CWINDOW_HIDING, false, -1.0)
+		draw_rect(r_inner, theme.CWINDOW_HIDING, false, 1.0)
 	#draw_rect(r, Color.LIGHT_GRAY)
 	#draw_rect(r, Color.WHITE, false, -1.0)

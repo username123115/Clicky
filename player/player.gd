@@ -4,16 +4,17 @@ class_name Player
 @export var FLOAT_SPEED : float = 450.0
 @export var FLOAT_ACCELL : float = 900.0
 
-@export var WALK_SPEED : float = 200.0
+@export var WALK_SPEED : float = 150.0
 @export var WALK_ACCELL : float = 900.0
 
 
 @export var GRAVITY : float = 980.0
 @export var GRAVITY_WEAK : float = 490.0
+@export var GRAVITY_MAXV : float = 400.0
 
 @export var JUMP : float = 150.0
-@export var WALL_JUMP_WEAK : float = 200.0
-@export var WALL_JUMP_STRONG : float = 250.0
+@export var WALL_JUMP_WEAK : float = 175.0
+@export var WALL_JUMP_STRONG : float = 225.0
 
 @export var JUMP_BUFFER_FRAMES : int = 7
 
@@ -72,6 +73,9 @@ func _physics_process(_delta : float):
 
 	if (jump_buffer < 0):
 		jump_buffer = 0
+
+func _process(_delta: float):
+	self.global_position = self.global_position.round()
 
 func copy_self() -> Player:
 	var p : Player = player_scene.instantiate()

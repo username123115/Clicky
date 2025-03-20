@@ -21,7 +21,7 @@
 [ext_resource type="Script" uid="uid://ccl4y6620kiq4" path="res://player/spawner.gd" id="18_2naxm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_babds"]
-size = Vector2(10, 12.5)
+size = Vector2(6, 8)
 
 [sub_resource type="Animation" id="Animation_f6ega"]
 length = 0.001
@@ -82,7 +82,7 @@ script = ExtResource("1_ce8eu")
 texture = ExtResource("2_3j0jd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1.25)
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_babds")
 
 [node name="State Machine Icons" type="Node" parent="."]
